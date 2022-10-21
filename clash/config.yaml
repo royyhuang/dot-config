@@ -1,0 +1,20 @@
+mixed-port: 7891
+#---------------------------------------------------#
+## 配置文件需要放置在 $HOME/.config/clash/*.yaml
+allow-lan: false
+mode: Rule
+log-level: debug
+external-controller: 127.0.0.1:64157
+
+Proxy: null
+
+Proxy Group: null
+
+Rule:
+  - DOMAIN-SUFFIX,google.com,DIRECT
+  - DOMAIN-KEYWORD,google,DIRECT
+  - DOMAIN,google.com,DIRECT
+  - DOMAIN-SUFFIX,ad.com,REJECT
+  - GEOIP,CN,DIRECT
+  - MATCH,DIRECT
+ipv6: false

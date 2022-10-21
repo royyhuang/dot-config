@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "coc-ltex": ">=13.1.0",
+    "coc-texlab": ">=3.2.0",
+    "coc-pyright": ">=1.1.271",
+    "coc-json": ">=1.6.1",
+    "coc-clangd": ">=0.25.0",
+    "coc-explorer": ">=0.25.0"
+  },
+  "disabled": [
+    "coc-highlight",
+    "coc-leetcode",
+    "coc-ltex"
+  ],
+  "locked": [],
+  "lastUpdate": 1663470240937
+}

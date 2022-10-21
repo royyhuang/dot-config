@@ -1,0 +1,7 @@
+setuid
+io
+cpu
+os
+mem
+subproblems
+coef

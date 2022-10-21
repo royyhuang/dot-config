@@ -1,0 +1,1134 @@
+db391c48c9d905fa2b616e6a8a221644|file:///Users/royhuang/Documents/uc-cs/gradespace/hw7/grade/ntolpegin-q1.txt|2|1|V|text
+	
+	well done.
+64e6f3a022f79903e887651e80bfea3c|file:///Users/royhuang/Documents/uc-cs/cs331.org|679|1|V|org
+	* GFS
+	** DONE GFS Paper Review                                                        :CLASS:331:
+	   DEADLINE: <2022-05-17 Tue> CLOSED: [2022-05-16 Mon 23:32]
+	*** Summary
+	    The authors present Google File System (GFS), a distributed file system
+	    which provides fault tolerance with inexpensive hardware and can be scale
+	    to a large number of client while delivering high aggregate performance.
+	    GFS is designed with four key insights: 1) failure is normal, 2) files can
+	    be large, 3) appeding is the most frequent mutating operation, and 4)
+	    co-designing the applications and file system API can be beneficial.
+	
+	*** Review Questions
+	    1. Comparing with AFS, which system offers more reliability, AFS or GFS?
+	       - GFS should be more reliable as it provides multiple replication on the
+	         the server/master-end. Hence the tasks can be balanced to other
+	         replications if one the server/master is down.
+	
+	** Lecture                                                                      :LEC:
+04ffeedefd929aae1d064efa4b027955|file:///Users/royhuang/Documents/uc-cs/cs331.org|750|1|V|org
+	    1. Comparing with AFS, which system offers more reliability, AFS or GFS?
+	       - GFS should be more reliable as it provides multiple replication on the
+	         the server/master-end. Hence the tasks can be balanced to other
+84be7695a00aa5dfc45fbb189242650e|file:///Users/royhuang/Documents/uc-cs/cs331.org|750|1|V|org
+	        replications if one the server/master is down.
+d98a07f84921b24ee30f86fd8cd85c3c|file:///Users/royhuang/Documents/uc-cs/cs331.org|762|29|v|org
+	from
+5186c90816efb66afba0c36b22450a70|file:///Users/royhuang/Documents/uc-cs/cs331.org|748|1|V|org
+	    Inspired by the map and reduce function from lisp programming language, the
+	    authors presents the MapReduce, a distributed system with simple and
+	    straightfoward interface allowing the programmers to develop high
+	    performance and scalable code with minial, even no, knowledge in parallel
+	    programming. The system has be deployed in Google production evnrionment
+	    for many projects and has proved that it can handle multi-petabytes data
+	    and thousands jobs easily.
+2faa8a2f53109ecc7aa076d7504ad5c0|file:///Users/royhuang/Documents/uc-cs/cs331.org|758|1|V|org
+	       - When workers failed, the master will mark the jobs previously run on
+	         the failed node as idle, and then reassign the jobs to other workers.
+	         When the master failed, the MapReduce computation will be abort. The
+	         clients can retry the computation from the checkpoints the master node
+	         periodically write during the runtime.
+d5b5d38254158f0757b35fcfded8dfb1|file:///Users/royhuang/Documents/uc-cs/cs331.org|764|1|V|org
+	       1. MapReduce cannot handle some of the complex/tricky database
+	       operations and, thus, requires extra effort to write scripting several
+	       operations.
+	       2. Each instance of MapReduce is isolated meaning that there is no
+	       cross-bounary optimaization in MapReduce.
+185b4e1afcfe85f581b5f8d8cff536e7|file:///Users/royhuang/Documents/uc-cs/gradespace/hw8/grade/gusw-q1.txt|3|22|V|text
+	-8: part a. should be 
+1d21005a6e2c8aab3967a5bc4ba81ee6|file:///Users/royhuang/Documents/uc-cs/gradespace/hw8/grade/ialmadani-q2.txt|3|1|V|text
+	-2: 
+011feb8af9caa6b86aad54e852d90792|file:///Users/royhuang/.config/nvim/init.vim|209|35|v|vim
+	section_separators = '', component_separators = ''
+14ae6c3a62a17aa6db1d6d698b7073cc|file:///Users/royhuang/.config/nvim/init.vim|209|23|v|vim
+	options = {  }
+efc6c9288a518a7749de88e6c4f04f1b|file:///Users/royhuang/.config/nvim/init.vim|211|27|V|vim
+		component_separators = '',
+270ab249ec6cf02c0decf193a15a89cc|file:///Users/royhuang/.config/nvim/init.vim|69|1|V|vim
+	set fillchars+=vert:│
+4be4596db7cbc79700b89386cf27a546|file:///Users/royhuang/.config/nvim/init.vim|72|32|V|vim
+	let g:tmuxline_powerline_separators = 0
+45453978298cb8508975698ed7ea5188|file:///Users/royhuang/.config/nvim/init.vim|72|16|v|vim
+	separators
+e9c06c33f860c7cf3d924966e44682cf|file:///Users/royhuang/.config/nvim/init.vim|72|25|v|vim
+	{
+	    \ 'left' : '',
+	    \ 'left_alt': '',
+	    \ 'right' : '',
+	    \ 'right_alt' : '',
+	    \
+7d3b14b05f7e59992442ef750b2f42e1|file:///Users/royhuang/.config/nvim/init.vim|72|25|v|vim
+	 'space' : ' '}
+96714c9d36de9b638d9efd4e60f38bfe|file:///Users/royhuang/.config/nvim/init.vim|72|26|v|vim
+	tmux
+0e04b9f3c551e1554c051506c892b9a2|file:///Users/royhuang/.config/nvim/init.vim|79|11|v|vim
+	'tmux
+b7e136d62aff8d58a1e8c8fded928557|file:///Users/royhuang/.config/nvim/init.vim|76|17|v|vim
+	"#22T"
+904757aa08022756626011ab6e7bb5bb|file:///Users/royhuang/.config/nvim/init.vim|72|1|V|vim
+	let g:tmuxline_preset = {
+	        \ 'a': '[#S]',
+	        \ 'win': '#I:#W#F',
+	        \ 'cwin': '#I:#W#F',
+	        \ 'z': '%H:%M %b-%d-%y',
+	        \ 'options': {
+	        \'status-justify': 'left'}
+	        \}
+968351b96cbd5f04a4abb47c30bb4432|file:///Users/royhuang/.config/nvim/init.vim|215|1|V|vim
+	require('lualine').setup {
+	  options = {
+	    theme = 'material',
+		section_separators = '',
+		component_separators = '',
+	  }
+	}
+baed185677a77bd2e27ef39a2129f764|file:///Users/royhuang/.config/nvim/init.vim|241|1|V|vim
+	require("bufferline").setup {
+	  options = {
+		mode = "tabs",
+		offsets = {{
+		  filetype = "coc-explorer",
+		  text = 'File Explorer',
+		  highlight = "Directory",
+		  text_align = "center"
+		}},
+	  }
+	}
+5db8dca30c2d7f0c2bc225ae852c5053|file:///Users/royhuang/.config/nvim/init.vim|244|10|v|vim
+	tabs
+093b28ba74581dd7984c14aae8cb4e65|file:///Users/royhuang/.config/nvim/init.vim|244|10|v|vim
+	tabj
+c46d13f48a04224f453c993adb760edb|file:///Users/royhuang/Documents/uc-cs/cs331.org|539|1|V|org
+	    - In traditional UNIX filesystem, accuessing a file normally incurs a long
+	      seek due to the inode.
+e2f4f4c518056ed9a42d892b04152339|file:///Users/royhuang/Documents/uc-cs/cs331.org|546|1|V|org
+	        - The new block size can be any power of 2 greater and equal to *4096*
+	          *bytes*.
+	        - And the block size is recorded in the superblock of the file system
+	          and, thus, different block size can exist on the same system
+	          simultaneously.
+a5065f91897d963ddfecd874bc2e1afe|file:///Users/royhuang/Documents/uc-cs/cs331.org|564|53|v|org
+	redundancy
+165f93b99f87c219277d70d866425da6|file:///Users/royhuang/Documents/uc-cs/cs331.org|576|11|v|org
+	aligned
+f81f4752dff20d96e42dc4b3bbab9c8c|file:///Users/royhuang/Documents/uc-cs/cs331.org|576|54|v|org
+	 with the previous
+1545e945d5c3e7d9fa642d0a57fc8432|file:///Users/royhuang/Documents/uc-cs/cs331.org|588|5|V|org
+	     
+f2fc740eaa53b453cfe24d021ab710f2|file:///Users/royhuang/Documents/uc-cs/cs331.org|582|5|^v|org
+	 
+	 
+	 
+	 
+	 
+	 
+6f5fdb3833d84404ac6398e0a0c8ec58|file:///Users/royhuang/Documents/uc-cs/cs331.org|563|5|^v|org
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+1a3d715332aa69812a0d6139115954f2|file:///Users/royhuang/Documents/uc-cs/cs331.org|548|5|^v|org
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+d8f54fd612a068db83ad30c74394abc7|file:///Users/royhuang/Documents/uc-cs/cs331.org|541|16|v|org
+	: Reliability
+9b0393109080c06f0d90e2ac16dd5516|file:///Users/royhuang/Documents/uc-cs/cs331.org|544|1|v|org
+	*** Goal 2: 
+c2ab5c197742acfbe1b78118d05293be|file:///Users/royhuang/Documents/uc-cs/cs331.org|545|6|V|org
+	**** Key strategies
+d33170bbc846068bc6b72dcb4f1a2849|file:///Users/royhuang/Documents/uc-cs/cs331.org|635|1|V|org
+	      | c1                        | c2                    | c2                 |
+	      |---------------------------+-----------------------+--------------------|
+	      | thsdflkjsdflk             | sdklfjeiksdf          | skldfjsldkfj       |
+	      |---------------------------+-----------------------+--------------------|
+	      | dsfkljweifsdlkjfioewofsdf | sdkfjowiejkfsdfjklsdf | sdkfljwioefjklsdfj |
+7941f74735afca710aa4c79b0cf3b38b|file:///Users/royhuang/Documents/uc-cs/cs331.org|635|5|V|org
+	|-+-|
+35d6d33467aae9a2e3dccb4b6b027878|file:///Users/royhuang/Documents/uc-cs/cs331.org|645|25|v|org
+	three
+d4ed2528d932ed36d5b3beda545745bd|file:///Users/royhuang/Documents/uc-cs/cs331.org|663|1|V|org
+	     - Each time the file is modified, *there will be an duplicate* in the disk.
+	       So LFS has a GC. But this goes back to the trade-off between reliability
+	       and performance mentioned above (/i.e./ how frequent should you do a GC).
+2221189e0d2ab5de2028a0edf2cb1b6a|file:///Users/royhuang/Documents/uc-cs/cs331.org|694|1|V|org
+	   - The server is *stateless*. The whole communication protocol between the
+	     server and the client is stateless. This helps a lot for crash recovery
+	     and fault tolerance.
+	     - So even if the server crashed, the server simply does not need
+	       communicate with the client et al..
+	     - And the client simply resend the message until it is acked by the server
+f01424e2fd79a4c537efc78457b020c2|file:///Users/royhuang/Documents/uc-cs/cs331.org|701|1|V|org
+	      =create(dirfh, name, attr)= returns (newfh, attr)
+76ea0bebb3c22822b4f0dd9c9fd021c5|file:///Users/royhuang/Documents/uc-cs/cs331.org|702|8|v|org
+	create
+06b7521ae3532d8e495666bb288a6f7b|file:///Users/royhuang/Documents/uc-cs/cs331.org|703|19|v|org
+	 name, attr
+d5ea1f85acc8e28df33ad7f776c8574c|file:///Users/royhuang/Documents/uc-cs/cs331.org|702|38|v|org
+	newfh, attr
+b495d048de1dfaec2d2f1bb2d8e4a33c|file:///Users/royhuang/Documents/uc-cs/cs331.org|709|1|V|org
+	      =read(fh, offset, count)= returns (attr, data)
+7940db43ce84fcb5aeb018a3b3b4e875|file:///Users/royhuang/Documents/uc-cs/cs331.org|710|53|v|org
+	, data
+10679a15b4ef564fdf16081a80ae0669|file:///Users/royhuang/Documents/uc-cs/cs331.org|716|1|V|org
+	   - The *read and write operations are idempotent since they include the*
+	     *offset* to read and write such that the operation will always read and
+	     write at the exact same location regardless of how many times they are
+	     executed.
+4db4166bb05d28595b6bf123be159d52|file:///Users/royhuang/Documents/uc-cs/cs331.org|774|1|V|org
+	*** Callback
+	    - When the server files are updated, the callback function will be
+	      triggered to notify the client instead of letting the client to poll the
+	      file status (/e.g.,/ =getstat()=)
+	    - Implication: the server will need to keep a table to keep track of the
+	      connected client
+	    - the callback function *will not send the newer version of the file*; it
+	      will only notify the client that such file is not valid anymore.
+	      - =open()= will communicate with the server and only pull the file when
+	        the local copy is not valid.
+31d3a52d8302bcb2e2ae7512ed8e2193|file:///Users/royhuang/Documents/uc-cs/cs331.org|756|4|V|org
+	*** 
+f59aa32b299c035c5d4d60f653245bbd|file:///Users/royhuang/Documents/uc-cs/cs331.org|774|43|v|org
+	involved an implicit namei operation
+d9cfdba9cb300ec5976452b96ce18cfd|file:///Users/royhuang/Documents/uc-cs/cs331.org|772|1|V|org
+	    - *Vice file only aware of pathname*; there is no notion of an inode for a
+	      Vice file.
+2c74c33bb83ed61839a8f35f6ff5f37c|file:///Users/royhuang/Documents/uc-cs/cs331.org|793|81|v|org
+	:CLASS:331:
+5fb63579fc981698f97d55bfecb213ea|file:///Users/royhuang/Documents/uc-cs/cs331.org|886|9|v|org
+	Copy
+41d63c008365e2eaee9f4f24cc3e51c0|file:///Users/royhuang/Documents/uc-cs/cs331.org|906|27|v|org
+	make the computation resume at the checkpoint
+8d4ac2dfc104c4c9f96ce005d00fcfd3|file:///Users/royhuang/Documents/uc-cs/cs331.org|906|22|v|org
+	(detected by )
+244ed3ee04ad6edbf3c1b5fa265ffa40|file:///Users/royhuang/Documents/uc-cs/cs331.org|915|21|V|org
+	    - Compute: O(M+R)
+9cc7eaa1e00a4ad3de10b4d69ae5d966|file:///Users/royhuang/Documents/uc-cs/cs331.org|940|9|V|org
+	      policies
+b238a10765c23962a70ed4935ac67965|file:///Users/royhuang/Documents/uc-cs/cs331.org|950|7|v|org
+	=IEnumberable<T>= and
+43f8a5392849f1a36674331d4cf00cba|file:///Users/royhuang/Documents/uc-cs/cs331.org|858|7|v|org
+	consistent but 
+a102a4c40de8db2ac2d56652a123a2ca|file:///Users/royhuang/Documents/uc-cs/cs331.org|859|54|v|org
+	for write
+bc9d5288083ae30f6cc3794ba9aed78e|file:///Users/royhuang/Documents/uc-cs/cs331.org|858|82|^v|org
+	--+--|
+	
+	--+--|
+0cc83306f262ab8bbc032de3b6943906|file:///Users/royhuang/org/project-plan.org|236|27|V|org
+	no online profiling results
+250513e6b734408977c526996bf75a31|file:///Users/royhuang/org/project-plan.org|235|43|V|org
+	* Use offline profiling results when calculate
+	 - easy video with less bandwidth variation
+5cf467f0a126d5db35cc6f99f6e4a195|file:///Users/royhuang/org/project-plan.org|236|43|V|org
+	 - easy video with less bandwidth variation
+40ca0eca77d12891423af31360621d1a|file:///Users/royhuang/org/project-plan.org|237|1|V|org
+	    Experiment setting: rene-uav1-mi5-80000-0.8-0.1-10000
+55881b5131ba884240a46b34c65c0281|file:///Users/royhuang/org/project-plan.org|253|5|v|org
+	Experiment setting
+2c4e6c70f6061c3c3bb2f582d1594f8f|file:///Users/royhuang/org/project-plan.org|257|36|^v|org
+	--|
+	  |
+	--|
+6ca092ba2d98d57c820ee6ce8959c100|file:///Users/royhuang/org/project-plan.org|238|1|V|org
+	    |---------+---------------------+-------------------+----------------+-------------------------|
+	    | mode    | accuracy improvment | baseline accuracy | trans. latency | baseline trans. latency |
+	    |---------+---------------------+-------------------+----------------+-------------------------|
+	    | online  | 9.8%                | 33.9%             | 0.98s          | 0.91s                   |
+	    |---------+---------------------+-------------------+----------------+-------------------------|
+	    | offline | 16.9%               | 22.5%             | 0.99s          | 0.94s                   |
+	    |---------+---------------------+-------------------+----------------+-------------------------|
+c5be67fe77f1f9262c6f5db31bd561b4|file:///Users/royhuang/org/project-plan.org|264|1|V|org
+	     | yes                 | no              | no                   | no             | 22.5%    | 49.4% | 16.9%       |
+	     |---------------------+-----------------+----------------------+----------------+----------+-------+-------------|
+eac075250ee2bdb22149d08ca422d910|file:///Users/royhuang/org/project-plan.org|268|1|V|org
+	     | yes                 | no              | yes                  | no             | 31.7%    | 36.4% | 4.7%        |
+	     |---------------------+-----------------+----------------------+----------------+----------+-------+-------------|
+ec122dd7bdbf357f149b987f76ff0081|file:///Users/royhuang/org/project-plan.org|260|1|V|org
+	     |---------------------+------------------------+----------------------+----------------+----------+-------+-------------+-------------|
+	     | use offline profile | if profile multi. vid. | if profile first 10s | if online diff | baseline | ours  | improvement | can be real |
+	     |---------------------+------------------------+----------------------+----------------+----------+-------+-------------+-------------|
+	     | yes                 | no                     | no                   | no             | 22.5%    | 49.4% | 16.9%       | no          |
+	     |---------------------+------------------------+----------------------+----------------+----------+-------+-------------+-------------|
+	     | no                  | no                     | no                   | yes            | 33.9%    | 43.7% | 9.8%        | yes         |
+	     |---------------------+------------------------+----------------------+----------------+----------+-------+-------------+-------------|
+	     | yes                 | no                     | yes                  | no             | 31.7%    | 36.4% | 4.7%        | yes         |
+	     |---------------------+------------------------+----------------------+----------------+----------+-------+-------------+-------------|
+	     | yes                 | yes                    | no                   | yes            | 23.0%    | 25.9% | 2.9%        | yes         |
+	     |---------------------+------------------------+----------------------+----------------+----------+-------+-------------+-------------|
+b6cabf8118287d7607ab22c52e35019d|file:///Users/royhuang/org/project-plan.org|249|6|^v|org
+	|---------------------+------------------------+----------------------
+	| use offline profile | if profile multi. vid. | if profile first 10s 
+	|---------------------+------------------------+----------------------
+	| yes                 | no                     | no                   
+	|---------------------+------------------------+----------------------
+	| no                  | no                     | no                   
+	|---------------------+------------------------+----------------------
+	| yes                 | no                     | yes                  
+	|---------------------+------------------------+----------------------
+	| yes                 | yes                    | no                   
+	|---------------------+------------------------+----------------------
+e544f3986490522a4c5582f4dbaf0c55|file:///Users/royhuang/org/project-plan.org|256|1|V|org
+	     | first 10s profile       | no             | 31.7%    | 36.4% | 4.7%        | yes         |
+cf8f8ec405a102ea5110fdfddb6a38de|file:///Users/royhuang/org/project-plan.org|256|1|V|org
+	     | first 10s profile       | no             | 31.7%    | 36.4% | 4.7%        | yes         |
+	     |-------------------------+----------------+----------+-------+-------------+-------------|
+ef775988943825d2871e1cfa75473ec0|file:///Users/royhuang/org/project-plan.org|254|73|v|org
+	99999999
+d46e6cd47205409042082347e77437dc|file:///Users/royhuang/org/project-plan.org|258|1|V|org
+	     | first 10s profile       | yes            | 31.7%    | 35.6% | 3.8%        | yes         |
+	     |-------------------------+----------------+----------+-------+-------------+-------------|
+e6427350aead954a64a5371ee375153c|file:///Users/royhuang/org/project-plan.org|252|1|V|org
+	     | streaming vid's profile | no             | 22.5%    | 30.9% | 8.4%        | no          |
+	     |-------------------------+----------------+----------+-------+-------------+-------------|
+dbe85c1749a13c7cceb4743ab067e926|file:///Users/royhuang/org/project-plan.org|254|1|V|org
+	     | first 10s profile       | yes            | 31.7%    | 35.6% | 3.8%        | yes         |
+	     |-------------------------+----------------+----------+-------+-------------+-------------|
+	     | first 10s profile       | no             | 31.7%    | 34.1% | 2.4%        | yes         |
+	     |-------------------------+----------------+----------+-------+-------------+-------------|
+8b04d5e3775d298e78455efc5ca404d5|file:///Users/royhuang/org/project-plan.org|258|8|v|org
+	first
+98bd1c45684cf587ac2347a92dd7bb51|file:///Users/royhuang/org/project-plan.org|258|33|v|org
+	last
+e313b352a601dd5223004a26a3b67846|file:///Users/royhuang/org/project-plan.org|258|8|v|org
+	1st 10s' profile
+e0ac9ddaf79c6fcfb3592e36ff4b8f28|file:///Users/royhuang/org/project-plan.org|256|8|v|org
+	first 10s profile
+873e51afc1ed3d39528f5028cb3137b2|file:///Users/royhuang/org/project-plan.org|254|1|V|org
+	     | 1st 10s' profile                     | yes            | 31.7%    | 35.6% | 3.8%        | yes         |
+	     |--------------------------------------+----------------+----------+-------+-------------+-------------|
+	     | 1st 10s' profile                     | no             | 31.7%    | 34.1% | 2.4%        | yes         |
+	     |--------------------------------------+----------------+----------+-------+-------------+-------------|
+76162a1b41f3e51e945fd75d1685f56f|file:///Users/royhuang/org/project-plan.org|254|1|V|org
+	     | 1st 10s' profile                     | yes            | 31.7%    | 35.6% | 3.8%        | yes         |
+	     |--------------------------------------+----------------+----------+-------+-------------+-------------|
+	     | 1st 10s' profile                     | no             | 31.7%    | 34.1% | 2.4%        | yes         |
+4d293ef273d93a5411725a8223efc83e|file:///Users/royhuang/.config/nvim/init.vim|246|10|v|vim
+	buffers
+1b74fd3d5190e27757a9d3233d58981f|file:///Users/royhuang/.config/nvim/init.vim|155|60|v|vim
+	'use
+185d4d645f06ac21a82db0a716472615|file:///Users/royhuang/.config/nvim/coc-settings.json|5|21|V|json
+		"ltex.java.path": "/usr/local/Cellar/openjdk/18.0.1",
+52ee79bb2974cba346d58255cc9f147b|file:///Users/royhuang/.config/nvim/init.vim|253|18|v|vim
+	"bdelete! %d"
+f797e65afd2dc22ee10729d4a67a2d58|file:///Users/royhuang/.config/nvim/init.vim|253|1|V|vim
+		close_command = function(bufnum)
+	   	  require('bufdelete').bufdelete(bufnum, true)
+	   	end
+9cab778c4ea9d21aaed9cf267156a780|file:///Users/royhuang/.config/nvim/init.vim|248|18|v|vim
+	function(bufnum)
+	   	  require('bufdelete').bufdelete(bufnum, true)
+	   	end
+d7c90b67fd3b90fe57bca23fbadd38ab|file:///Users/royhuang/.config/nvim/init.vim|246|13|V|vim
+		mode = "tabs",
+592853b9eaedf8b4d079c548e6e0d7cf|file:///Users/royhuang/.config/nvim/init.vim|155|58|v|vim
+	, 'famiu/bufdelete.nvim'
+4943d10a9903dad07a6941ed558edbf0|file:///Users/royhuang/.config/nvim/init.vim|152|15|V|vim
+	  use {'rhysd/vim-grammarous' }
+e27462eb2ac2f67f3e5ce5c007d544b9|file:///Users/royhuang/.config/nvim/init.vim|21|1|v|vim
+	cnoreabbrev wq w<bar>bd
+	cnoreabbrev q bd
+	cnoreabbrev bx up<bar>bd
+9dc0b98ef1a4f78c191db75ab48084b5|file:///Users/royhuang/.config/nvim/init.vim|114|11|^v|vim
+	leader
+	leader
+	leader
+	leader
+268ad585d0c13c8d642e2b64f0662596|file:///Users/royhuang/.config/nvim/init.vim|114|1|V|vim
+	nnoremap <space>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+	nnoremap <space>fj <cmd>lua require('telescope.builtin').live_grep()<cr>
+	nnoremap <space>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+	nnoremap <space>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+9f8d291ec2638ec993886284e6060d01|file:///Users/royhuang/.config/nvim/init.vim|228|1|V|vim
+	require('telescope').setup{
+	  pickers = {
+	    find_files = {
+	      theme = "dropdown",
+	    }
+	  },
+	  extensions = {
+	    fzf = {
+	      fuzzy = true,                    -- false will only do exact matching
+	      override_generic_sorter = true,  -- override the generic sorter
+	      override_file_sorter = true,     -- override the file sorter
+	      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+	                                       -- the default case_mode is "smart_case"
+	    }
+	  }
+	}
+	require('telescope').load_extension('fzf')
+66b0aaeda4e8916040d8c6cd5b134bf0|file:///Users/royhuang/.config/nvim/init.vim|114|1|V|vim
+	nnoremap <space>ff <cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({}))<cr>
+	nnoremap <space>fj <cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown({}))<cr>
+	nnoremap <space>fb <cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({}))<cr>
+	nnoremap <space>fh <cmd>lua require('telescope.builtin').help_tags(require('telescope.themes').get_dropdown({}))<cr>
+5256f8173332b0edd60eb188f1d3b642|file:///Users/royhuang/org/project-plan.org|301|1|V|org
+	-
+	* GPU allocation
+	** TODO Micro benchmark on how fast/overhead to respawn a container with DNN.
+85c8d56f2f31e897bf1692344318362f|file:///Users/royhuang/org/project-plan.org|299|3|V|org
+	  SCHEDULED: <2022-06-14 Tue>
+02d1f348f2f4b3bbc95d6fb92ab81fc9|file:///Users/royhuang/org/project-plan.org|299|62|v|org
+	(e.g. facial recognition)
+c292d4bc89b1397e68279d1d88f2ad6f|file:///Users/royhuang/org/project-plan.org|304|8|V|org
+	** TODO 
+96d520fc446da8c8249aec9cb2ae51c0|file:///Users/royhuang/org/project-plan.org|306|10|v|org
+	nvidia-cuda-mps-control set_active_thread_percentage <PID>
+2f7a2fd8cbef5deb57f7465f1c9edb0c|file:///Users/royhuang/org/project-plan.org|310|6|v|org
+	<percentage>
+8e9798d9f07360da4a6e1c2de013c84e|file:///Users/royhuang/org/project-plan.org|311|14|V|org
+	     #+END_SRC
+968f5fad74263275f363010e61f91f08|file:///Users/royhuang/org/project-plan.org|308|14|V|org
+	     #+BEGIN_SRC c
+d5539a9ca98e277a5e53f882948ee8c3|file:///Users/royhuang/org/project-plan.org|308|34|V|org
+	     nvidia-cuda-mps-control set_active_thread_percentage <PID> <percentage>
+28f590d0087f5c963ccd0072ecbc4e84|file:///Users/royhuang/org/project-plan.org|308|11|V|org
+	     printf
+2b84fef07699730224c437a8612282fc|file:///Users/royhuang/org/project-plan.org|307|1|v|org
+	     #+BEGIN_SRC shell
+	     printf("dfdf");
+	     #+END_SRC
+84bf09e4e577d3c97c4a2ba9d556de41|file:///Users/royhuang/org/project-plan.org|309|4|v|org
+	nvidia-cuda-mps-control 
+2591c98b70119fe624898b1e424b5e91|file:///Users/royhuang/org/project-plan.org|307|16|v|org
+	shell
+b2923fc6104ac23b20f1bc8fb1084b2f|file:///Users/royhuang/org/project-plan.org|310|1|V|org
+	   #+BEGIN_SRC bash
+	   nvidia-cuda-mps-control -d  # start the mps control at background as daemon
+	   echo set_active_thread_percentage <PID> <percentage> | nvidia-cuda-mps-control
+	   echo quit | nvidia-cuda-mps-control
+	   #+END_SRC
+95db36f932a7bc7b21e0752d6a31714b|file:///Users/royhuang/org/project-plan.org|309|7|V|org
+	    echo set_active_thread_percentage <PID> <percentage> | nvidia-cuda-mps-control
+224ffca05a28e7b144314f541ecbb428|file:///Users/royhuang/org/project-plan.org|309|7|V|org
+	    echo quit | nvidia-cuda-mps-control
+3d8c55a7ebcd8ef8b2ba82a1443c7c54|file:///Users/royhuang/org/project-plan.org|307|1|V|org
+	    #+BEGIN_SRC bash
+	    nvidia-cuda-mps-control -d  # start the mps control at background as daemon
+	    #+END_SRC
+0764c53bf6a93fa349a6d7b871f4d39e|file:///Users/royhuang/org/project-plan.org|312|40|v|org
+	 # start the mps control at background as daemon
+8854eb51b21898ce8fc13bec5f8d8fa5|file:///Users/royhuang/org/project-plan.org|311|1|V|org
+	    #+BEGIN_SRC bash
+	    echo quit | nvidia-cuda-mps-control
+	    #+END_SRC
+dbd73c2b545209688ed794c0d5413d5a|file:///Users/royhuang/org/project-plan.org|318|10|v|org
+	quit
+68982cd167181aa3764df9b8ba5ddd66|file:///Users/royhuang/org/project-plan.org|317|32|v|org
+	centage option to change an existing MPS control
+e72df517db6c8df0836d7d6d6ae11243|file:///Users/royhuang/org/project-plan.org|320|1|V|org
+	    #+BEGIN_SRC bash
+	    echo set_active_thread_percentage <PID> <percentage> | nvidia-cuda-mps-control
+	    #+END_SRC
+d6ca6378f871ce19c4305206b89b80fd|file:///Users/royhuang/org/project-plan.org|325|14|v|org
+	active_thread_percentage
+92c96b0ed4889b6ca751e260918b91b0|file:///Users/royhuang/org/project-plan.org|306|11|v|org
+	=CUDA_MPS_PIPE_DIRECTORY= 
+99beeb38b1e8f3b7bc34363c6e957642|file:///Users/royhuang/org/project-plan.org|306|10|v|org
+	 =CUDA_MPS_PIPE_DIRECTORY= and =CUDA_MPS_LOG_DIRECTORY= environment
+	      variables.
+	
+978ae8352ddd382c2595444aacc7a5df|file:///Users/royhuang/org/project-plan.org|319|15|v|org
+	=CUDA_MPS_PIPE_DIRECTORY= and =CUDA_MPS_LOG_DIRECTORY=
+31e73f752b9c7836c35f596974fa9815|file:///Users/royhuang/org/project-plan.org|339|17|V|org
+	       (/e.g.,/ o
+a72d9524da3c3c8ea3b2d13feeed7c86|file:///Users/royhuang/org/project-plan.org|341|65|V|org
+	     - Probably need to change the tensroflow/pytorch source code.
+d12119bddd4c3c5d2a811a597af7ffdc|file:///Users/royhuang/org/project-plan.org|344|1|V|org
+	     #+BEGIN_SRC shell
+	     #+END_SRC
+6d8d8902d04063af37715a7c3b1b3091|file:///Users/royhuang/org/project-plan.org|348|6|v|org
+	echo set_active_thread_percentage <PID> <percentage> | nvidia-cuda-mps-control
+	
+678eb294acf0e7658ceb9dc09e83f946|file:///Users/royhuang/org/project-plan.org|337|16|v|org
+	CUDA_MPS_ENABLE_PER_CTX_DEVICE_MULTIPROCESSOR_PARTITIONING
+10942d1f46c3c30b2c57b9ceb849e1c7|file:///Users/royhuang/org/project-plan.org|354|30|V|org
+	     err, curr_flag: int = cu.cuda.cuCtxGetFlags()
+249ffaa43f2cf549fa5862652daf9e69|file:///Users/royhuang/org/project-plan.org|348|51|V|org
+	     echo set_active_thread_percentage <PID> <percentage> | nvidia-cuda-mps-control
+63167571270673d55eeb74368aefdda6|file:///Users/royhuang/org/project-plan.org|347|14|V|org
+	     # at runtime, when rellocating GPU
+2405c08442a183606976a922096e41b6|file:///Users/royhuang/org/project-plan.org|340|8|V|org
+	     - Check if we can switch cuda context for tensorflow/pytorch.
+0731a476b64014d1609eceeba49f759e|file:///Users/royhuang/org/project-plan.org|358|10|V|org
+	     - [ ]
+e3f517446dfef34e27b12d8b8650f012|file:///Users/royhuang/org/project-plan.org|355|8|v|org
+	I can successfully 
+9b12860a5b0810ddf904783fc4f3d92a|file:///Users/royhuang/org/project-plan.org|337|1|V|org
+	     - Seting =CUDA_MPS_ENABLE_PER_CTX_DEVICE_MULTIPROCESSOR_PARTITIONING=
+	       allows unevenly distributed parition in one client with multiple cuda
+	       context.
+	     - After change the partition, create a new context with
+	       =cuda.cuda.cuCtxCreate(flags, dev)=, and push the new context to the CPU
+	       such that all later CUDA operation will use the new cuda context.
+	     #+BEGIN_SRC bash
+	     # before starting the MPS client
+	     export CUDA_MPS_ENABLE_PER_CTX_DEVICE_MULTIPROCESSOR_PARTITIONING=True
+	     #+END_SRC
+	       In the concierge.py, 
+	     #+BEGIN_SRC python
+	     import cuda as cu
+	     # get the current flag tensorflow set, as we only change the partition
+	     os.envrion["CUDA_MPS_ACTIVE_THREAD_PERCENTAGE""] = 20
+	     err, pctx = cu.cuda.cuCtxCreate(curr_flag, 0)
+	     cu.cuda.cuCtxPUshCurrent(pctx)
+	     #+END_SRC
+76ae0c6ce4da97186e14c21cc563bfa1|file:///Users/royhuang/org/project-plan.org|345|11|V|org
+	         #+BEGIN_SRC bash
+3c9b3300f02b4374fbeb7e4152c715f0|file:///Users/royhuang/org/project-plan.org|345|8|V|org
+	       #+BEGIN_SRC bash
+2987949ae09af7b09d7f8992a28de3ad|file:///Users/royhuang/org/project-plan.org|345|8|V|org
+	       #+END_SRC
+cdd65aab4e1c46c4a5122567c3a70145|file:///Users/royhuang/org/project-plan.org|346|8|V|org
+	       before starting the MPS client
+5c1eaf78b60f04ab218fe571847e3ba6|file:///Users/royhuang/org/project-plan.org|345|1|V|org
+	       #+BEGIN_SRC bash
+	       export CUDA_MPS_ENABLE_PER_CTX_DEVICE_MULTIPROCESSOR_PARTITIONING=True
+	       #+END_SRC
+a97c01ddeb3ec2cafa4de4a7561f13ca|file:///Users/royhuang/org/project-plan.org|345|1|V|org
+	     #+BEGIN_SRC bash
+	     # before starting the MPS client
+	     export CUDA_MPS_ENABLE_PER_CTX_DEVICE_MULTIPROCESSOR_PARTITIONING=True
+	     #+END_SRC
+59235c99f425b1767771960723e3bff1|file:///Users/royhuang/org/project-plan.org|345|1|V|org
+	     #+BEGIN_SRC bash
+b50d675d53e462c65ca6c30f4f7fc5a6|file:///Users/royhuang/org/project-plan.org|345|1|V|org
+	     # before starting the MPS client
+66f91d4b27f7760235420443e54c557d|file:///Users/royhuang/org/project-plan.org|345|1|V|org
+	     export CUDA_MPS_ENABLE_PER_CTX_DEVICE_MULTIPROCESSOR_PARTITIONING=True
+e4a1f26afe497dd7d4c4c0eb432409c4|file:///Users/royhuang/org/project-plan.org|352|12|v|org
+	END_SRC
+2c04f98759d784b2d79bd72e8df2457c|file:///Users/royhuang/org/project-plan.org|346|7|V|org
+	       
+6aa6e1af81635f9909b9611faf70b751|file:///Users/royhuang/org/project-plan.org|352|1|V|org
+	     print(f"sm {rt.cudaGetDeviceProperties(0)[1].multiProcessorCount}")
+e23ac370705bef27fe9ca6a14a24e9b5|file:///Users/royhuang/org/project-plan.org|350|1|V|org
+	     os.envrion["CUDA_MPS_ACTIVE_THREAD_PERCENTAGE""] = 20
+0551281ce558657d1cba152011ca6e30|file:///Users/royhuang/org/project-plan.org|348|6|V|org
+	     # get the current flag tensorflow set, as we only change the partition
+bce4d45e6be2115c57f5b086732fc2a8|file:///Users/royhuang/org/project-plan.org|336|6|V|org
+	**** Looking into change the cuda context
+ac729cf31ad7ec6d931664fb67033332|file:///Users/royhuang/org/project-plan.org|356|10|V|org
+	**** TODO 
+9c332071db1f1decf6c9c0aae21a43b1|file:///Users/royhuang/.config/nvim/init.vim|170|1|V|vim
+		-- headline_highlights = {
+a9d8694ffbcc489c0bc1fb1fdfbfede4|file:///Users/royhuang/.config/nvim/init.vim|170|2|^v|vim
+	-- 
+	-- 
+e28afc48fabc71993c04c3ae59560eb0|file:///Users/royhuang/org/project-plan.org|366|7|v|org
+	Benchmarked
+a403eee940f5b369fb67af1f700ab02e|file:///Users/royhuang/org/project-plan.org|359|1|V|org
+	** DONE Micro benchmark on how fast/overhead to respawn a container with DNN.  :RESEARCH:W22:
+	   SCHEDULED: <2022-06-12 Sun> CLOSED: [2022-06-14 Tue 22:36]
+	   - To change the GPU partition, we use which changes the active thread
+	     percentage for the client created afterward.
+	   - So we need to restart the container/process when rellocating the GPU
+	     percentage
+	*** Solution 1: kill VA server and restart
+	    - Tested that it could take about *12s* to restart for dds.
+	*** Solution 2: Spawn a VA server before kill the old server
+	    - Require there are enougn GPU memory.
+	   
+	    
+70c05480ed020c32d63fbf3fde729592|file:///Users/royhuang/org/project-plan.org|369|12|V|org
+	     - Tries
+4194b4ef3dd0edfb0ded66962d332048|file:///Users/royhuang/org/project-plan.org|369|12|v|org
+	Restart session
+3bff45429142bab88e3a5284651cf3f2|file:///Users/royhuang/org/project-plan.org|360|18|v|org
+	CUDA_MPS_ACTIVE_THREAD_PERCENTAGE
+90a04335ace37a12abd92bcb8826c09e|file:///Users/royhuang/org/project-plan.org|347|1|V|org
+	    - Or change the environment variable =CUDA_MPS_ACTIVE_THREAD_PERCENTAGE=
+	      before creating a new context.
+2d9d075ca37c23f1eef3374d15a00be5|file:///Users/royhuang/org/project-plan.org|267|31|V|org
+	     |--------------------------------------+----------------+----------+-------+-------------+-------------|
+	     - rethink about the interface design to avoid the incentive for the dev to give malicious sensitity.
+23cbf58c746d047fd52c9a01f6807b50|file:///Users/royhuang/org/project-plan.org|265|31|V|org
+	     |--------------------------------------+----------------+----------+-------+-------------+-------------|
+96feadb5cb24fe8875cdf12cd3a9be4d|file:///Users/royhuang/org/project-plan.org|244|31|V|org
+	    |---------+---------------------+-------------------+----------------+-------------------------|
+df960473da01c6169d1816f4b916271e|file:///Users/royhuang/org/project-plan.org|281|31|V|org
+	    |------------------+--------------|
+8f1ef3949dc5573b91db4973120df8f8|file:///Users/royhuang/org/project-plan.org|364|80|v|org
+	=/tensorflow/stream_execurtor/cuda/cuda_driver.h=
+b072731a31a4c69caae87aeb48f842c2|file:///Users/royhuang/org/project-plan.org|368|27|v|org
+	Maybe we can do a pr
+b24b922ec34b90bcb0264bfc5401b798|file:///Users/royhuang/org/project-plan.org|360|6|v|org
+	DEADLINE: <2022-06-19 Sun> 
+a6e4ade692db8b1230ee21d550d51e30|file:///Users/royhuang/.config/fish/config.fish|23|12|V|fish
+	alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
+c9b5ac0a4c291343047fcbc9fc7e604a|file:///Users/royhuang/.config/fish/config.fish|21|12|V|fish
+	alias zshconfig="vi ~/.zshrc"
+ac6dc492fca7f8347d418e4a4041d96b|file:///Users/royhuang/.config/fish/config.fish|21|12|V|fish
+	alias ohmyzsh="vi ~/.oh-my-zsh"
+e8a33b5626f922043f382266b4ff338f|file:///Users/royhuang/.config/fish/config.fish|23|12|V|fish
+	alias chrome="open -a Google\ Chrome"
+ab855e1b36bad9840ac5aa5a3de30975|file:///Users/royhuang/.config/fish/config.fish|23|12|V|fish
+	alias safari="open -a Safari"
+8518a4cfc85de515c168c0905bb1863a|file:///Users/royhuang/.config/fish/config.fish|23|12|V|fish
+	alias server="ssh root@45.63.74.132"
+442639ff49e9e7aaac6ad783d6dea520|file:///Users/royhuang/.config/fish/config.fish|15|1|V|fish
+	set --export JAVA_HOME /usr/local/Cellar/openjdk/18.0.1.1
+87dc48758d6dd7faaf4e724e8e4626a7|file:///Users/royhuang/.config/fish/config.fish|8|26|v|fish
+	set --export JAVA_HOME /usr/local/Cellar/openjdk/18.0.1.1
+	
+0fd633faee73980b97107eaa8ac00dd1|file:///Users/royhuang/org/project-plan.org|374|108|v|org
+	Ray Team member
+bf451725409cc47af37a84cef1e84305|file:///Users/royhuang/org/project-plan.org|374|112|v|org
+	and other source
+1355a71efdf3baa815696e86293d63b4|file:///Users/royhuang/org/project-plan.org|376|69|v|org
+	 at runtime
+	         according
+2336810f4d287c0b4466ffff794eb31f|file:///Users/royhuang/org/project-plan.org|360|11|v|org
+	DOING
+cfa47460a3ae39d953471539ec1b25ba|file:///Users/royhuang/org/project-plan.org|382|5|^v|org
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+5428ca91f98786bd73f039ece86cbcd0|file:///Users/royhuang/org/project-plan.org|419|5|^v|org
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+06841666965869ec8532a60694a30845|file:///Users/royhuang/org/project-plan.org|361|5|^v|org
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+2b0bd346b7c036e6314c27553a8b1b15|file:///Users/royhuang/org/project-plan.org|341|5|^v|org
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+600d6af0f320a021dc494cfa2daca569|file:///Users/royhuang/org/project-plan.org|427|29|v|org
+	take
+fa1c731ead93e333a9180e16f968c01e|file:///Users/royhuang/org/project-plan.org|436|61|v|org
+	sequence
+8e8e0456f0020ab0a4fb3136d085a714|file:///Users/royhuang/org/project-plan.org|436|51|v|org
+	execution 
+07cc694b9b3fc636710fa08b6922c42b|file:///Users/royhuang/org/project-plan.org|440|43|v|org
+	time
+f8af7ab182a734f10d8f7b765c7874b5|file:///Users/royhuang/org/project-plan.org|440|6|v|org
+	=nn.Module.
+203aa27da8355d0a7bd31457a46e4c52|file:///Users/royhuang/org/project-plan.org|451|25|V|org
+	Back to time sharing for GPU allocation
+48059bb5987ae3c29d0790f5de590d21|file:///Users/royhuang/org/project-plan.org|476|10|v|org
+	tries to use set the allocation at runtime and failed according to their
+84d10a1ed612e61dbf6880f6e3ee533a|file:///Users/royhuang/org/project-plan.org|475|35|v|org
+	initialized
+a1e2e9c65e8a70510f417411040f0c1d|file:///Users/royhuang/org/project-plan.org|470|59|v|org
+	 during a unit of time
+7907b7b49a1241623ab30f1eed75c7a4|file:///Users/royhuang/org/project-plan.org|479|6|^v|org
+	\// 
+e72ced446e6e54cfbe2248be806f82ec|file:///Users/royhuang/org/project-plan.org|480|6|^v|org
+	r
+	r
+	
+	m
+	 
+	 
+	}
+	r
+402c17949beecc15a59224bcd6de8779|file:///Users/royhuang/org/project-plan.org|480|6|^v|org
+	\/\/ 
+	\/\/ 
+	\/\/ 
+	\/\/ 
+	\/\/ 
+	\/\/ 
+	\/\/ 
+	\/\/ 
+565343c410a4947e1c3a67f53baaf9a5|file:///Users/royhuang/org/project-plan.org|462|27|V|org
+	        print(elapsed_time)
+24fb3f70570ca3a78a22b87d70b9b4cd|file:///Users/royhuang/org/project-plan.org|499|7|v|org
+	SM affinity
+c158efd5f0c319e6d74293a29c5a3b3d|file:///Users/royhuang/org/project-plan.org|480|5|^v|org
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+87d0158a9941b4df877c65b256588213|file:///Users/royhuang/org/project-plan.org|285|39|V|org
+	    | tlsdf            |              |
+2afadecb8415526fee79ce41d132b1e9|file:///Users/royhuang/.config/nvim/init.vim|183|1|V|vim
+	require("org-bullets").setup {
+	  symbols = { "§", "○", "✸", "◇" },
+	  -- bullet_chars = "-",
+	}
+c7ab7969075b80ed0364bf50084eb903|file:///Users/royhuang/.config/nvim/init.vim|187|21|V|vim
+	require('orgmode').setup_ts_grammar()
+faa5f7545eba66c08d35666c2712f687|file:///Users/royhuang/.config/nvim/init.vim|144|10|V|vim
+		  -- bullet_chars = "-",
+20d9d888a698a1d22e0fd8a10a3b509b|file:///Users/royhuang/.config/nvim/init.vim|146|1|V|vim
+	      headlines = function(default_list)
+	        table.insert(default_list, "♥")
+	        return default_list
+adf432722ffa9035d8fe7cc87f96bb86|file:///Users/royhuang/.config/nvim/init.vim|146|10|V|vim
+	      end,
+c8ddba30c0a23cce299479bbe0c79ea1|file:///Users/royhuang/.config/nvim/init.vim|145|10|V|vim
+	      -- or a function that receives the defaults and returns a list
+417ac66491c49f520574524405ca62e3|file:///Users/royhuang/.config/nvim/init.vim|157|4|V|vim
+			headlines = { "§", "○", "✸", "◇" }
+d0def0b6eeaa2bb28f03ebbeb419508d|file:///Users/royhuang/.config/nvim/init.vim|144|48|V|vim
+	      headlines = { "◉", "○", "✸", "✿" }
+8139f1547276bfaa35c8e0ededec7ace|file:///Users/royhuang/.config/nvim/init.vim|153|1|V|vim
+	  use {'akinsho/org-bullets.nvim', config = function()
+		require("org-bullets").setup {
+		  concealcursor = true,
+		  symbols = {
+		  }
+		}
+		end 
+	  }
+68934a3e9455fa72420237eb05902327|file:///Users/royhuang/.config/nvim/init.vim|141|21|v|vim
+	false
+15fc7b7f4c9ebed3fe08314f8a05a747|file:///Users/royhuang/.config/nvim/init.vim|138|20|V|vim
+	  -- use 'levouh/org-bullets.nvim'
+5f2a687514e12729399db187ec44cb16|file:///Users/royhuang/.config/nvim/init.vim|139|3|^v|vim
+	-- 
+	-- 
+	-- 
+	-- 
+	-- 
+	-- 
+	-- 
+	-- 
+	-- 
+	-- 
+	-- 
+	-- 
+	-- 
+970c795f1dc08986070e03420d350c2e|file:///Users/royhuang/.config/nvim/init.vim|144|1|V|vim
+	      checkboxes = {
+	        cancelled = { "", "OrgCancelled" },
+	        done = { "✓", "OrgDone" },
+	        todo = { "˟", "OrgTODO" },
+	      },
+f7bddba6a565539ed462d148a1f92de3|file:///Users/royhuang/.config/nvim/init.vim|140|40|V|vim
+	    concealcursor = true, -- If false then when the cursor is on a line underlying characters are visible
+ffd71550a7e905c652c2e55f4edf70e6|file:///Users/royhuang/.config/nvim/init.vim|161|1|V|vim
+	--  use {
+	--	'akinsho/bufferline.nvim',
+	--	tag = "v2.*", requires = { 'kyazdani42/nvim-web-devicons' }}
+c7b1cca6b97316f07a6527abe4f44fd3|file:///Users/royhuang/.config/nvim/init.vim|138|1|V|vim
+	  -- use { "akinsho/org-bullets.nvim", config = function()
+	  -- require("org-bullets").setup {
+	  --   symbols = {
+	  --     -- headlines can be a list
+	  --     headlines = { "§", "○", "✸", "◇" }
+	  --   }
+	  -- }
+	  -- end }
+656e6c5a951c87f97752852dcce93989|file:///Users/royhuang/org/project-plan.org|525|1|V|org
+	motivation
+	 - only app adaptation is not good enough
+f606d56631a63d31ae4f9346863df733|file:///Users/royhuang/org/project-plan.org|497|1|V|org
+	    pthread_mutex_lock(&(tb.tmux));
+0cf31b2c283ce3431794586df7b0996d|file:///Users/royhuang/org/project-plan.org|507|4|V|org
+	    
+c95254cb9032232e6490b414cb824d60|file:///Users/royhuang/org/project-plan.org|508|1|V|org
+	    for (int i = 0; i < 1; i++) {
+	
+	    }
+c8ed1acc03e5c4903c3324365c986255|file:///Users/royhuang/org/project-plan.org|524|35|V|org
+	      framework (/e.g.,/ tensorflow, pytorch, caffee, /et al./)
+2d7bc148b4b528a7474beca4e33b62b1|file:///Users/royhuang/org/project-plan.org|285|14|V|org
+	    | dkfjd | 
+ef56b0b0ddb93c2885892c06be830c68|file:///Users/royhuang/org/project-plan.org|520|7|v|org
+	much
+8f0044bdaabed63356795f45a7c34cca|file:///Users/royhuang/org/project-plan.org|523|37|v|org
+	I decided to
+2b181a1ad24f91271ce0e1bb989e7dbe|file:///Users/royhuang/org/project-plan.org|525|4|V|org
+	    @staticmethod
+41cfd069b351df2564dc1eeec58e2145|file:///Users/royhuang/org/project-plan.org|525|9|V|org
+	    def _infer_wrapper(infer_func):
+0805506c239178aa7db68af013e8851f|file:///Users/royhuang/org/project-plan.org|559|1|V|org
+	        return intercept_infer_func
+8aa97bd6f601c9455cfa3de35226e5ea|file:///Users/royhuang/org/project-plan.org|528|9|V|org
+	            # check current token bucket has enough toekn.
+120ace8a63a01fcd3b027ad41651b953|file:///Users/royhuang/org/project-plan.org|528|9|V|org
+	            # if not wait for another refill
+d7885c505bfd8f47ff29e62bf6b580c4|file:///Users/royhuang/org/project-plan.org|534|9|V|org
+	            # wait for scheduler's signal to start gpu task
+db58d6198294cbf5bb350d9c36d63732|file:///Users/royhuang/org/project-plan.org|534|9|V|org
+	            # mainly waiting for other jobs on the gpu to finish
+35a45d8a5cfdaba5a8badb88a97570c4|file:///Users/royhuang/org/project-plan.org|537|9|V|org
+	            # run inference and record elapsed time
+21fb4a885003f87c824970db78123934|file:///Users/royhuang/org/project-plan.org|541|9|V|org
+	            # notify gpu scheduler the gpu task is done
+1fa4d1289068a660db64f28fef88b870|file:///Users/royhuang/org/project-plan.org|543|9|V|org
+	            # update the ewma of the inference time and the token_bucket
+ff5dfe402fe859c65c02107f914a1335|file:///Users/royhuang/org/project-plan.org|525|1|V|org
+	    def _infer_wrapper(infer_func):
+	
+	        def intercept_infer_func(self: AppServer, *args, **kargs):
+	            has_enough_token: bool =\
+	                self.token_bucket >= self.estimated_infer_time
+	            while not has_enough_token:
+	                has_enough_token: bool =\
+	                    self.token_bucket >= self.estimated_infer_time
+	
+	            self.concierge_stub.SubmitGPUJob(self.app_info)
+	            while not self.can_proceed_gpu_task.is_set():
+	                pass
+	            st: int = perf_counter()
+	            ret = infer_func(self, *args, **kargs)
+	            elapsed: int = perf_counter() - st
+	
+	            self.concierge_stub.DoneGPUJob(Empty())
+	
+	            self.token_lock.acquire()
+	            self.token_bucket -= elapsed
+	            self._logger.info(
+	                f"Used {elapsed} tokens. Has {self.token_bucket} token left.")
+	            self.token_lock.release()
+	
+	            self.estimated_infer_time = int(
+	                self.estimated_infer_time * HIST_WEIGHT
+	                + elapsed * (1 - HIST_WEIGHT))
+	            return ret
+	
+	        return intercept_infer_func
+604cbeee121f4b22e5efb928e2bb35e8|file:///Users/royhuang/.config/nvim/init.vim|169|1|V|vim
+	    -- codeblock_highlight = "CodeBlock",
+7883a7305bcbd394f768e04b9e800f53|file:///Users/royhuang/org/project-plan.org|583|51|v|org
+	latency
+b74ebe6598cc96c506894975b40cbd7a|file:///Users/royhuang/org/project-plan.org|569|51|V|org
+	    - Works fine with one application in terms of average gpu utilization
+4d94caa678bde9a324e69c1d82344e53|file:///Users/royhuang/org/project-plan.org|569|37|v|org
+	trying to let two applications share gpu
+649e81e2d82d212ef986c8eca8b559ac|file:///Users/royhuang/org/project-plan.org|518|1|V|org
+	      70 10 20
+	      50 18 28
+	      60 
+6850dcf69a4393386afca596c6e341e7|file:///Users/royhuang/org/project-plan.org|512|7|v|org
+	No modification is needed from the user/developer side
+1d39f9b5b36b764b6c61f4dc4a106095|file:///Users/royhuang/org/project-plan.org|517|36|v|org
+	addictive
+faa04d84a1c6301c6ed024a3f216f81c|file:///Users/royhuang/org/project-plan.org|518|12|V|org
+	      Add an additive increase and multiplictive decrease.
+	    #+BEGIN_SRC c
+c27689c2d4a3b27d643290efc8c0b2b4|file:///Users/royhuang/org/project-plan.org|680|6|V|org
+	    - 
+db5acb49ce015dffa7aa96b97471ff17|file:///Users/royhuang/org/project-plan.org|679|18|V|org
+	    - Record the GPU utilization for each batch
+696f8e44fcc63316bd70b581c1601abd|file:///Users/royhuang/org/project-plan.org|678|31|v|org
+	utilization
+1345ed942bb193f6f97d609e3f9c85a1|file:///Users/royhuang/org/project-plan.org|678|8|v|org
+	Some simply
+695c6ae413c00446733d926ccadefd8b|file:///Users/royhuang/org/project-plan.org|679|8|v|org
+	Some
+7febea91979ea98f4b544f5a672532da|file:///Users/royhuang/org/project-plan.org|679|14|v|org
+	uses
+260366169236715eb2655622cbae5d6c|file:///Users/royhuang/org/project-plan.org|679|32|v|org
+	"persistent
+ba76fa47205b9a02dc38c7272c287e0f|file:///Users/royhuang/org/nsf-report.md|14|60|v|markdown
+	, security cameras,
+b39baf9d7808a90712af927662331616|file:///Users/royhuang/org/nsf-report.md|15|30|v|markdown
+	across the space
+3bc55f2095794e29ebbe3964da23887a|file:///Users/royhuang/org/nsf-report.md|17|27|v|markdown
+	The idea of edge computing has gained a significantly
+	amount of attention from both the academic community and industry with the
+	deployment of traffic control, smart city, and smart manufacturing.
+	
+567904efe9e64d9faf3e41ef402cb568|file:///Users/royhuang/org/nsf-report.md|13|76|v|markdown
+	where
+cf8f6cccbef2c6287ae56c2eaadccc8e|file:///Users/royhuang/org/nsf-report.md|16|72|v|markdown
+	make
+	better plan or decisions
+7930bdf0f5133a9d6c878b78d68bfab7|file:///Users/royhuang/org/nsf-report.md|13|1|V|markdown
+	With the flourishment in the ideas like smart cites or smart manufacturing, a
+029aee483db9ae244d7a5cb353e74602|file:///Users/royhuang/org/nsf-report.md|14|19|v|markdown
+	sensors
+9bc65c2abec141778ffaa729489f3e87|file:///Users/royhuang/org/nsf-report.md|22|26|v|markdown
+	users
+09039bd1628a3c1b25fda3134a4fe050|file:///Users/royhuang/org/nsf-report.md|22|34|v|markdown
+	edge
+ee87bc8747ad849f76f9f6c9f6a6f6ed|file:///Users/royhuang/org/nsf-report.md|19|43|v|markdown
+	distinct
+1736dac0bf600caed3a02f14fc55f366|file:///Users/royhuang/org/nsf-report.md|27|41|v|markdown
+	edge devices
+41065dbc4552fe0449fb73be8168a125|file:///Users/royhuang/org/nsf-report.md|13|1|V|markdown
+	With the flourishment in the ideas like smart cites or smart manufacturing, a massive amount of edge devices (e.g., traffic or security cameras, thermometers, flood sensor, et al.) are deployed and connected to the network to collect/analyze data across the space and time, and help the stakeholders like city goverments or manufaturers optimizing their plans and operations. Such large number of edge devices and large amount of communications among the sensors or to the central servers rises a big challenge on how to manage/schedule the resource (i.e., network bandwidth between the devices and/or computing power on both edge devices and bare metal servers) in order to provide a reliable service for the running applications. Furthermore, with the nature of limited resource available to the edge devices, there is a uprising trend to reduce the average compute and/or bandwidth usage by leveraging the uneven distribution of interesting events with respect to both time and space in the input data. This brings further challenges for provisioning and managing the amount of resource available to the edge devices, as the running applications' resource demands can greatly depends on the input data which is both dynamic and unpredictable.
+8eea5a3f922245821505b2fa2a4ad5f3|file:///Users/royhuang/org/nsf-report.md|1|1|V|markdown
+	CHI@Edge platform is a new capability in the Chameleon Cloud that can empower
+	edge-based applications.  As this new breed of applications proliferate, the
+	concept of “shared edge” has grown in popularity as a way for multiple edge
+	applications (each running in a container and on a different data stream) to
+	share network bandwidth and compute resources. At the same time, there is a
+	parallel trend in edge computing applications to reduce average compute/network
+	usage by aggressively exploiting uneven distribution of interesting events in
+	input data streams. As a result, each application creates significant churns in
+	computing and bandwidth usages, posing significant challenges on the
+	performance reliability of the underlying edge devices.
+	
+266dcff5c31afa5768b119084ebbae73|file:///Users/royhuang/org/nsf-report.md|3|1|V|markdown
+	With the flourishment in the ideas like smart cites or smart manufacturing, a
+	massive amount of edge devices (e.g., traffic or security cameras,
+	thermometers, flood sensor, et al.) are deployed and connected to the network
+	to collect/analyze data across the space and time, and help the stakeholders
+	like city goverments or manufaturers optimizing their plans and operations.
+	Such large number of edge devices and large amount of communications among the
+	sensors or to the central servers rises a big challenge on how to
+	manage/schedule the resource (i.e., network bandwidth between the devices
+	and/or computing power on both edge devices and bare metal servers) in order to
+	provide a reliable service for the running applications. Furthermore, with the
+	nature of limited resource available to the edge devices, there is a uprising
+	trend to reduce the average compute and/or bandwidth usage by leveraging the
+	uneven distribution of interesting events with respect to both time and space
+	in the input data. This brings further challenges for provisioning and managing
+	the amount of resource available to the edge devices, as the running
+	applications' resource demands can greatly depends on the input data which is
+	both dynamic and unpredictable.
+b4c843e83bda78be00dd354f6db623ab|file:///Users/royhuang/org/nsf-report.md|17|27|v|markdown
+	the amount of resource available to the edge devices
+8bf6c2913e0fbec3f2885326507cc769|file:///Users/royhuang/org/nsf-report.md|33|37|v|markdown
+	different 
+95aeacc98d3e0c9ea3bdacb2e3a41dbd|file:///Users/royhuang/org/nsf-report.md|35|34|v|markdown
+	change in the
+aa59d67c2123f094d0d6798ffe651c4d|file:///Users/royhuang/org/nsf-report.md|35|81|v|markdown
+	metrics
+e9f40e1f1d1658681dad2dac4ae0971e|file:///Users/royhuang/org/nsf-report.md|34|34|v|markdown
+	amount
+c742484dfb12917ea2dc4152aa6fcc2c|file:///Users/royhuang/org/nsf-report.md|34|11|v|markdown
+	sensitivity
+00cc9a0d5c49718d69990938e94339fc|file:///Users/royhuang/org/nsf-report.md|35|66|v|markdown
+	the amount of resource the
+9c9bd8df9f98a4e1098d2ec0f1629095|file:///Users/royhuang/org/nsf-report.md|36|43|v|markdown
+	In another word, even if the the
+	performance improvment/degradation performance (e.g., the change in throughput
+	and latency) can be different input data change.
+c8c1dd19087648387041883bad21cada|file:///Users/royhuang/org/nsf-report.md|31|47|v|markdown
+	management framework
+756457dc85f13450b3dfba2cbc1465e5|file:///Users/royhuang/org/nsf-report.md|37|66|v|markdown
+	framework
+870e1e5a6fea5b9839dba1a460126bcb|file:///Users/royhuang/org/nsf-report.md|37|63|v|markdown
+	there is a
+	communication layer where the resource manager periodically 
+bb302c9b5204d593ba3657055842a5fb|file:///Users/royhuang/org/nsf-report.md|38|1|v|markdown
+	plane
+5ef85abe1a9b4e2dc8b00f22b32baca5|file:///Users/royhuang/org/nsf-report.md|39|22|v|markdown
+	(e.g.,
+c14f7a753888287112058264fa40b72d|file:///Users/royhuang/org/nsf-report.md|46|16|v|markdown
+	optimize
+3aceb8872a2e58b698bdc3f8e1a10cad|file:///Users/royhuang/org/nsf-report.md|31|1|V|markdown
+	In this project, the team proposes a resource manager that can understand the
+	applications and make decision based on the understand. This understanding is
+	achieved based on a key insight --- applications will have different magnitudes
+	of performance improvement/degradation toward the change in the amount of
+	resource available depending on the input data and how much resource the
+	applications currently have, which we defined as applications' sensitivities.
+	The resource manager framework can be divided into three major parts. First,
+	there is a control layer where the resource manager limits the amount of
+	resource exposed to the edge devices/applications. For example, the control
+	layer uses Linux tc to control the network traffic between the devices and
+	central servers, and a token-based time-slicing GPU scheduler to limit the GPU
+	computing resource available to the applications. Second, there is a
+	communication layer where, together with the control layer, the resource
+	manager periodically profile and query the sensitivities from the applications.
+	Finally, the sensitivities will be passed to a decision making layer which is
+	responisble to change resource allocation to optimize the overall performance
+	(e.g., maximize throughput, minimize latency, et al.) based on applications
+	sensitivities.
+27711dacf30450d8badb40c1fa51228e|file:///Users/royhuang/org/nsf-report.md|31|1|V|markdown
+	In this project, the team proposes a resource manager that can understand the applications and make decision based on the understand. This understanding is achieved based on a key insight --- applications will have different magnitudes of performance improvement/degradation toward the change in the amount of resource available depending on the input data and how much resource the applications currently have, which we defined as applications' sensitivities. The resource manager framework can be divided into three major parts. First, there is a control layer where the resource manager limits the amount of resource exposed to the edge devices/applications. For example, the control layer uses Linux tc to control the network traffic between the devices and central servers, and a token-based time-slicing GPU scheduler to limit the GPU computing resource available to the applications. Second, there is a communication layer where, together with the control layer, the resource manager periodically profile and query the sensitivities from the applications. Finally, the sensitivities will be passed to a decision making layer which is responisble to change resource allocation to optimize the overall performance (e.g., maximize throughput, minimize latency, et al.) based on applications sensitivities.
+202d52bed9c27f1d1db06f332d1ab9ee|file:///Users/royhuang/org/nsf-report.md|21|1|V|markdown
+	1. resource management framework that can understand the applications
+	2. more specific, different applications have different sensitivity  (define sensitivity) to the amount
+	of resource available at different time according the input data, and the
+	resource management decision will be make based on such sensitivity
+	3. describe the framework (two parts)
+		1. communications layer that talks to the applications
+		2. resource limiting layer that actually limits and assign resource to the edge devices/applications
+			1. network is limited by linux tc
+			2. gpu resource is limited by a token-based time-slicing scheduler
+	
+2a89b6e72d76e083d350c3b0600bb862|file:///Users/royhuang/org/nsf-report.md|21|1|V|markdown
+	In this project, the team proposes a resource manager that can understand the
+	applications and make decision based on the understand. This understanding is
+	achieved based on a key insight --- applications will have different magnitudes
+	of performance improvement/degradation toward the change in the amount of
+	resource available depending on the input data and how much resource the
+	applications currently have, which we defined as applications' sensitivities.
+	The resource manager framework can be divided into three major parts. First,
+	there is a control layer where the resource manager limits the amount of
+	resource exposed to the edge devices/applications. For example, the control
+	layer uses Linux tc to control the network traffic between the devices and
+	central servers, and a token-based time-slicing GPU scheduler to limit the GPU
+	computing resource available to the applications. Second, there is a
+	communication layer where, together with the control layer, the resource
+	manager periodically profile and query the sensitivities from the applications.
+	Finally, the sensitivities will be passed to a decision making layer which is
+	responisble to change resource allocation to optimize the overall performance
+	(e.g., maximize throughput, minimize latency, et al.) based on applications
+	sensitivities.
+	
+8cb3a7e4b6a969a179557bd515235bc8|file:///Users/royhuang/org/nsf-report.md|21|27|v|markdown
+	designs and implements
+1721ad2f5afbad218962a07362473dbc|file:///Users/royhuang/org/nsf-report.md|42|1|V|markdown
+	To test the idea, the team implements the aforementioned resource manager for network bandwidth on the Chameleon infrastructure and uses video analytic applications as an example applications since they are both network and computing-intense workloads and support adaptively changing their internal configurations like image resolution or video framerate according to the input data and resource availability. So far, the experiments of allocating network bandwidth for two video analytic applications have shown promising result, where we can improve the overall inference accuracy by 10-20%. And the next step for the team is to scale out for the number of applications and extends the idea to more types of resource like GPU, CPU, and memory.
+ebfd4a7d7157f1d1f7433d8b562917f4|file:///Users/royhuang/.config/nvim/init.vim|70|1|^v|vim
+	    1 
+	    2 
+	    3 
+	    4
+	    5 
+	    6 
+	    7 
+	    8 
+	    9 
+	   10 
+	   11 
+455831477b82574f6bf871193f2f761d|file:///Users/royhuang/org/project-plan.org|597|1|v|org
+	****
+b7b1e314614cf326c6e2b6eba1540682|file:///Users/royhuang/org/project-plan.org|691|5|v|org
+	TODO
+6033429e25b52f64dfaac6026073cedd|file:///Users/royhuang/org/project-plan.org|600|6|v|org
+	Show multiple jobs inference delay
+8dfb7a99fdd476ce7e16247ffdb448a0|file:///Users/royhuang/org/project-plan.org|486|1|V|org
+	    - Not using MPS. Intercept the cuda driver API call by using LD_PRELOAD
+	    - Each pod has a token bucket refilled at certain frequency with certain
+	      amount of token based on the allocation.
+ddfdc2a2b4c277158589a9f95fa2fbd8|file:///Users/royhuang/org/project-plan.org|513|6|v|org
+	Scheduling
+86a8dcf7cefadca504b2d28e45715267|file:///Users/royhuang/org/project-plan.org|703|6|v|org
+	model serving + single gpu sharing
+	
+22d9d745a50cba0d9e61deb64202db4c|file:///Users/royhuang/org/project-plan.org|703|6|v|org
+	model serving + single gpu sharing
+afcfa08ad0bafddff0064bed50e87754|file:///Users/royhuang/.config/nvim/init.vim|207|23|v|vim
+	'org', 
+f6e8599458923a6fe547308c91376441|file:///Users/royhuang/.config/nvim/init.vim|190|1|V|vim
+	local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+	parser_config.org = {
+	  install_info = {
+	    url = 'https://github.com/milisims/tree-sitter-org',
+	    revision = 'main',
+	    files = { 'src/parser.c', 'src/scanner.cc' },
+	  },
+	  filetype = 'org',
+	}
+	
+05a26551c5c39fc91c909468797d91c5|file:///Users/royhuang/.config/nvim/init.vim|151|3|^v|vim
+	-- 
+	-- 
+	-- 
+	-- 
+	-- 
+eb0a191797624dd3a48fa681d3061212|file:///Users/royhuang/.config/nvim/init.vim|153|15|v|vim
+	master
+001fab2baa75d418f396ab693d93de81|file:///Users/royhuang/.config/nvim/init.vim|154|21|V|vim
+	    run = 'yarn install --frozen-lockfile'
+0c658195f435edbe6ff09f40d0039488|file:///Users/royhuang/org/project-plan.org|706|4|v|org
+	     evaluation can support our idea of why we need spatial sharing GPU for

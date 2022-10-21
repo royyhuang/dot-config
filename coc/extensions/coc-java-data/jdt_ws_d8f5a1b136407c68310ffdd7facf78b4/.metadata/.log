@@ -1,0 +1,113 @@
+!SESSION 2022-04-15 15:18:04.008 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Command-line arguments:  -data /Users/royhuang/.config/coc/extensions/coc-java-data/jdt_ws_d8f5a1b136407c68310ffdd7facf78b4
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:05.970
+!MESSAGE class org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin is started
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:06.119
+!MESSAGE Main thread is waiting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:06.146
+!MESSAGE >> initialize
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:06.147
+!MESSAGE Initializing Java Language Server 0.56.0.202005202147
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:06.162
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:06.162
+!MESSAGE Non-Static Commands: [java.edit.organizeImports, java.project.refreshDiagnostics, java.project.import, java.project.removeFromSourcePath, java.project.listSourcePaths, java.project.provideSemanticTokens, java.project.getAll, java.project.isTestFile, java.project.getClasspaths, java.project.getSemanticTokensLegend, java.project.getSettings, java.project.updateSourceAttachment, java.project.resolveSourceAttachment, java.project.addToSourcePath]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:06.175
+!MESSAGE >> initialized
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:06.205
+!MESSAGE Creating the Java project jdt.ls-java-project
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:07.068
+!MESSAGE Finished creating the Java project jdt.ls-java-project
+
+!ENTRY org.eclipse.jdt.ls.core 4 0 2022-04-15 15:18:07.631
+!MESSAGE Failed to read package name from file:/Users/royhuang/Documents/papers-yang/extensive_eval/main.java
+!STACK 0
+java.io.FileNotFoundException: /Users/royhuang/Documents/papers-yang/extensive_eval/main.java (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at com.google.common.io.Files$FileByteSource.openStream(Files.java:130)
+	at com.google.common.io.Files$FileByteSource.read(Files.java:154)
+	at com.google.common.io.ByteSource$AsCharSource.read(ByteSource.java:470)
+	at com.google.common.io.Files.toString(Files.java:254)
+	at org.eclipse.jdt.ls.core.internal.JDTUtils.getPackageName(JDTUtils.java:290)
+	at org.eclipse.jdt.ls.core.internal.managers.InvisibleProjectImporter.getPackageName(InvisibleProjectImporter.java:195)
+	at org.eclipse.jdt.ls.core.internal.managers.InvisibleProjectImporter.getPackageName(InvisibleProjectImporter.java:173)
+	at org.eclipse.jdt.ls.core.internal.managers.InvisibleProjectImporter.getPackageName(InvisibleProjectImporter.java:163)
+	at org.eclipse.jdt.ls.core.internal.managers.InvisibleProjectImporter.loadInvisibleProject(InvisibleProjectImporter.java:104)
+	at org.eclipse.jdt.ls.core.internal.managers.InvisibleProjectImporter.importToWorkspace(InvisibleProjectImporter.java:87)
+	at org.eclipse.jdt.ls.core.internal.managers.ProjectsManager.importProjects(ProjectsManager.java:104)
+	at org.eclipse.jdt.ls.core.internal.managers.ProjectsManager.initializeProjects(ProjectsManager.java:94)
+	at org.eclipse.jdt.ls.core.internal.handlers.InitHandler$1.runInWorkspace(InitHandler.java:196)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:42)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:07.633
+!MESSAGE Try to create an invisible project for the workspace /Users/royhuang/Documents/papers-yang
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:07.633
+!MESSAGE Creating the Java project papers-yang_8eddd2e8
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:07.641
+!MESSAGE Finished creating the Java project papers-yang_8eddd2e8
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:07.714
+!MESSAGE Successfully created a workspace invisible project papers-yang_8eddd2e8
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:07.716
+!MESSAGE Workspace initialized in 1551ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:07.819
+!MESSAGE >> initialization job finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:07.826
+!MESSAGE >> workspace/didChangeConfiguration
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:07.851
+!MESSAGE >> New configuration: {java={enabled=true, jdt={ls={vmargs=-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication}}, errors={incompleteClasspath={severity=warning}}, configuration={checkProjectSettingsExclusions=true, updateBuildConfiguration=interactive, runtimes=[]}, trace={server=off}, import={gradle={enabled=true, wrapper={enabled=true}, offline={enabled=false}}, maven={enabled=true}, exclusions=[**/node_modules/**, **/.metadata/**, **/archetype-resources/**, **/META-INF/maven/**]}, maven={updateSnapshots=false, downloadSources=false}, referencesCodeLens={enabled=false}, signatureHelp={enabled=false}, implementationsCodeLens={enabled=false}, format={enabled=true, comments={enabled=true}, onType={enabled=true, fixComment={enabled=true}}}, saveActions={organizeImports=false}, project={referencedLibraries=[lib/**/*.jar], resourceFilters=[node_modules, .git]}, autobuild={enabled=true}, maxConcurrentBuilds=1.0, completion={maxResults=0.0, enabled=true, overwrite=true, guessMethodArguments=false, favoriteStaticMembers=[org.junit.Assert.*, org.junit.Assume.*, org.junit.jupiter.api.Assertions.*, org.junit.jupiter.api.Assumptions.*, org.junit.jupiter.api.DynamicContainer.*, org.junit.jupiter.api.DynamicTest.*, org.mockito.Mockito.*, org.mockito.ArgumentMatchers.*, org.mockito.Answers.*], filteredTypes=[java.awt.*, com.sun.*], importOrder=[java, javax, com, org]}, progressReports={enabled=true}, foldingRange={enabled=true}, codeGeneration={hashCodeEquals={useJava7Objects=false, useInstanceof=false}, useBlocks=false, generateComments=false, toString={template=${object.className} [${member.name()}=${member.value}, ${otherMembers}], codeStyle=STRING_CONCATENATION, skipNullValues=false, listArrayContents=true, limitElements=0.0}}, selectionRange={enabled=true}, sources={organizeImports={starThreshold=99.0, staticStarThreshold=99.0}}, templates={fileHeader=[], typeComment=[]}, references={includeAccessors=true}}}
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:07.853
+!MESSAGE >> document/didOpen
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:08.623
+!MESSAGE Reconciled 0. Took 132 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:08.636
+!MESSAGE >> Updating classpath for project papers-yang_8eddd2e8
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:08.704
+!MESSAGE begin problem for /main.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:08.705
+!MESSAGE 0 problems reported for /main.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:08.708
+!MESSAGE Validated 1. Took 60 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:08.726
+!MESSAGE >> build jobs finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:08.728
+!MESSAGE >> registerFeature 'workspace/didChangeWatchedFiles'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:08.729
+!MESSAGE >> registerFeature 'workspace/didChangeWatchedFiles'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:08.731
+!MESSAGE >> watchers registered
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-04-15 15:18:11.354
+!MESSAGE >> document/didClose

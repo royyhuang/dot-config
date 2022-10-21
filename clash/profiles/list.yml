@@ -1,0 +1,17 @@
+files:
+  - time: 1629116969629.yml
+    name: Clash_1629116969.yaml
+    url: https://subscribe.a9b.top/link/En4JFSF7EKBV4nMX?clash=1
+    selected:
+      - name: GLOBAL
+        now: DIRECT
+      - name: 🐸速蛙云
+        now: 🇺🇲 v2|美国|A|7台负载
+    interval: 0
+    subInfo:
+      upload: 1856827649
+      download: 62707794603
+      total: 161061273600
+      expire: 1634473582
+    mode: rule
+index: 0

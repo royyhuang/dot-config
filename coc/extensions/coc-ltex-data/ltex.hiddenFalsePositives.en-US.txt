@@ -1,0 +1,2 @@
+{"rule":"WHITESPACE_RULE","sentence":"^\\QTHE             Nucleus\nMulti-programming     yes             yes\nDynamic process       no              yes\nMemory mangement      VM              X\nsynchronization       semaphore       messaging\\E$"}
+{"rule":"RB_RB_COMMA","sentence":"^\\QTHE             Nucleus\nMulti-programming     yes             yes\nDynamic process       no              yes\nMemory mangement      VM              X\nsynchronization       semaphore       messaging\\E$"}

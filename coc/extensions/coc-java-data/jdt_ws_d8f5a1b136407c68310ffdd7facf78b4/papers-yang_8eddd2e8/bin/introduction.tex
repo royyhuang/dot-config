@@ -1,0 +1,266 @@
+%-------------------------------------------------------------------------------
+\section{Introduction}
+%-------------------------------------------------------------------------------
+
+%o evaluate the performance of a research prototype and compare different prototypes,
+%researchers often rely on well-established benchmarks, such as TPC-C~\cite{tpccurl} and YCSB~\cite{ycsburl,Cooper2010YCSB}.
+Through the emphasis on artifact evaluation, our community has greatly
+improved the quality of artifacts and simplified the process of reproducing and comparing to prior results.
+
+However, we observe one long-lasting question persists despite the
+improvement of reproducibility: which settings (i.e., combinations of parameter values) should we use
+during our experiments? Popular benchmarks like TPC-C~\cite{tpccurl} and YCSB~\cite{ycsburl,Cooper2010YCSB}
+and the systems to evaluate often have multiple parameters; as shown in prior works~\cite{Harding2017EvalDistributed,Wu2017EvalMem,Lim2017Cicada,Lu2020Aria}, 
+it often happens that one system can outperform another under one setting
+but not so under a different setting.
+So far our artifact evaluation only requires reproducing results under the
+same settings as reported in the corresponding publication, but does not
+require or recommend any settings to use.
+
+In general, there exist two philosophies to answer this question. First, we can focus on one or a few
+representative settings, usually extracted from studies of production systems. 
+%This approach
+%has the advantage that we know any improvement under these settings will
+%have a real-world impact, but if we insist that any works must follow these
+%settings, it may discourage works exploring new problems. 
+Second, we can
+perform an extensive evaluation to cover all/many combinations of parameter values.
+Extensive evaluation has the obvious benefit that it can provide a comprehensive
+picture of system performance, which can avoid potential bias introduced by
+parameter selection, but it may cost a large amount of time and resources.
+
+%which will allow readers to have a full picture. However, if the
+%benchmark includes many parameters or many possible values, this
+%approach will be time-consuming. 
+%Note that these two philosophies are
+%not completely orthogonal to each other since a number of studies find
+%industrial companies can have a variety of workloads, which call for extensive
+%evaluation as well.
+
+Which approach is more appropriate perhaps requires a thorough discussion
+in our community, but this paper tries to advocate extensive evaluation
+due to the following two observations:
+first, a number of studies have shown that industrial companies
+can have a variety of workloads~\cite{Atikoglu2012WAL,Yang2020Twitter,Nishtala2013Scaling,Berg2020CacheLib}.
+For example, Facebook finds ``object sizes spanning
+more than seven orders of magnitude'' for certain applications~\cite{Berg2020CacheLib}.
+%In this case, 
+%optimizing for the
+%most common workload is certainly beneficial, but ignoring or incurring
+%significant slowdown for less common workloads is not ideal~\cite{}.
+Such observation naturally calls for
+an extensive evaluation to reveal the full picture of system performance under different settings.
+Second, we observe a later research work often needs to compare with a prior work under a
+new setting that was not tested by the prior work. Our experience shows
+that this often incurs many problems, usually due to bugs or performance
+issues that only manifest under the new settings (Section~\ref{sec:cases}); a number of works choose
+to re-implement prior works (e.g., Janus~\cite{Mu2016Consolidating} re-implements TAPIR~\cite{Zhang15Building}; Aria~\cite{Lu2020Aria} re-implements
+Calvin~\cite{Thomson2012Calvin}, etc)---this is hurting the purpose of artifact evaluation, i.e., ``easy to reuse, facilitating further research''~\cite{osdi-repro} to
+some degree. An extensive evaluation can help a researcher
+to identify and fix such problems.
+
+%However, we observe many works in our community are neither evaluated under a
+%representative setting, often due to the fact that we don't even know the
+%representative settings, nor evaluated extensively, probably due to time or
+%resource constraints: this is certainly not ideal. Our emphasis on artifact
+%evaluation does not address this problem since it neither restricts parameter
+%values nor requires experiments beyond settings used in the paper. 
+
+This paper studies the feasibility and benefits of extensive evaluation.
+It tries to answer the following questions: 1)  Can extensive evaluation help us to improve the quality of artifacts
+and allow a more comprehensive performance comparison?
+2) In terms of time and resources, is it feasible
+to carry out extensive evaluation? And if not, how can we address that?
+
+
+To answer these questions, we focus on TPC-C and YCSB, two of the most popular
+benchmarks in our community, because there is a general consensus about what
+parameters can be tuned for these two benchmarks.
+We selected 10 research prototypes evaluated
+under these two benchmarks. In addition to reproducing their results as
+reported in their original papers, we further run settings that are not used
+in these papers: when we see failed tests or significant performance degradation,
+we try our best effort to diagnose and fix the problems. From such experience,
+we try to answer the above questions in terms of both system correctness and
+performance.
+
+\vspace{-.1in}
+\paragraph{Correctness.} In our experiments, it is not uncommon for a
+research prototypes to stop working under untested settings. However, since even
+mature commercial softwares are not free of bugs, it is perhaps unrealistic
+to expect a research prototype to be stable and reliable under all conditions,
+so the question we want to investigate here is whether it is possible to improve
+the quality of artifact with a reasonable amount of effort.
+
+We tried to diagnose and fix the problems we met and observe the problems can
+be categoried into two types: the first type deterministically blocks an experiment
+under a certain setting. They are usually caused by hard-coded configurations.
+For example, a prototype may preallocate a fixed amount of memory, which will
+not work if we test the prototype with more data. Naturally, this type of problems
+are more likely to happen when we push the system to the extreme (e.g., a lot of
+data or a lot of nodes). Diagnosing this type of problems could take a while for
+us, since the error messages do not always directly point to the root cause, but should be
+easier for the authors who are familiar with the system; fixing this type of problems
+usually only requires changing a few lines of code. The second type can non-deterministically
+cause the prototype to crash during certain experiments. While we try our best to
+diagnose this type, we only succeed in a subset of them. This type of problems
+can happen under any settings, which means identifying them will need a large
+amount of effort, not to mention diagnosing and fixing them.
+
+From such experience, we conclude that, while expecting a research prototype
+to be almost bug-free is unrealistic, fixing the first type of problems is both
+beneficial and feasible: it allows a future research work to compare with a prior
+work under a different setting, without requiring the additional effort of
+fixing the code of prior work; these types of problems can usually be triggered
+by running extreme settings and can usually be fixed easily, which means the
+authors do not need to spend a significant amount of effort to test different
+settings and diagnose the problems.
+
+\vspace{-.1in}
+\paragraph{Performance.}
+When comparing system performance under a wide range of settings,
+we observe extensive evaluation can bring two benefits:
+
+First, extensive evaluation has revealed design issues that
+    cause performance degradation in previously untested settings. For example, DrTM~\cite{Wei2015FIT}
+    and Silo experience performance degradation when loaded with
+    more data, since their tree indexes grow larger. This problem could be addressed
+    by partitioning data~\cite{Kalia2014HERD,chang06bigtable,Decandia07Dynamo,Lee2021ShardManager}.
+    %, though this requires quite significant changes and thus
+    %is out of the scope of this work. 
+    Revealing and addressing these issues can avoid
+    the problem that a later work has to ``optimize'' or ``re-implement'' a prior work for
+    a fair comparison under a new setting. Furthermore, we also observe
+    performance degradation that we do not know how to address, which
+    could be future research topics as well.
+    
+Second, extensive evaluation allows us to perform a more comprehensive comparison
+    of system performance under different settings. Perhaps
+    not surprisingly, we find prior works sometimes report
+    settings they excel at: while these settings may be important,
+    it may not be a good idea to completely ignore other settings,
+    as discussed above.
+
+The cost, however, is significant: it tooks us thousands of machine hours to test
+one prototype, despite that we carefully chose the parameters to tune and
+ the parameter values to use. For systems with more parameters, the cost
+could get out of control.
+
+To address this challenge, we investigate the following question: is it possible
+to identify all such performance patterns by running a subset of settings?
+
+......
+
+
+
+\iffalse
+\vspace{-.1in}
+\paragraph{Sampling and Regression to Reduce Experiment Time.}
+Our experience shows that, perhaps not surprisingly, extensive
+evaluation can indeed be quite  time- and resource-consuming, in particular
+when evaluating distributed systems.
+For experiments with 4-5 parameters, we have to carefully choose parameter
+values to make total experiment time manageable.
+If we need to add a few more parameters or
+possible values, the experiment time will quickly get out of control. 
+
+To address this problem,
+we have tried the classic sampling and regression approach: we sample a subset of
+settings, measure the performance under these
+settings, and use the result to predict performance under other settings.
+We make two observations. First, non-linear regression methods like 
+multilayer perceptron (MLP)~\cite{MLP1998}
+works quite well. Given enough samples, MLP can achieve a normalized root-mean-square deviation (RMSE) value of 0.1 or lower for most systems.
+Second, for systems with less predictable performance, we find they often
+have performance anomalies under certain settings.
+These phenomena are perhaps not surprising because unpredictability indicates
+that system performance can have an abrupt change due to a small change of setting:
+this is undesired for almost any real-world system.
+
+Motivated by these two observations, we suggest the following approach to determine
+what settings to run: we can gradually measure more settings, until we find 
+the normalized RMSE of regression is stable. In this case, we can be
+confident that we have run enough samples to reveal the system's performance
+characteristics. Furthermore, if the normalized RMSE is high,
+we should investigate why. 
+%Regression can help us reveal the settings whose
+%performance often deviate from prediction, which are the targets we should investigate.
+%Note that even for systems with well predictable performance, there might
+%still be a few such abnormal settings.
+
+\vspace{-.1in}
+\paragraph{Tiled Heat Map to Visualize High-Dimensional Data.}
+Since the benchmarks include multiple
+parameters, the evaluation results are high-dimensional data that cannot
+be directly mapped to a two-dimensional figure. If we only present a subset
+of results, we will need to go back to the question of which settings
+to use---this is exactly what we try to avoid by
+extensive evaluation. 
+%There are a lot of works about how to
+%visualize high-dimensional data, but most focus on finding the
+%structures within high-dimensional data, which is different from
+%our goal of comprehensive comparison.
+
+To address this problem,
+we design and develop a tool to visualize high-dimensional data on
+a figure called Tiled Heat Map: for $n$ dimensional
+data, this tool first chooses $n-2$ dimensions and groups data with the same
+values of these two $n-2$ dimensions; each group only has two
+dimensions and thus can be drawn in a 2D figure, called a ``tile'';
+then this tool treats each tile as a point and repeats this procedure for
+the remaining $n-2$ dimensions, till it can cover all dimensions.
+To determine which dimensions to choose in each round, we further
+propose a metric to evaluate how ``smooth'' the result
+figure is by computing the correlation of the distance and
+the difference between all pairs of points: our tool will iterate
+possible choices and choose the one with the highest smoothness.
+In our study, we find the Tiled Heat Map can well present 4D-5D data to
+show the trend of how parameter values affect system
+performance.
+
+
+\vspace{-.1in}
+\paragraph{Benefits of Extensive Evaluation.}
+Our experience shows that extensive evaluation can improve
+the quality of artifact and allow a more comprehensive
+performance analysis:
+
+\begin{itemize} [leftmargin=*]
+
+    \vspace{-.05in}
+    \item Extensive evaluation has revealed multiple correctness
+    or configuration issues that block extensive evaluation.
+    Some of them are caused by hard-coded configurations (e.g., fixed memory allocation by Silo~\cite{Tu2013Silo}, Cicada~\cite{Lim2017Cicada}, DrTM~\cite{Wei2015FIT}, and GAM~\cite{Cai2018GAM}),
+    which can easily be fixed by the authors but can take much longer
+    for others to figure out. Some of them are bugs that are more
+    likely to manifest under new settings. Revealing and fixing these
+    issues is exactly one purpose of artifact evaluation and that's why
+    we further advocate extensive evaluation.
+    Furthermore, we find a fundamental solution
+    to some of these problems (e.g., adaptive configuration rather than manual
+    tuning) is beyond simple engineering effort and perhaps is a research topic by itself.
+    
+    \vspace{-.05in}
+    \item Extensive evaluation has also revealed design issues that
+    cause performance degradation in previously untested settings. For example, DrTM~\cite{Wei2015FIT}
+    and Silo experience performance degradation when loaded with
+    more data, since their tree indexes grow larger. This problem could be addressed
+    by partitioning data~\cite{Kalia2014HERD,chang06bigtable,Decandia07Dynamo,Lee2021ShardManager}.
+    %, though this requires quite significant changes and thus
+    %is out of the scope of this work. 
+    Revealing and addressing these issues can avoid
+    the problem that a later work has to ``optimize'' or ``re-implement'' a prior work for
+    a fair comparison under a new setting. Furthermore, we also observe
+    performance degradation that we do not know how to address, which
+    could be future research topics as well.
+    
+    \vspace{-.05in}
+    \item Extensive evaluation allows us to perform a more comprehensive comparison
+    of system performance under different settings. Perhaps
+    not surprisingly, we find prior works sometimes report
+    settings they excel at: while these settings may be important,
+    it may not be a good idea to completely ignore other settings,
+    as discussed above.
+        
+\end{itemize}
+\fi

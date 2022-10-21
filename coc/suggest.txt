@@ -1,0 +1,118 @@
+Schedu|Scheduler activation|yank|S
+w|will|yank|S
+w|will|yank|S
+cite|cite|texlab|f
+ref|ref|texlab|f
+ite|itemize|texlab|E
+item|itemize|texlab|E
+info|information|buffer|
+14|154|buffer|
+14|154|buffer|
+14|154|buffer|
+14|154|buffer|
+0|0x1|buffer|
+14|154|buffer|
+un|unknown|buffer|
+grad|gradespace|file|
+|["latex","markdown"]|json|v
+"ltex|"ltex.enabled": $1|json|m
+newcomm|newcommand|texlab|f
+vspa|vspace|texlab|f
+figures|figures|around|
+includegra|includegraphics|around|
+centering|centering|texlab|f
+figure|figure|texlab|E
+bein|begin|texlab|S
+B|Bigr|texlab|f
+fi|fi|texlab|f
+figure|figure|texlab|E
+|fig:contrast|texlab|f
+ref|ref|texlab|f
+newcomma|newcommand|texlab|f
+las|laststatus|around|
+Chage|ChangeGUIFont|around|
+start|started_by_firenvim|around|
+ex|exists|around|
+Jet|JetBrainsMono|around|
+last|laststatus|around|
+ci|cite|around|
+sem|semophore|around|
+avia|available|around|
+avai|available|around|
+2|2022|around|
+1|1FL0|around|
+Wel|Well done.|yank|S
+10|170|buffer|
+10|170|buffer|
+We|Well done.|yank|S
+end|endian|buffer|
+endie|endianess|buffer|
+8|8th|buffer|
+Well|Well done.|yank|S
+Wel|Well done.|yank|S
+Well|Well done.|yank|S
+endian|endianess|buffer|
+Wel|Well done.|yank|S
+We|Well done.|yank|S
+Wel|Well done.|yank|S
+Wel|Well done.|yank|S
+|HW_ID|sh|v
+GRA|GRADE_DIR|sh|v
+|HW_ID|sh|v
+E|EXPORT_DIR|sh|v
+EX|EXPORT_DIR|sh|v
+sym|symbolic|around|
+GRAD|GRADE_DIR|sh|v
+EXP|EXPORT_DIR|sh|v
+GRAD|GRADE_DIR|sh|v
+GRAD|GRADE_DIR|sh|v
+EXP|EXPORT_DIR|sh|v
+EX|EXPORT_DIR|sh|v
+|WORK_DIR|sh|v
+WORK|WORK_DIR|sh|v
+HW|HW_ID|sh|v
+HOME|HOMEWORK_ID|sh|v
+WOR|WORK_DIR|sh|v
+|WORK_DIR|sh|v
+WORK|WORK_DIR|sh|v
+|cs154-grade-workspace|file|
+uc|uc-cs|file|
+|Documents|file|
+|royhuang|file|
+Users|Users|file|
+HOME|HOMEWORK_ID|sh|v
+cs|cs154-spr-22-graders|file|
+uc|uc-cs|file|
+|Documents|file|
+admini|adiministrated|around|
+vis|VisDrone|around|
+criter|criterials|around|
+criti|criterials|around|
+sati|satisified|around|
+crit|criterias|around|
+org|org = {|yank|S
+mapp|mappings = {|yank|S
+TITL|TITLE|buffer|
+TITLE|TITLE|buffer|
+t|table|yank|S
+RESE|RESEARCH|around|
+RES|RESEARCH|around|
+RES|RESEARCH|around|
+road|roadmap|around|
+Mul|Multics|around|
+con|conceallevel=2 concealcursor=nc|yank|S
+conceal|conceallevel=2 concealcursor=nc|yank|S
+|cs331.org|file|
+uc|uc-cs|file|
+Docu|Documents|file|
+pro|project-plan.org|file|
+acc|accuracy|around|
+http|https://docs.google.com/spreadsheets/d/1FL0-9Oi4sFyLnZ8E1xfC-oSFOyaKbSKqRPyabxiAvLU/edit?usp=sharing|yank
+Plu|Plugin 'akinsho/org-bullets.nvim'|yank
+Plugin|Plugin 'akinsho/org-bullets.nvim'|yank
+mono|monolithic|around
+Plu|Plug|around
+Docu|Documents|file
+Docume|Documents|file
+terminol|terminology|around
+g_box|g_boxes|clangd
