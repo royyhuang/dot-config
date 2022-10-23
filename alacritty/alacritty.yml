@@ -7,7 +7,7 @@ window:
 colors:
   # Default colors
   primary:
-    background: '0x263238'
+    background: '0x25363b'
     foreground: '0xb0bec5'
 
   # Cursor colors
@@ -51,7 +51,7 @@ colors:
 font:
   normal:
     family: JetbrainsMono Nerd Font Mono
-    style: Regular
+    style: Medium
 
   bold:
     family: JetbrainsMono Nerd Font Mono
@@ -69,4 +69,4 @@ font:
 
   offset:
     x: 0
-    y: 5
+    y: 7 
