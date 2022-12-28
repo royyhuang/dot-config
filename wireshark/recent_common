@@ -6,6 +6,9 @@
 
 ######## Recent capture files (latest last), cannot be altered through command line ########
 
+recent.capture_file: /Users/royhuang/Documents/uc-cs/ml-sys/anomaly-detection-ShadowFient/data/alexa/no_interaction_merged.pcap
+recent.capture_file: /Users/royhuang/Documents/uc-cs/ml-sys/anomaly-detection-ShadowFient/data/alexa/play_music_merged.pcapng
+recent.capture_file: /Users/royhuang/Documents/uc-cs/ml-sys/anomaly-detection-ShadowFient/data/alexa/play_music_merged.pcap
 
 ######## Recent capture filters (latest last), cannot be altered through command line ########
 
@@ -17,8 +20,8 @@ recent.capture_filter.en0: host 128.135.24.72
 
 # Main window geometry.
 # Decimal numbers.
-gui.geometry_main_x: 396
-gui.geometry_main_y: 183
+gui.geometry_main_x: 1135
+gui.geometry_main_y: 344
 gui.geometry_main_width: 1062
 gui.geometry_main_height: 789
 

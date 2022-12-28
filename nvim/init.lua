@@ -26,6 +26,9 @@ local keyset = vim.keymap.set
 keyset("n", "k", "(v:count == 0 ? 'gk' : 'k')", {expr = true})
 keyset("n", "j", "(v:count == 0 ? 'gj' : 'j')", {expr = true})
 keyset("i", "jj", "<ESC>")
+keyset("n", "<space>bn", ":bn<cr>")
+keyset("n", "<space>bp", ":bp<cr>")
+keyset("n", "<space>bk", ":bp|bd #<cr>")
 
 -- Packer packages
 local ensure_packer = function()
@@ -66,7 +69,8 @@ require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+ use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+ use 'lewis6991/impatient.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
@@ -74,6 +78,8 @@ require('packer').startup(function(use)
     require('packer').sync()
   end
 end)
+
+require("impatient")
 
 -- coc keybindings
 function _G.check_back_space()
@@ -85,13 +91,24 @@ keyset("n", "gd", "<Plug>(coc-definition)", {silent = true})
 keyset("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
 keyset("n", "gi", "<Plug>(coc-implementation)", {silent = true})
 keyset("n", "gr", "<Plug>(coc-references)", {silent = true})
-keyset("n", "<C-e>", ":CocCommand explorer<cr>")
+keyset("n", "<space>op", ":CocCommand explorer<cr>")
 keyset("n", "<space>rf", "<Plug>(coc-refractor)")
-keyset("n", "<space>a", ":CocAction<cr>")
-keyset("x", "<space>a", ":CocAction<cr>")
+keyset("n", "<space>ca", "<Plug>(coc-codeaction-cursor)")
+keyset("x", "<space>ca", "<Plug>(coc-codeaction-cursor)")
 keyset("i", "<TAB>",'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
 keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
 keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
+function _G.show_docs()
+    local cw = vim.fn.expand('<cword>')
+    if vim.fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then
+        vim.api.nvim_command('h ' .. cw)
+    elseif vim.api.nvim_eval('coc#rpc#ready()') then
+        vim.fn.CocActionAsync('doHover')
+    else
+        vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
+    end
+end
+keyset("n", "K", '<CMD>lua _G.show_docs()<CR>', {silent = true})
 
 -- Highlight the symbol and its references when holding the cursor.
 vim.api.nvim_create_augroup("CocGroup", {})
@@ -100,9 +117,19 @@ vim.api.nvim_create_autocmd("CursorHold", {
     command = "silent call CocActionAsync('highlight')",
     desc = "Highlight symbol under cursor on CursorHold"
 })
-
+-- Change the coc-completion window color scheme
+vim.api.nvim_create_autocmd(
+	{"VimEnter", "ColorScheme"},
+	{pattern = "*", command = "hi! link CocMenuSel PMenuSel"})
+vim.api.nvim_create_autocmd(
+	{"VimEnter", "ColorScheme"},
+	{pattern = "*", command = "hi! link CocSearch Identifier"})
+vim.api.nvim_create_autocmd(
+	{"VimEnter", "ColorScheme"},
+	{pattern = "*", command = "hi CocFloating guifg=#b0bec5 guibg=#355058"})
 
 require'nvim-treesitter.configs'.setup {
+  ensure_installed = {"c", "python", "cpp", "bash", "fish", "lua"},
   highlight = {
 	enable = true
   },
@@ -110,6 +137,9 @@ require'nvim-treesitter.configs'.setup {
 
 require('material').setup({
 	lualine_style = 'stealth', -- the stealth style
+	plugins = {
+		"telescope"
+	}
 })
 vim.cmd "colorscheme material"
 
@@ -154,9 +184,14 @@ require('telescope').setup{
 require('telescope').load_extension('fzf')
 -- telescope keybindings
 local builtin = require('telescope.builtin')
-keyset("n", "<space>ff", builtin.find_files, {})
+keyset("n", "<space>.", builtin.find_files, {})
 keyset("n", "<space>fj", builtin.live_grep, {})
-keyset("n", "<space>fb", builtin.buffers, {})
+keyset("n", "<space>bi", builtin.buffers, {})
 keyset("n", "<space>fh", builtin.help_tags, {})
 
 require('luatab').setup {}
+
+-- vim-floaterm keybindings
+keyset("n", "<C-t>", ":FloatermToggle<cr>")
+keyset("t", "<C-t>", "<C-\\><C-n>:FloatermToggle<cr>")
+

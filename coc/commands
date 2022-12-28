@@ -39,6 +39,10 @@ explorer
 explorer
 explorer
 explorer
+explorer
+explorer
+explorer
+explorer
 pyright.restartserver
 clangd.projectConfig
 explorer

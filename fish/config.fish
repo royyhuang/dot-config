@@ -16,6 +16,10 @@ set --export OS_INTERFACE public
 set --export OS_APPLICATION_CREDENTIAL_ID fafda5cf152a47bba5d3876c43adf093
 set --export OS_APPLICATION_CREDENTIAL_SECRET jlHTJC9tHp8SMdpYIAxamOlohkp02IZxeHYZMiMmMVXuzFDR__rSLgm-cQcMqqjoz8NK2Gd8p0J-PxZ-FZlFug
 
+set --export GIT_TOKEN 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
+
+set --export DIRPAPERS $HOME/Documents/ucare/DIR-PAPERS
+
 set all_proxy
 set http_proxy
 set https_proxy
