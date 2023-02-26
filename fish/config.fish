@@ -1,5 +1,5 @@
 set PATH $HOME/.local/bin /Library/TeX/texbin $HOME/.emacs.d/bin /usr/local/Cellar/openjdk/18.0.1.1/bin $HOME/.cargo/bin $GOROOT/bin $GOPATH/bin /usr/local/opt/llvm/bin /usr/local/bin $HOME/bin /usr/local/sbin /Users/royhuang/Library/Python/3.7/bin /usr/bin /usr/sbin /bin /sbin
-set --export PYTHONPATH /Users/royhuang/Documents/ce/src $PYTHONPATH
+set --export PYTHONPATH /Users/royhuang/Documents/ucare/napp-lat /Users/royhuang/Documents/ce/src $PYTHONPATH
 set EDITOR vim
 set GOPATH $HOME/go
 set GOROOT /usr/local/opt/go/libexec
@@ -80,3 +80,11 @@ if status is-interactive
     end
     set -g fish_key_bindings my_vi_bindings
 end
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /Users/royhuang/.local/miniconda3/bin/conda
+    eval /Users/royhuang/.local/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+end
+# <<< conda initialize <<<
+
