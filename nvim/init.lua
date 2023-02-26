@@ -71,10 +71,6 @@ require('packer').startup(function(use)
   }
  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
  use 'lewis6991/impatient.nvim'
- use {
-	"windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
- }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
@@ -113,23 +109,6 @@ function _G.show_docs()
     end
 end
 keyset("n", "K", '<CMD>lua _G.show_docs()<CR>', {silent = true})
-local remap = vim.api.nvim_set_keymap
-local npairs = require('nvim-autopairs')
-npairs.setup({map_cr=false})
-
--- skip it, if you use another global object
-_G.MUtils= {}
-
--- new version for custom pum
-MUtils.completion_confirm=function()
-    if vim.fn["coc#pum#visible"]() ~= 0  then
-        return vim.fn["coc#pum#confirm"]()
-    else
-        return npairs.autopairs_cr()
-    end
-end
-
-remap('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
 
 -- Highlight the symbol and its references when holding the cursor.
 vim.api.nvim_create_augroup("CocGroup", {})
@@ -215,3 +194,4 @@ require('luatab').setup {}
 -- vim-floaterm keybindings
 keyset("n", "<C-t>", ":FloatermToggle<cr>")
 keyset("t", "<C-t>", "<C-\\><C-n>:FloatermToggle<cr>")
+

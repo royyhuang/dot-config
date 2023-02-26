@@ -6,10 +6,9 @@
     "coc-clangd": ">=0.25.0",
     "coc-explorer": ">=0.25.0",
     "coc-lua": ">=1.0.1",
-    "coc-pyright": ">=1.1.284",
-    "coc-sh": ">=0.7.0"
+    "coc-pyright": ">=1.1.284"
   },
   "disabled": [],
   "locked": [],
-  "lastUpdate": 1676091249961
+  "lastUpdate": 1671903149747
 }

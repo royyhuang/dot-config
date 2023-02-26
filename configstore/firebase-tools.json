@@ -1,0 +1,38 @@
+{
+	"analytics-uuid": "9b98a150-9d91-413a-9dec-7b356b19f817",
+	"motd": {
+		"minVersion": "3.0.5"
+	},
+	"motd.fetched": 1571546083199,
+	"usage": true,
+	"user": {
+		"iss": "accounts.google.com",
+		"azp": "563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com",
+		"aud": "563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com",
+		"sub": "106838053667104122605",
+		"email": "roy.y.huang@gmail.com",
+		"email_verified": true,
+		"at_hash": "FLN0MDqL3_LapNvUVbwnLw",
+		"iat": 1571546099,
+		"exp": 1571549699
+	},
+	"tokens": {
+		"expires_at": 1571549769558,
+		"refresh_token": "1//0f4JO3Zfcwl0UCgYIARAAGA8SNwF-L9IrBX8OQQ5ot6gfz_EP2rvz_Hl1By6WPGWdisCDKUH9CPdlMTwCiQBo9ILTgHjpM__AKMs",
+		"scopes": [
+			"email",
+			"https://www.googleapis.com/auth/cloud-platform",
+			"https://www.googleapis.com/auth/cloudplatformprojects.readonly",
+			"https://www.googleapis.com/auth/firebase",
+			"openid"
+		],
+		"access_token": "ya29.Il-iB8BXFz7SYfYjyYu80HdlQ-GObcQXUTAJaLB894enyz5uO5tfzwbEy4tBeStNJP6sCNn3-0C8VxzzHRTIXArFnQg2kAjyP0iSJXgnodbECMNPzploLy60rpTqId754g",
+		"expires_in": 3600,
+		"scope": "https://www.googleapis.com/auth/firebase https://www.googleapis.com/auth/cloud-platform openid https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/cloudplatformprojects.readonly",
+		"token_type": "Bearer",
+		"id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNkYjNlZDZiOTU3NGVlM2ZjZDlmMTQ5ZTU5ZmYwZWVmNGY5MzIxNTMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTA2ODM4MDUzNjY3MTA0MTIyNjA1IiwiZW1haWwiOiJyb3kueS5odWFuZ0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6ImJFOXlGVi1UY1RGVTNCNzdLTmV2NHciLCJpYXQiOjE1NzE1NDYxNjksImV4cCI6MTU3MTU0OTc2OX0.gkOQi-yZaQzCQpAOstJlX4TMXNLjvORe7OUKLFMY7RTJiJKq5P-u_2thFKcMYj59D-BtQ0dfzsFMSffm4Wriw-EZoi1S70KjxSoSliGOOpCaiwKmR9laqX5psDkWH-j8cCl3WY-jS5-SuT7cnIU0PeBWkHZoQ095A0_TUY24niI0rxnZLtOwUsE452rrYZnR53mcLxdrm0jXhp46lxZ-HhhmahsGcQ8lVU44-LgvvN5YK6YBN-QaRJva6gt1ioPm2D_lrEYaT6QrqC5cxHTQdaFIlIc3j0m7Wfl7PD0QSHEHsvBi9xwfhwEqW0x36KvjSQaNklbOQsAtXk3qaUnDxQ"
+	},
+	"activeProjects": {
+		"/Users/royhuang/Documents/InfinityTrackerFirebaseFunc": "infinitytracker-654c9"
+	}
+}
