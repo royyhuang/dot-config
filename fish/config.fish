@@ -1,9 +1,6 @@
-set PATH $HOME/.local/bin /Library/TeX/texbin $HOME/.emacs.d/bin /usr/local/Cellar/openjdk/18.0.1.1/bin $HOME/.cargo/bin $GOROOT/bin $GOPATH/bin /usr/local/opt/llvm/bin /usr/local/bin $HOME/bin /usr/local/sbin /Users/royhuang/Library/Python/3.7/bin /usr/bin /usr/sbin /bin /sbin
+set PATH $HOME/.local/bin /Library/TeX/texbin $HOME/.emacs.d/bin /opt/homebrew/Cellar/openjdk/18.0.1.1/bin $HOME/.cargo/bin $GOROOT/bin $GOPATH/bin /usr/local/opt/llvm/bin /opt/homebrew/bin /opt/homebrew/sbin $HOME/bin /usr/local/sbin /Users/royhuang/Library/Python/3.7/bin /usr/bin /usr/sbin /bin /sbin
 set --export PYTHONPATH /Users/royhuang/Documents/ucare/napp-lat /Users/royhuang/Documents/ce/src $PYTHONPATH
 set EDITOR vim
-set GOPATH $HOME/go
-set GOROOT /usr/local/opt/go/libexec
-set --export MODEL_PATH /Users/royhuang/TensorFlow/models/research/object_detection/test_data/centernet_resnet50_v2_512x512_coco17_tpu-8/saved_model
 set --export JAVA_HOME /usr/local/Cellar/openjdk/18.0.2.1
 set --export PACKER_HOME /Users/royhuang/.local/share/nvim/site/pack/packer/start
 set --export CS154_ADMIN ~/Documents/uc-cs/cs154-aut-22-admin/

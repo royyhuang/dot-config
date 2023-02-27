@@ -83,12 +83,12 @@ shift + ctrl - j : yabai -m window --focus south
 shift + ctrl - k : yabai -m window --focus north
 shift + ctrl - l : yabai -m window --focus east
 
-rshift + ctrl - p : yabai -m space --focus prev
-rshift + ctrl - n : yabai -m space --focus next
-rshift + ctrl - c : yabai -m space --create && \
+shift + ctrl - p : yabai -m space --focus prev
+shift + ctrl - n : yabai -m space --focus next
+shift + ctrl - c : yabai -m space --create && \
                    index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
-                  yabai -m window --space "${index}" && \
-                  yabai -m space --focus "${index}"
+                   yabai -m window --space "${index}" && \
+                   yabai -m space --focus "${index}"
 # fast focus desktop
 rshift + ctrl - x : yabai -m space --destroy
 rshift + ctrl - 1 : yabai -m space --focus 1

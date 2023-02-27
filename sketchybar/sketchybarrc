@@ -38,7 +38,7 @@ source "$ITEM_DIR/front_app.sh"
 
 # right
 source "$ITEM_DIR/time.sh"
-source "$ITEM_DIR/battery.sh"
+# source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/disk.sh"
 source "$ITEM_DIR/mem.sh"
 # source "$ITEM_DIR/cpu.sh"
