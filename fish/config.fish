@@ -17,6 +17,8 @@ set --export GIT_TOKEN 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
 
 set --export DIRPAPERS $HOME/Documents/ucare/DIR-PAPERS
 
+set --export ICLD_DOC "/Users/royhuang/Library/Mobile Documents/com~apple~CloudDocs/Documents"
+
 set all_proxy
 set http_proxy
 set https_proxy

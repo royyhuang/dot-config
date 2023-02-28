@@ -24,7 +24,7 @@ setup_space 5 other
 
 yabai -m config layout bsp
 
-yabai -m config top_padding    40
+yabai -m config top_padding    10
 yabai -m config bottom_padding 10
 yabai -m config left_padding   10
 yabai -m config right_padding  10
@@ -35,9 +35,7 @@ yabai -m config window_gap     10
 
 yabai -m config window_opacity on
 yabai -m config active_window_opacity 1.0
-yabai -m config normal_window_opacity 0.9
-
-yabai -m config window_shadow float
+yabai -m config normal_window_opacity 0.8
 
 yabai -m rule --add app="^WeChat$" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
