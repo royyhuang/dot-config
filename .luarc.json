@@ -5,5 +5,5 @@
     "Lua.workspace.library": [
         "${3rd}/lovr/library"
     ],
-    "Lua.workspace.maxPreload": 2000
+    "Lua.workspace.maxPreload": 4000
 }

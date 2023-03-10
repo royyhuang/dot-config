@@ -1,0 +1,6 @@
+# key: jp
+# name: jupyter-python
+# --
+#+begin_src jupyter-python
+  $0
+#+end_src

@@ -18,8 +18,8 @@ vim.opt.termguicolors = true
 vim.opt.hidden = true
 vim.opt.updatetime = 100
 vim.opt.shortmess = "c"
-vim.cmd "syntax enable"
-vim.cmd "filetype indent on"
+vim.cmd("syntax enable")
+vim.cmd("filetype indent on")
 
 -- general vim keybindings
 local keyset = vim.keymap.set
@@ -35,7 +35,8 @@ local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    fn.system({'git', 'clone', '--depth', '1',
+			   'https://github.com/wbthomason/packer.nvim', install_path})
     vim.cmd [[packadd packer.nvim]]
     return true
   end
@@ -90,7 +91,12 @@ function _G.check_back_space()
     local col = vim.fn.col('.') - 1
     return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
 end
-local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
+local opts = {
+	silent = true,
+	noremap = true,
+	expr = true,
+	replace_keycodes = false
+}
 keyset("n", "gd", "<Plug>(coc-definition)", {silent = true})
 keyset("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
 keyset("n", "gi", "<Plug>(coc-implementation)", {silent = true})
@@ -129,7 +135,8 @@ MUtils.completion_confirm=function()
     end
 end
 
-remap('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
+remap('i' , '<CR>','v:lua.MUtils.completion_confirm()',
+	  {expr = true , noremap = true})
 
 -- Highlight the symbol and its references when holding the cursor.
 vim.api.nvim_create_augroup("CocGroup", {})
@@ -150,7 +157,7 @@ vim.api.nvim_create_autocmd(
 	{pattern = "*", command = "hi CocFloating guifg=#b0bec5 guibg=#355058"})
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {"c", "python", "cpp", "bash", "fish", "lua"},
+  ensure_installed = {"c", "python", "cpp", "bash", "fish", "lua", "vim"},
   highlight = {
 	enable = true
   },
@@ -162,7 +169,7 @@ require('material').setup({
 		"telescope"
 	}
 })
-vim.cmd "colorscheme material"
+vim.cmd("colorscheme material")
 
 require('lualine').setup {
   options = {

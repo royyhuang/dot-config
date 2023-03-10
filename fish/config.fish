@@ -1,4 +1,4 @@
-set PATH $HOME/.local/bin /Library/TeX/texbin $HOME/.emacs.d/bin /opt/homebrew/Cellar/openjdk/18.0.1.1/bin $HOME/.cargo/bin $GOROOT/bin $GOPATH/bin /usr/local/opt/llvm/bin /opt/homebrew/bin /opt/homebrew/sbin $HOME/bin /usr/local/sbin /Users/royhuang/Library/Python/3.7/bin /usr/bin /usr/sbin /bin /sbin
+set PATH $HOME/.local/bin /Library/TeX/texbin $HOME/.emacs.d/bin $HOME/.config/emacs/bin /opt/homebrew/Cellar/openjdk/18.0.1.1/bin /usr/local/opt/llvm/bin /opt/homebrew/bin /opt/homebrew/sbin $HOME/bin /usr/local/sbin /Users/royhuang/Library/Python/3.7/bin /usr/bin /usr/sbin /bin /sbin
 set --export PYTHONPATH /Users/royhuang/Documents/ucare/napp-lat /Users/royhuang/Documents/ce/src $PYTHONPATH
 set EDITOR vim
 set --export JAVA_HOME /usr/local/Cellar/openjdk/18.0.2.1
@@ -13,7 +13,7 @@ set --export OS_INTERFACE public
 set --export OS_APPLICATION_CREDENTIAL_ID fafda5cf152a47bba5d3876c43adf093
 set --export OS_APPLICATION_CREDENTIAL_SECRET jlHTJC9tHp8SMdpYIAxamOlohkp02IZxeHYZMiMmMVXuzFDR__rSLgm-cQcMqqjoz8NK2Gd8p0J-PxZ-FZlFug
 
-set --export GIT_TOKEN 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
+set --export GH_TOKEN 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
 
 set --export DIRPAPERS $HOME/Documents/ucare/DIR-PAPERS
 
