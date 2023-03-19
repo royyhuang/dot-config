@@ -37,8 +37,9 @@ math = {}
 ---
 ---[View documents](http://www.lua.org/manual/5.4/manual.html#pdf-math.abs)
 ---
----@param x number
----@return number
+---@generic Number: number
+---@param x Number
+---@return Number
 ---@nodiscard
 function math.abs(x) end
 

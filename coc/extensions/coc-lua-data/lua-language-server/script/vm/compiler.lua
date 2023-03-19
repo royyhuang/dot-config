@@ -1357,6 +1357,7 @@ local compilerSwitch = util.switch()
             if src.type == 'doc.field'
             or src.type == 'doc.type.field'
             or src.type == 'doc.type.name'
+            or src.type == 'doc.type'
             or guide.isLiteral(src) then
                 hasMarkDoc = true
                 vm.setNode(source, vm.compileNode(src))
@@ -1908,10 +1909,9 @@ function vm.compileNode(source)
 
     ---@cast source parser.object
     vm.setNode(source, vm.createNode(), true)
-    if not vm.compileByGlobal(source) then
-        vm.compileByVariable(source)
-        compileByNode(source)
-    end
+    vm.compileByGlobal(source)
+    vm.compileByVariable(source)
+    compileByNode(source)
     compileByParentNode(source)
     matchCall(source)
 

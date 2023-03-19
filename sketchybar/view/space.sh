@@ -1,14 +1,19 @@
 #!/usr/bin/env bash
 
-SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "0" "z" "x" "c" "v" "b" "n" "m" "a" "s" "d" "f" "g")
+# SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "0" "z" "x" "c" "v" "b" "n" "m" "a" "s" "d" "f" "g")
+SPACE_ICONS=(0 1 2 3 4 5 6 7 8 9)
 
 # sid=0
 for i in "${!SPACE_ICONS[@]}"; do
 	sid=$((i + 1))
+	icon_name=$(yabai -m query --spaces | jq .[${i}].label | tr -d '"')
+	if [ -z $icon_name ]; then
+		icon_name=${sid}
+	fi
 	sketchybar --add space space.$sid left \
 		--set space.$sid associated_space=$sid \
 		ignore_association=off \
-		icon="${SPACE_ICONS[i]}" \
+		icon=$sid \
 		icon.padding_left=6 \
 		icon.padding_right=6 \
 		background.padding_left=4 \

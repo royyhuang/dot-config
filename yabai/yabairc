@@ -18,7 +18,7 @@ function setup_space {
 }
 setup_space 1 term 
 setup_space 2 web
-setup_space 3 social
+setup_space 3 mail 
 setup_space 4 media
 setup_space 5 other
 

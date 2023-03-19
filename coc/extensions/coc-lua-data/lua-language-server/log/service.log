@@ -1,9 +1,9 @@
-[14:05:54.734][info] [#0:/Users/royhuang/.config/coc/extensions/coc-lua-data/lua-language-server/main.lua:66]: Lua Lsp startup, root: 	/Users/royhuang/.config/coc/extensions/coc-lua-data/lua-language-server
-[14:05:54.734][info] [#0:/Users/royhuang/.config/coc/extensions/coc-lua-data/lua-language-server/main.lua:67]: ROOT:	/Users/royhuang/.config/coc/extensions/coc-lua-data/lua-language-server
-[14:05:54.734][info] [#0:/Users/royhuang/.config/coc/extensions/coc-lua-data/lua-language-server/main.lua:68]: LOGPATH:	/Users/royhuang/.config/coc/extensions/coc-lua-data/lua-language-server/log
-[14:05:54.734][info] [#0:/Users/royhuang/.config/coc/extensions/coc-lua-data/lua-language-server/main.lua:69]: METAPATH:	/Users/royhuang/.config/coc/extensions/coc-lua-data/lua-language-server/meta
-[14:05:54.735][info] [#0:/Users/royhuang/.config/coc/extensions/coc-lua-data/lua-language-server/main.lua:70]: VERSION:	3.6.11
-[14:05:54.753][info] [#0:script/service/service.lua:144]: 
+[03:39:37.757][info] [#0:/Users/royhuang/.config/coc/extensions/coc-lua-data/lua-language-server/main.lua:66]: Lua Lsp startup, root: 	/Users/royhuang/.config/coc/extensions/coc-lua-data/lua-language-server
+[03:39:37.757][info] [#0:/Users/royhuang/.config/coc/extensions/coc-lua-data/lua-language-server/main.lua:67]: ROOT:	/Users/royhuang/.config/coc/extensions/coc-lua-data/lua-language-server
+[03:39:37.757][info] [#0:/Users/royhuang/.config/coc/extensions/coc-lua-data/lua-language-server/main.lua:68]: LOGPATH:	/Users/royhuang/.config/coc/extensions/coc-lua-data/lua-language-server/log
+[03:39:37.757][info] [#0:/Users/royhuang/.config/coc/extensions/coc-lua-data/lua-language-server/main.lua:69]: METAPATH:	/Users/royhuang/.config/coc/extensions/coc-lua-data/lua-language-server/meta
+[03:39:37.757][info] [#0:/Users/royhuang/.config/coc/extensions/coc-lua-data/lua-language-server/main.lua:70]: VERSION:	3.6.17
+[03:39:37.770][info] [#0:script/service/service.lua:144]: 
 ========= Medical Examination Report =========
     --------------- Memory ---------------
         Total: 2.111 MB
@@ -25,7 +25,7 @@
         Holdon:   0
         Waiting:  0
 ==============================================
-[14:05:54.757][info] [#0:script/client.lua:657]: Client init	{
+[03:39:37.773][info] [#0:script/client.lua:657]: Client init	{
   capabilities = {
     general = {
       markdown = {
@@ -308,17 +308,17 @@
     changeConfiguration = true
   },
   locale = "en_US",
-  processId = 39696,
+  processId = 70593,
   rootPath = "/Users/royhuang/.config",
   rootUri = "file:///Users/royhuang/.config",
   trace = "off",
-  workDoneToken = "7f92a4c4-5602-4811-94e5-dbc97484ea31",
+  workDoneToken = "2b9d47e5-f796-46ae-acf4-a2cff4d71cc6",
   workspaceFolders = { {
       name = ".config",
       uri = "file:///Users/royhuang/.config"
     } }
 }
-[14:05:54.757][info] [#0:script/language.lua:137]: VSC language: en_US
-[14:05:54.757][info] [#0:script/language.lua:138]: LS  language: en-us
-[14:05:54.757][info] [#0:script/workspace/workspace.lua:38]: Workspace init root: 	file:///Users/royhuang/.config
-[14:05:54.757][info] [#0:script/workspace/workspace.lua:42]: Log path: 	/Users/royhuang/.config/coc/extensions/coc-lua-data/lua-language-server/log/file_Users_royhuang_.config.log
+[03:39:37.773][info] [#0:script/language.lua:137]: VSC language: en_US
+[03:39:37.773][info] [#0:script/language.lua:138]: LS  language: en-us
+[03:39:37.773][info] [#0:script/workspace/workspace.lua:38]: Workspace init root: 	file:///Users/royhuang/.config
+[03:39:37.773][info] [#0:script/workspace/workspace.lua:42]: Log path: 	/Users/royhuang/.config/coc/extensions/coc-lua-data/lua-language-server/log/file_Users_royhuang_.config.log
