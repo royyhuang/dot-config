@@ -4,11 +4,11 @@
     "coc-json": ">=1.6.1",
     "coc-clangd": ">=0.25.0",
     "coc-explorer": ">=0.25.0",
-    "coc-lua": ">=2.0.5",
     "coc-pyright": ">=1.1.284",
     "coc-sh": ">=0.7.0",
     "coc-ltex": ">=13.1.0",
-    "coc-pairs": ">=1.4.2"
+    "coc-pairs": ">=1.4.2",
+    "coc-sumneko-lua": ">=0.0.37"
   },
   "disabled": [],
   "locked": [],

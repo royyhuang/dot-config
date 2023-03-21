@@ -22,11 +22,11 @@
 ;; accept. For example:
 ;;
 (setq doom-font (font-spec
-                 :family "JetBrains Mono"
+                 :family "JetBrainsMono Nerd Font Mono"
                  :size 12
                  :weight 'medium)
       doom-unicode-font (font-spec
-                         :family "JetBrains Mono"
+                         :family "JetBrainsMono Nerd Font Mono"
                          :size 12
                          :weight 'medium))
 
@@ -104,8 +104,8 @@
 ;; lsp-ltex config
 (use-package! lsp-ltex
   :init
-  (setenv "JAVA_HOME" "/usr/local/Cellar/openjdk/19.0.1")
-  (setq! lsp-ltex-version "15.2.0")
+  (setenv "JAVA_HOME" "/Library/Java/JavaVirtualMachines/temurin-19.jdk/Contents/Home")
+  (setq! lsp-ltex-version "16.0.0")
   :hook
   (text-mode . (lambda () (require 'lsp-ltex) (lsp)))
   :config

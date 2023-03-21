@@ -82,7 +82,6 @@ end)
 
 require("impatient")
 
--- coc keybindings
 function _G.check_back_space()
     local col = vim.fn.col('.') - 1
     return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
@@ -116,6 +115,9 @@ function _G.show_docs()
 end
 keyset("n", "K", '<CMD>lua _G.show_docs()<CR>', {silent = true})
 
+-- Symbol renaming
+keyset("n", "<space>rn", "<Plug>(coc-rename)", {silent = true})
+
 -- Highlight the symbol and its references when holding the cursor.
 vim.api.nvim_create_augroup("CocGroup", {})
 vim.api.nvim_create_autocmd("CursorHold", {
@@ -133,6 +135,12 @@ vim.api.nvim_create_autocmd(
 vim.api.nvim_create_autocmd(
 	{"VimEnter", "ColorScheme"},
 	{pattern = "*", command = "hi CocFloating guifg=#b0bec5 guibg=#355058"})
+
+-- Add (Neo)Vim's native statusline support
+-- NOTE: Please see `:h coc-status` for integrations with external plugins that
+-- provide custom statusline: lightline.vim, vim-airline
+vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}")
+
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {"c", "python", "cpp", "bash", "fish", "lua", "vim"},

@@ -3,7 +3,10 @@
 	"explorer.icon.enableNerdfont": true,
 	"explorer.icon.source": "nvim-web-devicons",
 	"explorer.enableFloatinput": true,
-	"Lua.diagnostics.globals": ["vim"],
-	"Lua.workspace.preloadFileSize": 1500
+	"Lua.workspace.preloadFileSize": 1500,
+	"coc.source.file.enable": false,
+	"coc.source.buffer.enable": false,
+	"coc.source.around.enable": false,
+	"sumneko-lua.enableNvimLuaDev": true
 }
 

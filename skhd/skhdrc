@@ -82,6 +82,8 @@ shift + ctrl - h : yabai -m window --focus west
 shift + ctrl - j : yabai -m window --focus south
 shift + ctrl - k : yabai -m window --focus north
 shift + ctrl - l : yabai -m window --focus east
+lshift + ctrl - p : yabai -m window --focus stack.prev || yabai -m window --focus stack.last
+lshift + ctrl - n : yabai -m window --focus stack.next || yabai -m window --focus stack.first
 
 rshift + ctrl - p : yabai -m space --focus prev
 rshift + ctrl - n : yabai -m space --focus next
@@ -165,6 +167,8 @@ ctrl + cmd - right : yabai -m window --resize right:-20:0
 # toggle window zoom
 # alt - d : yabai -m window --toggle zoom-parent
 alt - f : yabai -m window --toggle zoom-fullscreen
+
+alt - s : yabai -m space --layout stack
 
 # toggle window split type
 # alt - e : yabai -m window --toggle split

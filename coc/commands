@@ -1,6 +1,11 @@
 explorer
 explorer
 explorer
+sumneko-lua.insertNvimLuaPluginLibrary
+sumneko-lua.downloadNvimLuaTypes
+explorer
+explorer
+explorer
 explorer
 explorer
 lua.update
