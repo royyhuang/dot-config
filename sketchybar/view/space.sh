@@ -8,12 +8,13 @@ for i in "${!SPACE_ICONS[@]}"; do
 	sid=$((i + 1))
 	icon_name=$(yabai -m query --spaces | jq .[${i}].label | tr -d '"')
 	if [ -z $icon_name ]; then
-		icon_name=${sid}
+		icon_name=$(yabai -m query --spaces | jq .[${i}].index | tr -d '"')
 	fi
 	sketchybar --add space space.$sid left \
 		--set space.$sid associated_space=$sid \
 		ignore_association=off \
-		icon=$sid \
+		icon=$icon_name \
+		icon.font="JetBrainsMono Nerd Font Mono:Medium:12"\
 		icon.padding_left=6 \
 		icon.padding_right=6 \
 		background.padding_left=4 \

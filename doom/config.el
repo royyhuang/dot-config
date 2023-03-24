@@ -139,11 +139,11 @@
    "C-j" 'evil-window-down
    "C-k" 'evil-window-up
    "C-l" 'evil-window-right
-   "C-t" 'eshell-toggle)
+   "C-t" '+vterm/toggle)
   (general-define-key
    :states '(insert)
    :keymaps 'override
-   "C-t" 'eshell-toggle))
+   "C-t" '+vterm/toggle))
 
 (use-package! evil
   :config
