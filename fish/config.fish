@@ -1,9 +1,6 @@
-set PATH $HOME/.local/bin /Library/TeX/texbin $HOME/.emacs.d/bin $HOME/.config/emacs/bin /opt/homebrew/Cellar/openjdk/18.0.1.1/bin /usr/local/opt/llvm/bin /opt/homebrew/bin /opt/homebrew/sbin $HOME/bin /usr/local/sbin /Users/royhuang/Library/Python/3.7/bin /usr/bin /usr/sbin /bin /sbin
-set --export PYTHONPATH /Users/royhuang/Documents/ucare/napp-lat /Users/royhuang/Documents/ce/src $PYTHONPATH
-set EDITOR vim
-set --export JAVA_HOME (/usr/libexec/java_home -v 19)
-set --export PACKER_HOME /Users/royhuang/.local/share/nvim/site/pack/packer/start
-set --export CS154_ADMIN ~/Documents/uc-cs/cs154-aut-22-admin/
+set --export PATH $HOME/.local/bin /usr/local/sbin /usr/bin /usr/sbin /bin /sbin
+set --export PYTHONPATH $PYTHONPATH
+set --export EDITOR nvim
 
 set --export OS_AUTH_TYPE v3applicationcredential
 set --export OS_AUTH_URL https://chi.uc.chameleoncloud.org:5000/v3
@@ -15,31 +12,13 @@ set --export OS_APPLICATION_CREDENTIAL_SECRET jlHTJC9tHp8SMdpYIAxamOlohkp02IZxeH
 
 set --export GH_TOKEN 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
 
-set --export DIRPAPERS $HOME/Documents/ucare/DIR-PAPERS
-
-set --export ICLD_DOC "/Users/royhuang/Library/Mobile Documents/com~apple~CloudDocs/Documents"
-
-set all_proxy
-set http_proxy
-set https_proxy
-
-alias showfiles="defaults write com.apple.finder AppleShowAllFiles true; killall Finder"
-alias hidefiles="defaults write com.apple.finder AppleShowAllFiles false; killall Finder"
-alias eclimd="/Applications/Eclipse.app/Contents/Eclipse/eclimd"
 alias rmswp='rm .*.swp'
 alias vim='nvim'
 alias vi='nvim'
 alias cat='highlight -O ansi --force'
-alias build='docker buildx build --platform linux/arm64 --ssh default --secret id=my_secret,src=$HOME/.ssh/id_rsa.pub -t 1nfinity/ce-dev --load .'
 alias extend-lease='blazar lease-update --prolong-for "7d"'
 alias ls="ls --color=always"
 alias rm="trash"
-alias tex-clean="rm -f *.aux *.fdb_latexmk *.fls *.log *.out *.synctex.gz"
-alias ta="cd $CS154_ADMIN"
-alias pta="cd $HOME/Documents/uc-cs/cs154-aut-21-admin"
-alias home="cd $HOME"
-alias doc="cd $HOME/Documents"
-alias down="cd $HOME/Downloads"
 
 # Title 
 set -g theme_title_display_process yes
@@ -82,8 +61,8 @@ end
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-if test -f /Users/royhuang/.local/miniconda3/bin/conda
-    eval /Users/royhuang/.local/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+if test -f $HOME/.local/miniconda3/bin/conda
+    eval $HOME/.local/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 end
 # <<< conda initialize <<<
 
