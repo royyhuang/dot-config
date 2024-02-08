@@ -6,9 +6,6 @@ sudo yabai --load-sa
 DEFAUL_LAYOUT="bsp"
 SOCIAL_LAYOUT="stack"
 OTHER_LAYOUT="float"
-NOTCH_UUID="37D8832A-2D66-02CA-B9F7-8F30A301B230"
-NOTCH_BAR=10
-NORMAL_BAR=40
 
 function setup_space {
   local idx="$1"
