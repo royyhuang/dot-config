@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: italic-text-math
-# key: ti
-# --
-\text{\textit{$0}}
