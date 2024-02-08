@@ -1,0 +1,19 @@
+showNewVersionIcon: true
+hideAfterStartup: false
+randomControllerPort: true
+runTimeFormat: "hh : mm : ss"
+trayOrders:
+  - - icon
+  - - status
+    - traffic
+    - text
+hideTrayIcon: false
+connShowProcess: true
+showTrayProxyDelayIndicator: true
+editor: 1
+theme: 0
+systemTheme: true
+trayProxiesStyle: 0
+silentUpdate: true
+ssidStrategyText: |
+  strategy: # object

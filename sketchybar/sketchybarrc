@@ -20,7 +20,6 @@ sketchybar --bar height=$BAR_SIZE \
 	position=top \
 	sticky=on \
 	font_smoothing=on \
-	\
 	--default updates=when_shown \
 	drawing=on \
 	icon.font="$ICON:Medium:$FONT_SIZE.0" \

@@ -52,7 +52,6 @@ function activate(context) {
             luaDocContext[k] = context[k];
         }
         catch (error) {
-            console.error(error);
         }
     }
     luaDocContext.ViewType = 'lua-doc';

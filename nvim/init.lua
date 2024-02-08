@@ -70,8 +70,14 @@ require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
- use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
- use 'lewis6991/impatient.nvim'
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use 'lewis6991/impatient.nvim'
+  use {
+  	'VonHeikemen/fine-cmdline.nvim',
+  	requires = {
+      {'MunifTanjim/nui.nvim'}
+    }
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
@@ -92,6 +98,7 @@ local opts = {
 	expr = true,
 	replace_keycodes = false
 }
+keyset("n", "<D-x>", "<cmd>FineCmdline<cr>", {noremap = true})
 keyset("n", "gd", "<Plug>(coc-definition)", {silent = true})
 keyset("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
 keyset("n", "gi", "<Plug>(coc-implementation)", {silent = true})
@@ -141,6 +148,7 @@ vim.api.nvim_create_autocmd(
 -- provide custom statusline: lightline.vim, vim-airline
 vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}")
 
+-- require'nvim-treesitter.install'.compilers = { "clang++" }
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {"c", "python", "cpp", "bash", "fish", "lua", "vim"},

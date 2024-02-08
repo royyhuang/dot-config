@@ -5,3 +5,4 @@ os
 mem
 subproblems
 coef
+well-adpoted

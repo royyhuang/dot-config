@@ -5,6 +5,7 @@ sudo yabai --load-sa
 
 DEFAUL_LAYOUT="bsp"
 SOCIAL_LAYOUT="stack"
+OTHER_LAYOUT="float"
 NOTCH_UUID="37D8832A-2D66-02CA-B9F7-8F30A301B230"
 NOTCH_BAR=10
 NORMAL_BAR=40
@@ -28,32 +29,56 @@ function setup_space {
 	yabai -m space $idx --layout $DEFAUL_LAYOUT
   fi
 }
-setup_space 1 term
-setup_space 2 emacs
-setup_space 3 web 
-setup_space 4 im
-setup_space 5 mail
-setup_space 6 other
 
-yabai -m config top_padding  10
-yabai -m config bottom_padding 10
-yabai -m config left_padding   10
-yabai -m config right_padding  10
-yabai -m config window_gap     10
+setup_space 1 term
+setup_space 2 code
+setup_space 3 emacs
+setup_space 4 web 
+setup_space 5 im
+setup_space 6 mail
+setup_space 7 other
+
+yabai -m config top_padding  	10
+yabai -m config bottom_padding 	10
+yabai -m config left_padding   	10
+yabai -m config right_padding  	10
+yabai -m config window_gap     	10
 
 yabai -m config window_shadow off
 yabai -m config window_opacity on
-yabai -m config active_window_opacity 0.93
+yabai -m config active_window_opacity 0.9
 yabai -m config normal_window_opacity 0.75
 
 yabai -m rule --add app="^System Settings$" manage=off
-yabai -m rule --add app="^Safari" space=^3
-yabai -m rule --add app="^Firefox" space=^3
+yabai -m rule --add app="^Infuse" opacity=1.0
+
+# space 1
 yabai -m rule --add app="^Alacritty" space=^1
-yabai -m rule --add app="^Emacs" space=^2
-yabai -m rule --add app="^WeChat" space=^4 opacity=1.0
-yabai -m rule --add app="^Skype" space=^4 opacity=1.0
-yabai -m rule --add app="^Slack" space=^4 opacity=1.0
-yabai -m rule --add app="^Spark" space=^5
+
+# space 2
+yabai -m rule --add app="^Code" space=^2
+
+# space 3
+yabai -m rule --add app="^Emacs" space=^3
+
+# space 4
+yabai -m rule --add app="^Arc" space=^4 opacity=1.0 
+yabai -m rule --add app="^Safari" space=^4 opacity=1.0
+yabai -m rule --add app="^Firefox" space=^4 opacity=1.0
+
+# space 5
+yabai -m rule --add app="^WeChat" space=^5 opacity=1.0
+yabai -m rule --add app="^Message" space=^5 opacity=1.0
+yabai -m rule --add app="^Skype" space=^5 opacity=1.0
+yabai -m rule --add app="^Microsoft Teams" space=^5 opacity=1.0
+yabai -m rule --add app="^Slack" space=^5 opacity=1.0
+
+# space 6
+yabai -m rule --add app="^Spark" space=^6
+yabai -m rule --add app="^Microsoft Outlook" space=^6
+
+# space 7
+yabai -m rule --add app="^Parallels Desktop" space=^7
+
 
 

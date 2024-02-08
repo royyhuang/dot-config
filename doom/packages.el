@@ -9,14 +9,11 @@
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 (package! format-all)
 (package! tldr)
-(package! lsp-ltex
-          :recipe (:host github :repo "emacs-languagetool/lsp-ltex" :branch "master"))
 (package! key-chord)
 (package! lsp-treemacs)
 (package! flycheck-pos-tip)
 (package! general)
 (package! visual-fill-column)
-(package! tramp)
 (package! eshell-toggle
           :recipe (:host github :repo "4DA/eshell-toggle" :branch "master"))
 (package! olivetti)

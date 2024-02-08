@@ -700,6 +700,8 @@ local function parseResume(parent)
     return result
 end
 
+local lockResume = false
+
 function parseType(parent)
     local result = {
         type    = 'doc.type',
@@ -778,20 +780,10 @@ function parseType(parent)
         return false
     end
 
-    local checkResume = true
-    local nsymbol, ncontent = peekToken()
-    if nsymbol == 'symbol' then
-        if ncontent == ','
-        or ncontent == ':'
-        or ncontent == '|'
-        or ncontent == ')'
-        or ncontent == '}' then
-            checkResume = false
-        end
-    end
-
-    if checkResume then
+    if not lockResume then
+        lockResume = true
         while pushResume() do end
+        lockResume = false
     end
 
     if #result.types == 0 then
@@ -1501,21 +1493,22 @@ end
 local function trimTailComment(text)
     local comment = text
     if text:sub(1, 1) == '@' then
-        comment = text:sub(2)
+        comment = util.trim(text:sub(2))
     end
     if text:sub(1, 1) == '#' then
-        comment = text:sub(2)
+        comment = util.trim(text:sub(2))
     end
     if text:sub(1, 2) == '--' then
-        comment = text:sub(3)
+        comment = util.trim(text:sub(3))
     end
-    if comment:find '^%s*[\'"[]' then
+    if  comment:find '^%s*[\'"[]'
+    and comment:find '[\'"%]]%s*$' then
         local state = compile(comment:gsub('^%s+', ''), 'String')
         if state and state.ast then
             comment = state.ast[1]
         end
     end
-    return comment
+    return util.trim(comment)
 end
 
 local function buildLuaDoc(comment)
@@ -2050,6 +2043,7 @@ return function (state)
         if not comment then
             break
         end
+        lockResume = false
         local doc, rests = buildLuaDoc(comment)
         if doc then
             insertDoc(doc, comment)

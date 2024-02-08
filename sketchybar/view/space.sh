@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 
-# SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "0" "z" "x" "c" "v" "b" "n" "m" "a" "s" "d" "f" "g")
 SPACE_ICONS=(0 1 2 3 4 5 6 7 8 9)
 
-# sid=0
 for i in "${!SPACE_ICONS[@]}"; do
 	sid=$((i + 1))
 	icon_name=$(yabai -m query --spaces | jq .[${i}].label | tr -d '"')
-	if [ -z $icon_name ]; then
-		icon_name=$(yabai -m query --spaces | jq .[${i}].index | tr -d '"')
+	if [ $icon_name == "null" ] || [ -z $icon_name ]; then
+		icon_name=${sid}
 	fi
 	sketchybar --add space space.$sid left \
 		--set space.$sid associated_space=$sid \
@@ -27,7 +25,7 @@ for i in "${!SPACE_ICONS[@]}"; do
 		script="$PLUGIN_DIR/space.sh" \
 		click_script="yabai -m space --focus $sid"
 done
-#
+
 sketchybar --add item space_separator left \
 	--set space_separator icon=􀄭 \
 	background.padding_left=0
