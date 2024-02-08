@@ -1,4 +1,5 @@
 local files   = require 'files'
+<<<<<<< Updated upstream
 local lang    = require 'language'
 local guide   = require "parser.guide"
 local await   = require 'await'
@@ -36,6 +37,11 @@ local function findReturn(docs, index)
 
     return false
 end
+=======
+local guide   = require "parser.guide"
+local await   = require 'await'
+local helper  = require 'core.diagnostics.helper.missing-doc-helper'
+>>>>>>> Stashed changes
 
 ---@async
 return function (uri, callback)
@@ -56,6 +62,7 @@ return function (uri, callback)
             return
         end
 
+<<<<<<< Updated upstream
         local functionName = source.parent[1]
 
         if #source.args == 0 and not source.returns and not source.bindDocs then
@@ -94,5 +101,8 @@ return function (uri, callback)
                 end
             end
         end
+=======
+        helper.CheckFunction(source, callback, 'DIAG_MISSING_GLOBAL_DOC_COMMENT', 'DIAG_MISSING_GLOBAL_DOC_PARAM', 'DIAG_MISSING_GLOBAL_DOC_RETURN')
+>>>>>>> Stashed changes
     end)
 end

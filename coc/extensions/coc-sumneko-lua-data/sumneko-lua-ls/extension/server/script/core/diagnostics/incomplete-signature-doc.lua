@@ -38,6 +38,22 @@ local function findReturn(docs, index)
     return false
 end
 
+<<<<<<< Updated upstream
+=======
+--- check if there's any signature doc (@param or @return), or just comments, @async, ...
+local function findSignatureDoc(docs)
+    if not docs then
+        return false
+    end
+    for _, doc in ipairs(docs) do
+        if doc.type == 'doc.return' or doc.type == 'doc.param' then
+            return true
+        end
+    end
+    return false
+end
+
+>>>>>>> Stashed changes
 ---@async
 return function (uri, callback)
     local state = files.getState(uri)
@@ -59,10 +75,24 @@ return function (uri, callback)
 
         local functionName = source.parent[1]
 
+<<<<<<< Updated upstream
         if #source.args > 0 then
             for _, arg in ipairs(source.args) do
                 local argName = arg[1]
                 if argName ~= 'self' then
+=======
+        --- don't apply rule if there is no @param or @return annotation yet
+        --- so comments and @async can be applied without the need for a full documentation
+        if(not findSignatureDoc(source.bindDocs)) then
+            return
+        end
+
+        if source.args and #source.args > 0 then
+            for _, arg in ipairs(source.args) do
+                local argName = arg[1]
+                if  argName ~= 'self'
+                and argName ~= '_' then
+>>>>>>> Stashed changes
                     if not findParam(source.bindDocs, argName) then
                         callback {
                             start   = arg.start,
