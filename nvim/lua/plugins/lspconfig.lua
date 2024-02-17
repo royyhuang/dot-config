@@ -1,11 +1,53 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = {
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim"
+		},
 		config = function ()
 			-- Set up lspconfig.
 			local capabilities = require('cmp_nvim_lsp').default_capabilities()
 			local lspconfig = require('lspconfig')
+			local mason = require("mason")
+			local mason_lspconfig = require("mason-lspconfig")
+
+			mason.setup()
+			mason_lspconfig.setup({
+				ensure_installed = {
+					"clangd",
+					"texlab",
+					"pyright",
+					"bashls",
+					"cmake",
+					"lua_ls"
+				},
+			})
+
 			lspconfig.pyright.setup({
+			  capabilities = capabilities,
+			  autostart = true
+			})
+			lspconfig.clangd.setup({
+			  capabilities = capabilities,
+			  autostart = true
+			})
+			lspconfig.texlab.setup({
+			  capabilities = capabilities,
+			  autostart = true
+			})
+			lspconfig.lua_ls.setup({
+			  	capabilities = capabilities,
+			  	autostart = true,
+				settings = {
+        			Lua = {
+            			diagnostics = {
+							globals = { 'vim' }
+            			}
+        			}
+    			}
+			})
+			lspconfig.bashls.setup({
 			  capabilities = capabilities,
 			  autostart = true
 			})
