@@ -1,15 +1,14 @@
-set -Ux PATH {$HOME}/.local/bin /usr/local/sbin /usr/bin /usr/sbin /bin /sbin
+set --export PATH {$HOME}/.local/bin /usr/local/sbin /usr/bin /usr/sbin /bin /sbin
 
-set -Ux EDITOR nvim
-set -Ux GH_TOKEN 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
+set --export GH_TOKEN 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
 
-set -Ux OS_AUTH_TYPE v3applicationcredential
-set -Ux OS_AUTH_URL https://chi.uc.chameleoncloud.org:5000/v3
-set -Ux OS_IDENTITY_API_VERSION 3
-set -Ux OS_REGION_NAME "CHI@UC"
-set -Ux OS_INTERFACE public
-set -Ux OS_APPLICATION_CREDENTIAL_ID fafda5cf152a47bba5d3876c43adf093
-set -Ux OS_APPLICATION_CREDENTIAL_SECRET\
+set --export OS_AUTH_TYPE v3applicationcredential
+set --export OS_AUTH_URL https://chi.uc.chameleoncloud.org:5000/v3
+set --export OS_IDENTITY_API_VERSION 3
+set --export OS_REGION_NAME "CHI@UC"
+set --export OS_INTERFACE public
+set --export OS_APPLICATION_CREDENTIAL_ID fafda5cf152a47bba5d3876c43adf093
+set --export OS_APPLICATION_CREDENTIAL_SECRET\
 	"jlHTJC9tHp8SMdpYIAxamOlohkp02IZxeHYZMiMmMVXuzFDR__rSLgm-cQcMqqjoz8NK2Gd8"\
 	"p0J-PxZ-FZlFug"
 
@@ -22,24 +21,24 @@ alias rm="trash"
 
 # macOS specific setups
 if test (uname) = "Darwin"
-	set -Ux UCARE {$HOME}/Documents/ucare
-	set -Ux DIRPAPERS {$UCARE}/DIR-PAPERS
-	set -Ux SUBM {$UCARE}/submission
-	set -Ux DOC {$HOME}/Documents
-	set -Ux PATH \
+	set --export UCARE {$HOME}/Documents/ucare
+	set --export DIRPAPERS {$UCARE}/DIR-PAPERS
+	set --export SUBM {$UCARE}/submission
+	set --export DOC {$HOME}/Documents
+	set --export PATH \
 		{$DIRPAPERS}/scripts \
 		{$DIRPAPERS}/scripts/common \
 		{$HOME}/.config/emacs/bin \
 		/Library/TeX/texbin \
 		/Users/royhuang/Library/Python/3.9/bin \
-		(/usr/libexec/java_home) \
 		/usr/local/opt/llvm/bin \
-		/opt/homebrew/bin /opt/homebrew/sbin \
+		/opt/homebrew/bin \
+		/opt/homebrew/sbin \
 		/Users/royhuang/Library/Python/3.7/bin \
 		{$PATH}
-	set -Ux PYTHONPATH {$UCARE}/napp-lat $PYTHONPATH
-	set -Ux JAVA_HOME (/usr/libexec/java_home)
-	set -Ux PACKER_HOME {$HOME}/.local/share/nvim/site/pack/packer/start
+	set --export PYTHONPATH {$UCARE}/napp-lat $PYTHONPATH
+	set --export JAVA_HOME (/usr/libexec/java_home)
+	set --export PACKER_HOME {$HOME}/.local/share/nvim/site/pack/packer/start
 	alias showfiles="defaults write com.apple.finder AppleShowAllFiles true; killall Finder"
 	alias hidefiles="defaults write com.apple.finder AppleShowAllFiles false; killall Finder"
 	alias eclimd="/Applications/Eclipse.app/Contents/Eclipse/eclimd"
@@ -49,6 +48,8 @@ if test (uname) = "Darwin"
 	alias cat='highlight -O ansi --force'
 	alias tex-clean="rm -f *.aux *.fdb_latexmk *.fls *.log *.out *.synctex.gz"
 end
+
+set --export EDITOR nvim
 
 # Title 
 set -g theme_title_display_process yes
