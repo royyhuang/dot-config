@@ -10,7 +10,40 @@ return {
 						"&& cmake --install build --prefix build"
 			}
 	  	},
-
+		keys = {
+			{
+				"<space>.",
+				function ()
+					require("telescope.builtin").find_files()
+				end,
+				mode="n",
+				desc="Telescope find files"
+			},
+			{
+				"<space>fj",
+				function ()
+					require("telescope.builtin").live_grep()
+				end,
+				mode="n",
+				desc="Telescope live grep"
+			},
+			{
+				"<space>bi",
+				function ()
+					require("telescope.builtin").buffers()
+				end,
+				mode="n",
+				desc="Telescope list buffers"
+			},
+			{
+				"<space>fh",
+				function ()
+					require("telescope.builtin").help_tags()
+				end,
+				mode="n",
+				desc="Telescope helps"
+			},
+		},
 	    config = function ()
 	      	require('telescope').setup{
 	      	  	pickers = {
@@ -27,13 +60,6 @@ return {
 	      	  	}
 	      	}
 	      	require('telescope').load_extension('fzf')
-	      	-- telescope keybindings
-	      	local builtin = require('telescope.builtin')
-			local keyset = vim.keymap.set
-	      	keyset("n", "<space>.", builtin.find_files, {})
-	      	keyset("n", "<space>fj", builtin.live_grep, {})
-	      	keyset("n", "<space>bi", builtin.buffers, {})
-	      	keyset("n", "<space>fh", builtin.help_tags, {})
 	    end
     }
 }

@@ -21,7 +21,7 @@ vim.opt.shortmess = "c"
 vim.cmd("syntax enable")
 vim.cmd("filetype indent on")
 
--- general vim keybindings
+-- General vim keybindings
 local keyset = vim.keymap.set
 keyset("n", "k", "(v:count == 0 ? 'gk' : 'k')", {expr = true})
 keyset("n", "j", "(v:count == 0 ? 'gj' : 'j')", {expr = true})

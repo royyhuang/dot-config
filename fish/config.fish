@@ -1,4 +1,5 @@
-set --export PATH {$HOME}/.local/bin /usr/local/sbin /usr/bin /usr/sbin /bin /sbin
+set --export PATH {$HOME}/.local/bin /usr/local/sbin /usr/bin /usr/sbin /bin\
+	/sbin
 
 set --export GH_TOKEN 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
 
@@ -36,15 +37,15 @@ if test (uname) = "Darwin"
 		/opt/homebrew/sbin \
 		/Users/royhuang/Library/Python/3.7/bin \
 		{$PATH}
-	set --export PYTHONPATH {$UCARE}/napp-lat $PYTHONPATH
+	set --export PYTHONPATH {$UCARE}/napp-lat {$PYTHONPATH}
 	set --export JAVA_HOME (/usr/libexec/java_home)
 	set --export PACKER_HOME {$HOME}/.local/share/nvim/site/pack/packer/start
 	alias showfiles="defaults write com.apple.finder AppleShowAllFiles true; killall Finder"
 	alias hidefiles="defaults write com.apple.finder AppleShowAllFiles false; killall Finder"
 	alias eclimd="/Applications/Eclipse.app/Contents/Eclipse/eclimd"
-	alias home="cd $HOME"
-	alias doc="cd $HOME/Documents"
-	alias down="cd $HOME/Downloads"
+	alias home="cd {$HOME}"
+	alias doc="cd {$HOME}/Documents"
+	alias down="cd {$HOME}/Downloads"
 	alias cat='highlight -O ansi --force'
 	alias tex-clean="rm -f *.aux *.fdb_latexmk *.fls *.log *.out *.synctex.gz"
 end
@@ -92,7 +93,7 @@ end
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-if test -f $HOME/.local/miniconda3/bin/conda
-    eval $HOME/.local/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+if test -f {$HOME}/.local/miniconda3/bin/conda
+    eval {$HOME}/.local/miniconda3/bin/conda "shell.fish" "hook" {$argv} | source
 end
 # <<< conda initialize <<<

@@ -9,7 +9,6 @@ return {
 		end
 	},
   	'easymotion/vim-easymotion',
-  	'christoomey/vim-tmux-navigator',
 	{
     	'windwp/nvim-autopairs',
     	event = "InsertEnter",
