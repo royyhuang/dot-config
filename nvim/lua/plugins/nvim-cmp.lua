@@ -6,11 +6,18 @@ return {
 			'hrsh7th/cmp-buffer',
 			'hrsh7th/cmp-path',
 			'hrsh7th/cmp-cmdline',
-			'L3MON4D3/LuaSnip'
+			'L3MON4D3/LuaSnip',
+			"onsails/lspkind.nvim"
 		},
 		config = function ()
 			local cmp = require('cmp')
+			local lspkind = require('lspkind')
 			cmp.setup({
+			  formatting = {
+				format = lspkind.cmp_format({
+					mode = "symbol_text",
+				}),
+			  },
 			  snippet = {
 				-- REQUIRED - you must specify a snippet engine
 				expand = function(args)
@@ -18,8 +25,11 @@ return {
 				end,
 			  },
 			  window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
+				-- completion = cmp.config.window.bordered(),
+				-- documentation = cmp.config.window.bordered(),
+			  },
+			  view = {
+  			    entries = {name = 'custom', selection_order = 'near_cursor' }
 			  },
 			  mapping = cmp.mapping.preset.insert({
 				['<C-b>'] = cmp.mapping.scroll_docs(-4),

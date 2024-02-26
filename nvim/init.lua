@@ -18,6 +18,8 @@ vim.opt.termguicolors = true
 vim.opt.hidden = true
 vim.opt.updatetime = 100
 vim.opt.shortmess = "c"
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.cmd("syntax enable")
 vim.cmd("filetype indent on")
 

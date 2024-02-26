@@ -40,24 +40,24 @@ foreground = "0xb0bec5"
 size = 12
 
 [font.bold]
-family = "JetbrainsMono Nerd Font Mono"
+family = "FiraMono Nerd Font Mono"
 style = "ExtraBold"
 
 [font.bold_italic]
-family = "JetbrainsMono Nerd Font Mono"
+family = "FiraMono Nerd Font Mono"
 style = "ExtraBold Italic"
 
 [font.italic]
-family = "JetbrainsMono Nerd Font Mono"
+family = "FiraMono Nerd Font Mono"
 style = "Medium Italic"
 
 [font.normal]
-family = "JetbrainsMono Nerd Font Mono"
+family = "FiraMono Nerd Font Mono"
 style = "Medium"
 
 [font.offset]
 x = 0
-y = 7
+y = 8
 
 [window]
 decorations = "buttonless"
