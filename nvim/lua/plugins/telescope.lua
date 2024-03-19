@@ -8,13 +8,14 @@ return {
 				build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release " ..
 						"&& cmake --build build --config Release " ..
 						"&& cmake --install build --prefix build"
-			}
+			},
+			"nvim-telescope/telescope-file-browser.nvim",
 	  	},
 		keys = {
 			{
 				"<space>.",
 				function ()
-					require("telescope.builtin").find_files()
+					require "telescope".extensions.file_browser.file_browser()
 				end,
 				mode="n",
 				desc="Telescope find files"
@@ -47,7 +48,9 @@ return {
 	    config = function ()
 	      	require('telescope').setup{
 	      	  	pickers = {
-	      			find_files = { theme = "dropdown" }
+	      			find_files = { theme = "ivy" },
+					live_grep = { theme = "ivy" },
+					buffers = { theme = "ivy" }
 	      	  	},
 	      	  	extensions = {
 	      			fzf = {
@@ -56,7 +59,12 @@ return {
 	      			  	override_file_sorter = true,     -- override the file sorter
 	      			  	case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
 	      											   -- the default case_mode is "smart_case"
-	      			}
+	      			},
+					file_browser = {
+      					theme = "ivy",
+      					-- disables netrw and use telescope-file-browser in its place
+      					hijack_netrw = true,
+    				},
 	      	  	}
 	      	}
 	      	require('telescope').load_extension('fzf')
