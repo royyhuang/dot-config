@@ -23,6 +23,9 @@ make -j $(nproc) && make -j $(nproc) install
 rm -rf tmux-$TMUX_VER.tar.gz tmux-$TMUX_VER
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash - &&\
+sudo apt-get install -y nodejs
+
 sudo mkdir -p -m 755 /etc/apt/keyrings && wget -qO- https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
 && sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
 && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
