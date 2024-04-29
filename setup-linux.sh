@@ -6,7 +6,7 @@ sudo apt-get update
 sudo apt-get -y upgrade
 
 # install fish
-sudo apt-get -y install fish libevent-dev ncurses-dev build-essential bison pkg-config fzf trash-cli highlight
+sudo apt-get -y install unzip cmake fish libevent-dev ncurses-dev build-essential bison pkg-config fzf trash-cli highlight
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 
 # install nvim
