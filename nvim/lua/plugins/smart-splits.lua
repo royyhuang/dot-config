@@ -27,7 +27,7 @@ return {
 			'prompt',
 		  },
 		  -- Ignored filetypes (only while resizing)
-		  ignored_filetypes = { 'NvimTree' },
+		  ignored_filetypes = { 'NvimTree', "neo-tree" },
 		  -- the default number of lines/columns to resize by at a time
 		  default_amount = 3,
 		  -- Desired behavior when your cursor is at an edge and you
