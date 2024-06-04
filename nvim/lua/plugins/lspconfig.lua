@@ -5,6 +5,9 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim"
 		},
+		opts = {
+			inlay_hints = { enabled = true, }
+		},
 		config = function ()
 			-- Set up lspconfig.
 			local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -20,7 +23,8 @@ return {
 					"pyright",
 					"bashls",
 					"cmake",
-					"lua_ls"
+					"lua_ls",
+					"ruff_lsp",
 				},
 			})
 
@@ -73,7 +77,6 @@ return {
 				keyset('n', 'gd', vim.lsp.buf.definition, opts)
 				keyset('n', 'K', vim.lsp.buf.hover, opts)
 				keyset('n', 'gi', vim.lsp.buf.implementation, opts)
-				keyset('n', '<C-k>', vim.lsp.buf.signature_help, opts)
 				keyset('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
 				keyset('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
 				keyset('n', '<space>wl', function()

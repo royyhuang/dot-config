@@ -1,4 +1,3 @@
-
 local function nvim_tree_on_attach(bufnr)
   	local api = require "nvim-tree.api"
 	local lib = require 'nvim-tree.lib'
@@ -54,6 +53,7 @@ return {
 		config = function ()
 			local nvim_tree = require("nvim-tree")
 			nvim_tree.setup({
+				sync_root_with_cwd = true,
 				update_cwd = true,
 				on_attach = nvim_tree_on_attach,
 				sort = { sorter = "case_sensitive", },
