@@ -11,8 +11,11 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 
 # install nvim
 mkdir -p $HOME/.local; mkdir -p $HOME/.local/bin
-curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -O $HOME/.local/bin/nvim
-chmod u+x $HOME/.local/bin/nvim
+sudo apt-get install ninja-build gettext cmake unzip curl build-essential
+git clone https://github.com/neovim/neovim.git
+cd neovim
+make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=$HOME/.local
+make install
 
 TMUX_VER=3.4
 wget https://github.com/tmux/tmux/releases/download/$TMUX_VER/tmux-$TMUX_VER.tar.gz
@@ -22,20 +25,13 @@ cd tmux-$TMUX_VER/
 make -j $(nproc) && make -j $(nproc) install
 rm -rf tmux-$TMUX_VER.tar.gz tmux-$TMUX_VER
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+cd $HOME
 
 curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash - &&\
 sudo apt-get install -y nodejs
 
-sudo mkdir -p -m 755 /etc/apt/keyrings && wget -qO- https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
-&& sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
-&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-&& sudo apt update \
-&& sudo apt install gh -y
-export GH_TOKEN=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
-gh repo clone royyhuang/dot-config
-cd dot-config
-bash ./linux-only.sh
-cd $HOME; rm -rf $HOME/.config/fish
-mv dot-config/* $HOME/.config
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O $HOME/miniconda.sh
+mkdir -p $HOME/.local/miniconda3
+bash $HOME/miniconda.sh -b -u -p $HOME/.local/miniconda3
 
-
+bash ./linux-only.sh > /dev/null
