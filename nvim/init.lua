@@ -23,6 +23,29 @@ vim.g.loaded_netrwPlugin = 1
 vim.cmd("syntax enable")
 vim.cmd("filetype indent on")
 
+-- -- Define an autocommand group and autocommands in Lua
+-- local api = vim.api
+--
+-- -- Create or clear the autocommand group
+-- local group = api.nvim_create_augroup('MyColorScheme', { clear = true })
+--
+-- -- Set up autocommands within the group
+-- api.nvim_create_autocmd('ColorScheme', {
+--     group = group,
+--     pattern = '*',
+--     callback = function()
+-- 		vim.cmd([[
+--  			hi Normal guibg=NONE ctermbg=NONE
+-- 			hi LineNr guibg=NONE ctermbg=NONE
+-- 			hi Folded guibg=NONE ctermbg=NONE
+-- 			hi NonText guibg=NONE ctermbg=NONE
+-- 			hi SpecialKey guibg=NONE ctermbg=NONE
+-- 			hi VertSplit guibg=NONE ctermbg=NONE
+-- 			hi EndOfBuffer guibg=NONE ctermbg=NONE
+-- 		]])
+--     end
+-- })
+
 -- General vim keybindings
 local keyset = vim.keymap.set
 keyset("n", "k", "(v:count == 0 ? 'gk' : 'k')", {expr = true})

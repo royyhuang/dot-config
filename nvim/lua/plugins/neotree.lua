@@ -51,7 +51,7 @@ return {
 	end,
 	keys = {
 		{
-			"<Space>op", "<cmd>Neotree<cr>",
+			"<Space>op", "<cmd>Neotree toggle<cr>",
 			mode = "n",
 			desc = "ToggleNvimTree"
 		},

@@ -1,12 +1,20 @@
 return {
 	{
 		'marko-cerovac/material.nvim',
-		config = function ()
+		config = function()
 			require('material').setup({
-			  lualine_style = 'stealth', -- the stealth style
-			  plugins = {
-				"telescope"
-			  }
+				lualine_style = 'stealth', -- the stealth style
+				plugins = {
+					"telescope",
+					"neo-tree",
+	 				"nvim-web-devicons",
+					"nvim-cmp"
+				},
+				disable = {
+					background = true,
+					termcolors = true,
+					eob = true,
+				},
 			})
 			vim.cmd("colorscheme material")
 		end
@@ -17,7 +25,7 @@ return {
 		config = function ()
 			require('lualine').setup {
 			  	options = {
-					theme = 'material',
+					theme = 'material-stealth',
 			  		section_separators = '',
 			  		component_separators = '',
 			  	}
@@ -48,7 +56,12 @@ return {
 			]]
 		end
 	},
-  	'airblade/vim-gitgutter',
+	{
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require('gitsigns').setup()
+		end
+	},
   	{
   		'VonHeikemen/fine-cmdline.nvim',
   		dependencies = { 'MunifTanjim/nui.nvim' }

@@ -12,10 +12,10 @@ return {
 		{ '<C-k>', function () require('smart-splits').move_cursor_up() end },
 		{ '<C-l>', function () require('smart-splits').move_cursor_right() end },
 		-- swapping buffers between windows
-		{ '<leader><leader>h', function () require('smart-splits').swap_buf_left() end },
-		{ '<leader><leader>j', function () require('smart-splits').swap_buf_down() end },
-		{ '<leader><leader>k', function () require('smart-splits').swap_buf_up() end },
-		{ '<leader><leader>l', function () require('smart-splits').swap_buf_right() end },
+		{ '<space>h', function () require('smart-splits').swap_buf_left() end },
+		{ '<space>j', function () require('smart-splits').swap_buf_down() end },
+		{ '<space>k', function () require('smart-splits').swap_buf_up() end },
+		{ '<space>l', function () require('smart-splits').swap_buf_right() end },
 	},
 	config = function ()
 		local smart_splits = require('smart-splits')
