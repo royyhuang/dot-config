@@ -115,9 +115,4 @@ return {
 			})
 		end
 	},
-	{
-		'dgagn/diagflow.nvim',
-		event = 'LspAttach',
-		opts = {}
-	},
 }
