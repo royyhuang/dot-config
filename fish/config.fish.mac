@@ -1,0 +1,24 @@
+#!/usr/bin/env fish
+
+set --export UCARE {$HOME}/Documents/ucare
+set --export DIRPAPERS {$UCARE}/DIR-PAPERS
+set --export SUBM {$UCARE}/submission
+set --export DOC {$HOME}/Documents
+set --export PATH \
+	{$DIRPAPERS}/scripts \
+	{$DIRPAPERS}/scripts/common \
+	{$HOME}/.config/emacs/bin \
+	/Library/TeX/texbin \
+	/Users/royhuang/Library/Python/3.9/bin \
+	/opt/homebrew/bin \
+	/opt/homebrew/sbin \
+	/Users/royhuang/Library/Python/3.7/bin \
+	{$PATH}
+set --export JAVA_HOME (/usr/libexec/java_home)
+
+alias home="cd {$HOME}"
+alias doc="cd {$HOME}/Documents"
+alias down="cd {$HOME}/Downloads"
+alias tex-clean="rm -f *.aux *.fdb_latexmk *.fls *.log *.out *.synctex.gz"
+
+source {$HOME}/.config/fish/az.fish

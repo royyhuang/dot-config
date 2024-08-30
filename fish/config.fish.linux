@@ -1,0 +1,23 @@
+#!/usr/bin/env fish
+
+# dev linux specific setups
+set --export ALCHEMISTS_HOME $HOME/alchemists
+set --export BENCHMARK_HOME $ALCHEMISTS_HOME/benchmark
+set --export PYTHONPATH \
+	$ALCHEMISTS_HOME \
+	$BENCHMARK_HOME/simple/server \
+	$BENCHMARK_HOME/simple/tracer \
+	$BENCHMARK_HOME/vllm
+set --export PATH $ALCHEMISTS_HOME/benchmark/simple/bin $PATH
+set --export VLLM_ATTENTION_BACKEND XFORMERS
+
+alias gserver="cd $ALCHEMISTS_HOME/alchemists/server"
+alias gapi="cd $ALCHEMISTS_HOME/alchemists/api"
+alias gtracer="cd $ALCHEMISTS_HOME/alchemists/tracer"
+alias gslog="cd $ALCHEMISTS_HOME/log/server"
+alias gtlog="cd $ALCHEMISTS_HOME/log/tracer"
+
+if test -f {$HOME/.config/fish/functions/prodigy}
+	set --export fish_function_path $fish_function_path \
+		$HOME/.config/fish/functions/prodigy
+end

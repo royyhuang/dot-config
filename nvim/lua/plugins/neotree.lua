@@ -31,6 +31,7 @@ return {
 	config = function ()
 		require("neo-tree").setup({
 			window = {
+				width = 30,
 				mappings = {
 					["h"] = "close_node",
 					["l"] = "open_with_window_picker",
