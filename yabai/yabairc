@@ -1,0 +1,97 @@
+#!/bin/bash
+
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+DEFAUL_LAYOUT="bsp"
+SOCIAL_LAYOUT="stack"
+OTHER_LAYOUT="float"
+
+yabai -m config layout bsp
+
+yabai -m config window_animation_duration 0.15
+yabai -m config top_padding  	4
+yabai -m config bottom_padding 	9
+yabai -m config left_padding   	9
+yabai -m config right_padding  	9
+yabai -m config window_gap     	9
+
+yabai -m config window_shadow off
+yabai -m config window_opacity on
+yabai -m config active_window_opacity 1
+yabai -m config normal_window_opacity 0.75
+
+yabai -m config mouse_modifier ctrl
+yabai -m config mouse_drop_action stack
+
+function setup_space {
+	local idx="$1"
+	local name="$2"
+	local space=
+
+    space=$(yabai -m query --spaces --space "$idx")
+    if [ -z "$space" ]; then
+        yabai -m space --create
+    fi
+
+    yabai -m space "$idx" --label "$name"
+
+    if [[ $name == "im" ]]; then
+      	yabai -m space $idx --layout $SOCIAL_LAYOUT
+    else
+      	yabai -m space $idx --layout $DEFAUL_LAYOUT
+    fi
+}
+
+setup_space 1 term
+setup_space 2 code
+setup_space 3 emacs
+setup_space 4 web 
+setup_space 5 im
+setup_space 6 mail
+setup_space 7 other
+
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Infuse" opacity=1.0
+
+# space 1
+yabai -m rule --add app="^Alacritty" space=^1
+
+# space 2
+yabai -m rule --add app="^Code" space=^2
+
+# space 3
+yabai -m rule --add app="^Emacs" space=^3
+
+# space 4
+yabai -m rule --add app="^Arc" space=^4
+yabai -m rule --add app="^Safari" space=^4 opacity=1.0
+yabai -m rule --add app="^Firefox" space=^4 opacity=1.0
+
+# space 5
+yabai -m rule --add app="^WeChat" space=^5 opacity=1.0
+yabai -m rule --add app="^Message" space=^5 opacity=1.0
+yabai -m rule --add app="^Skype" space=^5 opacity=1.0
+yabai -m rule --add app="^Microsoft Teams" space=^5 opacity=1.0
+yabai -m rule --add app="^Slack" space=^5 opacity=1.0
+
+# space 6
+yabai -m rule --add app="^Spark" space=^6
+yabai -m rule --add app="^Microsoft Outlook" space=^6
+
+# space 7
+yabai -m rule --add app="^Parallels Desktop" space=^7
+
+yabai -m rule -add app="^1Password" manage=off
+
+
+# settings for window borders
+borders_opt=(
+	style=square
+	hidpi=on
+	active_color=0xffe1e3e4
+	inactive_color=0xff494d64
+	width=8
+	order=above
+)
+borders "${borders_opt[@]}" &

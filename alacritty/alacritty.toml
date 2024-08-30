@@ -1,0 +1,68 @@
+[colors.bright]
+black = "0x415967"
+blue = "0x82aaff"
+cyan = "0x89ddff"
+green = "0xc3e88d"
+magenta = "0xc792ea"
+red = "0xf07178"
+white = "0xeeffff"
+yellow = "0xffcb6b"
+
+[colors.cursor]
+cursor = "0xffcc00"
+text = "0x727272"
+
+[colors.dim]
+black = "0x000000"
+blue = "0x6498eb"
+cyan = "0x71c6e7"
+green = "0xabcf76"
+magenta = "0xb480d6"
+red = "0xdc6068"
+white = "0xeeffff"
+yellow = "0xe6b455"
+
+[colors.normal]
+black = "0x000000"
+blue = "0x6498eb"
+cyan = "0x71c6e7"
+green = "0xabcf76"
+magenta = "0xb480d6"
+red = "0xdc6068"
+white = "0xeeffff"
+yellow = "0xe6b455"
+
+[colors.primary]
+background = "0x25363b"
+foreground = "0xb0bec5"
+
+[font]
+size = 12
+
+[font.bold]
+family = "FiraMono Nerd Font Mono"
+style = "ExtraBold"
+
+[font.bold_italic]
+family = "FiraMono Nerd Font Mono"
+style = "ExtraBold Italic"
+
+[font.italic]
+family = "FiraMono Nerd Font Mono"
+style = "Medium Italic"
+
+[font.normal]
+family = "FiraMono Nerd Font Mono"
+style = "Medium"
+
+[font.offset]
+x = 0
+y = 8
+
+[window]
+decorations = "None"
+opacity = 0.9
+
+[window.padding]
+x = 6
+y = 6
