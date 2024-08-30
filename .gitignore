@@ -2,3 +2,6 @@
 raycast/
 op/
 emacs
+.DS_Store
+.mono
+.luarc.json
