@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 clean-dot-config() {
+	pushd $HOME/.config
 	rm -r ./alacritty \
 		  ./clash \
 		  ./doom ./elisp ./emacs \
@@ -8,6 +9,7 @@ clean-dot-config() {
 		  ./raycast \
 		  ./sketchybar ./skhd ./yabai \
 		  ./htop > /dev/null
+	popd
 }
 
 install-gpu-driver() {
