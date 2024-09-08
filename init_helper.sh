@@ -187,3 +187,25 @@ lock-nv-clocks() {
     done
 }
 
+ws-init() {
+	sudo docker run -d \
+		--volume workspace:/root/workspace \
+		--volume /mnt:/root/mnt \
+		--network host \
+		--name yuyangh-workspace yuyangh-workspace:latest \
+		tail -f /dev/null
+}
+
+ws-shell() {
+	sudo docker exec -it fish
+}
+
+# short for ws-shell
+ws() {
+	ws-shell
+}
+
+ws-restart() {
+	sudo docker stop yuyangh-workspace \
+		&& sudo docker start yuyangh-workspace
+}
