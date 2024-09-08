@@ -192,12 +192,13 @@ ws-init() {
 		--volume workspace:/root/workspace \
 		--volume /mnt:/root/mnt \
 		--network host \
+		--gpus all \
 		--name yuyangh-workspace yuyangh-workspace:latest \
 		tail -f /dev/null
 }
 
 ws-shell() {
-	sudo docker exec -it fish
+	sudo docker exec -it yuyangh-workspace fish
 }
 
 # short for ws-shell
