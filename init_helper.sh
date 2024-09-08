@@ -115,6 +115,10 @@ install-all() {
 		&& install-conda-dev \
 		&& install-code-cli \
 		&& setup-ssh-tunnel
+	config_dir=$(dirname $(realpath "$0"))
+	pushd $config_dir
+	sudo docker build yuyangh-workspace:latest ./
+	popd
 }
 
 init-dev-tools() {
