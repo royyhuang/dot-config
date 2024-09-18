@@ -91,10 +91,34 @@ install-docker() {
 install-conda-dev() {
 	curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 	sh Miniconda3-latest-Linux-x86_64.sh -b -p $HOME/miniconda3
+	rm Miniconda3-latest-Linux-x86_64.sh
 	source ~/miniconda3/etc/profile.d/conda.sh
 	conda create --name torch python=3.10
 	conda activate torch
 	conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+}
+
+setup-ssh-tunnel() {
+	sudo install autossh
+	ssh-keygen
+	eval $(ssh-agent -s)
+	ssh-add $HOME/.ssh/id_rsa
+	ssh-copy-id yuyangh@heart.cs.uchicago.edu
+	ssh yuyangh@heart.cs.uchicago.edu "cat .ssh/id_rsa.pub" \
+		>> $HOME/.ssh/authorized_keys
+	autossh -f -M 0 -N -R 10022:localhost:22 yuyangh@heart.cs.uchicago.edu
+}
+
+install-all() {
+	install-gpu-driver \
+		&& install-docker \
+		&& install-conda-dev \
+		&& install-code-cli \
+		&& setup-ssh-tunnel
+	config_dir=$(dirname $(realpath "$0"))
+	pushd $config_dir
+	sudo docker build yuyangh-workspace:latest ./
+	popd
 }
 
 init-dev-tools() {
@@ -161,4 +185,28 @@ lock-nv-clocks() {
         max_gr=$(nvidia-smi --query-gpu=clocks.max.gr --format=csv,noheader,nounits -i $i)
         nvidia-smi -lgc $max_gr -i $i
     done
+}
+
+ws-init() {
+	sudo docker run -d \
+		--volume workspace:/root/workspace \
+		--volume /mnt:/root/mnt \
+		--network host \
+		--gpus all \
+		--name yuyangh-workspace yuyangh-workspace:latest \
+		tail -f /dev/null
+}
+
+ws-shell() {
+	sudo docker exec -it yuyangh-workspace fish
+}
+
+# short for ws-shell
+ws() {
+	ws-shell
+}
+
+ws-restart() {
+	sudo docker stop yuyangh-workspace \
+		&& sudo docker start yuyangh-workspace
 }
