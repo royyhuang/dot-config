@@ -1,6 +1,5 @@
 source {$FISH_CONFIG_DIR}/cc-env.fish
 source {$FISH_CONFIG_DIR}/theme.fish
-fzf --fish | source
 
 set --local  FISH_CONFIG_DIR (dirname (status -f))
 
@@ -11,6 +10,8 @@ set --export PATH \
 	/bin /sbin \
 	/usr/bin /usr/sbin \
 	/usr/local/bin /usr/local/sbin
+set --export PATH {$HOME}/.fzf/bin $PATH
+fzf --fish | source
 
 alias vim='nvim'
 alias vi='nvim'

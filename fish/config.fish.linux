@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 # dev linux specific setups
-set --export ALCHEMISTS_HOME $HOME/alchemists
+set --export ALCHEMISTS_HOME $HOME/workspace/alchemists
 set --export BENCHMARK_HOME $ALCHEMISTS_HOME/benchmark
 set --export PYTHONPATH \
 	$ALCHEMISTS_HOME \
@@ -17,7 +17,7 @@ alias gtracer="cd $ALCHEMISTS_HOME/alchemists/tracer"
 alias gslog="cd $ALCHEMISTS_HOME/log/server"
 alias gtlog="cd $ALCHEMISTS_HOME/log/tracer"
 
-if test -f {$HOME/.config/fish/functions/prodigy}
-	set --export fish_function_path $fish_function_path \
-		$HOME/.config/fish/functions/prodigy
-end
+set --export fish_function_path $fish_function_path \
+	$HOME/.config/fish/functions/alchemists
+
+fish_ssh_agent
