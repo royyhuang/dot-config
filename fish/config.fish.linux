@@ -21,4 +21,4 @@ alias gtlog="cd $ALCHEMISTS_HOME/log/tracer"
 set --export fish_function_path $fish_function_path \
 	$HOME/.config/fish/functions/alchemists
 
-fish_ssh_agent
+source $HOME/.config/fish/functions/fish_ssh_agent.fish && fish_ssh_agent

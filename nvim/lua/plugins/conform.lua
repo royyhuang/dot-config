@@ -4,7 +4,6 @@ return {
 		dependencies = {
 			"williamboman/mason.nvim",
 		},
-		event = { "BufWritePre" },
 		cmd = { "ConformInfo" },
 		config = function()
 			local conform = require("conform")
