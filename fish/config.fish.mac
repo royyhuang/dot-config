@@ -22,3 +22,5 @@ alias down="cd {$HOME}/Downloads"
 alias tex-clean="rm -f *.aux *.fdb_latexmk *.fls *.log *.out *.synctex.gz"
 
 source {$HOME}/.config/fish/az.fish
+source $HOME/.config/fish/sing-box.fish 1
+source "$HOME/.cargo/env.fish"
