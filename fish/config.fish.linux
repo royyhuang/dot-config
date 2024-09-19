@@ -1,4 +1,5 @@
 #!/usr/bin/env fish
+source "$HOME/.cargo/env.fish"
 
 # dev linux specific setups
 set --export ALCHEMISTS_HOME $HOME/workspace/alchemists
