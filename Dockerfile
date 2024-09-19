@@ -50,6 +50,10 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
 # Install Rust
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 
+# Install fzf
+RUN git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf \
+    && ~/.fzf/install --all
+
 COPY ./ /root/.config/
 WORKDIR /root/
 

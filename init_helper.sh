@@ -167,6 +167,9 @@ init-dev-tools() {
 	# rust
 	curl https://sh.rustup.rs -sSf | sh -s -- -y
 
+	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf \
+    && ~/.fzf/install --all
+
 	clean-dot-config > /dev/null
 
 }
