@@ -2,13 +2,14 @@
 
 clean-dot-config() {
 	pushd $HOME/.config
-	rm -r ./alacritty \
+	rm -rf ./alacritty \
 		  ./clash \
 		  ./doom ./elisp ./emacs \
 		  ./grammarly-languageserver \
 		  ./raycast \
 		  ./sketchybar ./skhd ./yabai \
-		  ./htop > /dev/null
+		  ./htop \
+		  ./hammerspoon > /dev/null
 	popd
 }
 
@@ -153,15 +154,20 @@ init-dev-tools() {
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 	cd $HOME
 
+	# nodejs
 	curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash - \
 		&& sudo apt-get install -y nodejs
 
+	# miniconda3
 	wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
 		-O $HOME/miniconda.sh
 	mkdir -p $PREFIX/miniconda3
 	bash $HOME/miniconda.sh -b -u -p $PREFIX/miniconda3
 
-	bash ./linux_only.sh > /dev/null
+	# rust
+	curl https://sh.rustup.rs -sSf | sh -s -- -y
+
+	clean-dot-config > /dev/null
 
 }
 

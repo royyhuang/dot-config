@@ -48,7 +48,7 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
     && rm $HOME/miniconda.sh
 
 # Install Rust
-RUN curl https://sh.rustup.rs -sSf | sh -s -- --default-toolchain stable --prefix $HOME/.local
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 COPY ./ /root/.config/
 WORKDIR /root/
