@@ -106,20 +106,20 @@ setup-ssh-tunnel() {
 	ssh-copy-id yuyangh@heart.cs.uchicago.edu
 	ssh yuyangh@heart.cs.uchicago.edu "cat .ssh/id_rsa.pub" \
 		>> $HOME/.ssh/authorized_keys
-        ssh -fNR \
+        ssh -fNR 10022:localhost:22 \
                 -o "ExitOnForwardFailure=yes" \
                 -o "ServerAliveInterval=10" \
                 -o "ServerAliveCountMax=3" \
-                10022:localhost:22 yuyangh@heart.cs.uchicago.edu
+                yuyangh@heart.cs.uchicago.edu
 }
 
 restart-ssh-tunnel() {
 	killall ssh
-        ssh -fNR \
+        ssh -fNR 10022:localhost:22 \
 		-o "ExitOnForwardFailure=yes" \
 		-o "ServerAliveInterval=10" \
 		-o "ServerAliveCountMax=3" \
-		10022:localhost:22 yuyangh@heart.cs.uchicago.edu
+		yuyangh@heart.cs.uchicago.edu
 }
 
 install-all() {
