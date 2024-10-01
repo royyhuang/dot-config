@@ -100,14 +100,26 @@ install-conda-dev() {
 }
 
 setup-ssh-tunnel() {
-	sudo install autossh
 	ssh-keygen
 	eval $(ssh-agent -s)
 	ssh-add $HOME/.ssh/id_rsa
 	ssh-copy-id yuyangh@heart.cs.uchicago.edu
 	ssh yuyangh@heart.cs.uchicago.edu "cat .ssh/id_rsa.pub" \
 		>> $HOME/.ssh/authorized_keys
-	autossh -f -M 0 -N -R 10022:localhost:22 yuyangh@heart.cs.uchicago.edu
+        ssh -fNR \
+                -o "ExitOnForwardFailure=yes" \
+                -o "ServerAliveInterval=10" \
+                -o "ServerAliveCountMax=3" \
+                10022:localhost:22 yuyangh@heart.cs.uchicago.edu
+}
+
+restart-ssh-tunnel() {
+	killall ssh
+        ssh -fNR \
+		-o "ExitOnForwardFailure=yes" \
+		-o "ServerAliveInterval=10" \
+		-o "ServerAliveCountMax=3" \
+		10022:localhost:22 yuyangh@heart.cs.uchicago.edu
 }
 
 install-all() {
