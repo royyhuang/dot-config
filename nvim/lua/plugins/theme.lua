@@ -1,14 +1,14 @@
 return {
 	{
-		'marko-cerovac/material.nvim',
+		"marko-cerovac/material.nvim",
 		config = function()
-			require('material').setup({
-				lualine_style = 'stealth', -- the stealth style
+			require("material").setup({
+				lualine_style = "stealth", -- the stealth style
 				plugins = {
 					"telescope",
 					"neo-tree",
-	 				"nvim-web-devicons",
-					"nvim-cmp"
+					"nvim-web-devicons",
+					"nvim-cmp",
 				},
 				disable = {
 					background = true,
@@ -17,34 +17,34 @@ return {
 				},
 			})
 			vim.cmd("colorscheme material")
-		end
+		end,
 	},
-  	'kyazdani42/nvim-web-devicons',
+	"kyazdani42/nvim-web-devicons",
 	{
-		'nvim-lualine/lualine.nvim',
-		config = function ()
-			require('lualine').setup {
-			  	options = {
-					theme = 'material-stealth',
-			  		section_separators = '',
-			  		component_separators = '',
-			  	}
-			}
-		end
-	},
-	{
-		'alvarosevilla95/luatab.nvim',
-		config = function ()
-			require('luatab').setup {}
-		end
+		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("lualine").setup({
+				options = {
+					theme = "material-stealth",
+					section_separators = "",
+					component_separators = "",
+				},
+			})
+		end,
 	},
 	{
-		'edkolev/tmuxline.vim',
-		config = function ()
+		"alvarosevilla95/luatab.nvim",
+		config = function()
+			require("luatab").setup({})
+		end,
+	},
+	{
+		"edkolev/tmuxline.vim",
+		config = function()
 			-- tmuxline configs
 			vim.g.tmuxline_powerline_separators = 0
 			vim.g.tmuxline_theme = "vim_statusline_1"
-			vim.cmd [[
+			vim.cmd([[
 			let g:tmuxline_preset = {
 			  	\ 'a': '[#S]',
 			  	\ 'win': '#I:#W#F',
@@ -53,17 +53,17 @@ return {
 			  	\ 'options': {
 			  	\   'status-justify': 'left'}
 			  	\}
-			]]
-		end
+			]])
+		end,
 	},
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
-			require('gitsigns').setup()
-		end
+			require("gitsigns").setup()
+		end,
 	},
-  	{
-  		'VonHeikemen/fine-cmdline.nvim',
-  		dependencies = { 'MunifTanjim/nui.nvim' }
-  	}
+	{
+		"VonHeikemen/fine-cmdline.nvim",
+		dependencies = { "MunifTanjim/nui.nvim" },
+	},
 }

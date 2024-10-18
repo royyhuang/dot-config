@@ -17,6 +17,7 @@ return {
 					lua = { "stylua" },
 					c = { "clang-format" },
 					latex = { "latexindent" },
+					tex = { "latexindent" },
 					bash = { "shellharden" },
 					formatters = {
 						ruff_organize_imports = {

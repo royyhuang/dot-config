@@ -1,6 +1,6 @@
 -- General vim options
-vim.opt.encoding="utf-8"
-vim.opt.colorcolumn="80"
+vim.opt.encoding = "utf-8"
+vim.opt.colorcolumn = "80"
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.showcmd = true
@@ -24,10 +24,16 @@ vim.g.loaded_netrwPlugin = 1
 vim.cmd("syntax enable")
 vim.cmd("filetype indent on")
 
+vim.api.nvim_create_augroup("texFileType", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "tex",
+	command = "setlocal tabstop=2 shiftwidth=2 expandtab",
+})
+
 -- General vim keybindings
 local keyset = vim.keymap.set
-keyset("n", "k", "(v:count == 0 ? 'gk' : 'k')", {expr = true})
-keyset("n", "j", "(v:count == 0 ? 'gj' : 'j')", {expr = true})
+keyset("n", "k", "(v:count == 0 ? 'gk' : 'k')", { expr = true })
+keyset("n", "j", "(v:count == 0 ? 'gj' : 'j')", { expr = true })
 keyset("i", "jj", "<ESC>")
 keyset("n", "<space>bn", ":bn<cr>")
 keyset("n", "<space>bp", ":b#<cr>")
