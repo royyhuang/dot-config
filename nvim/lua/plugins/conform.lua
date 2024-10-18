@@ -8,6 +8,12 @@ return {
 		config = function()
 			local conform = require("conform")
 			conform.setup({
+				log_level = vim.log.levels.DEBUG,
+				format_on_save = {
+					-- These options will be passed to conform.format()
+					timeout_ms = 500,
+					lsp_format = "fallback",
+				},
 				formatters_by_ft = {
 					python = {
 						"ruff_fix",
@@ -16,37 +22,33 @@ return {
 					},
 					lua = { "stylua" },
 					c = { "clang-format" },
-					latex = { "latexindent" },
 					tex = { "latexindent" },
 					bash = { "shellharden" },
-					formatters = {
-						ruff_organize_imports = {
-							command = "ruff",
-							args = {
-								"check",
-								"--force-exclude",
-								"--select=I001",
-								"--fix",
-								"--exit-zero",
-								"--stdin-filename",
-								"$FILENAME",
-								"-",
-							},
-							stdin = true,
-							cwd = require("conform.util").root_file({
-								"pyproject.toml",
-								"ruff.toml",
-								".ruff.toml",
-							}),
+				},
+				formatters = {
+					latexindent = {
+						prepend_args = { "--m" },
+					},
+					ruff_organize_imports = {
+						command = "ruff",
+						args = {
+							"check",
+							"--force-exclude",
+							"--select=I001",
+							"--fix",
+							"--exit-zero",
+							"--stdin-filename",
+							"$FILENAME",
+							"-",
 						},
+						stdin = true,
+						cwd = require("conform.util").root_file({
+							"pyproject.toml",
+							"ruff.toml",
+							".ruff.toml",
+						}),
 					},
 				},
-			})
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				pattern = "*",
-				callback = function(args)
-					require("conform").format({ bufnr = args.buf })
-				end,
 			})
 		end,
 	},
