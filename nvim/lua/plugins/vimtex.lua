@@ -9,6 +9,10 @@ return {
 			vim.g.vimtex_compiler_latexmk = {
 				continuous = 0,
 			}
+			local keyset = vim.keymap.set
+			local opt = { noremap = true, silent = true }
+			keyset("n", "<C-c><C-a>", ":VimtexCompile<CR>", opt)
+			keyset("n", "<C-c><C-v>", ":VimtexView<CR>", opt)
 		end,
 	},
 }
