@@ -10,15 +10,15 @@ OTHER_LAYOUT="float"
 yabai -m config layout bsp
 
 yabai -m config window_animation_duration 0.15
-yabai -m config top_padding  	4
-yabai -m config bottom_padding 	9
-yabai -m config left_padding   	9
-yabai -m config right_padding  	9
-yabai -m config window_gap     	9
+yabai -m config top_padding  	10
+yabai -m config bottom_padding 	10
+yabai -m config left_padding   	10
+yabai -m config right_padding  	10
+yabai -m config window_gap     	10
 
 yabai -m config window_shadow off
 yabai -m config window_opacity on
-yabai -m config active_window_opacity 1
+yabai -m config active_window_opacity 1.0
 yabai -m config normal_window_opacity 0.75
 
 yabai -m config mouse_modifier ctrl
@@ -77,12 +77,9 @@ yabai -m rule --add app="^Slack" space=^5 opacity=1.0
 
 # space 6
 yabai -m rule --add app="^Spark" space=^6
-yabai -m rule --add app="^Microsoft Outlook" space=^6
+yabai -m rule --add app="^Outlook" space=^6
 
-# space 7
-yabai -m rule --add app="^Parallels Desktop" space=^7
-
-yabai -m rule -add app="^1Password" manage=off
+yabai -m rule --add app="^1Password" manage=off
 
 
 # settings for window borders
