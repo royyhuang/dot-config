@@ -37,6 +37,7 @@ return {
 					return { "treesitter", "indent" }
 				end,
 			})
+			vim.o.foldlevel = 5
 		end,
 	},
 }

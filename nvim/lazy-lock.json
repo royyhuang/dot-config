@@ -29,7 +29,7 @@
   "nvim-lsp-file-operations": { "branch": "master", "commit": "9744b738183a5adca0f916527922078a965515ed" },
   "nvim-lspconfig": { "branch": "master", "commit": "52302604e3c667cfdf33aadf89088e96eb3c5da3" },
   "nvim-tree.lua": { "branch": "master", "commit": "610a1c189bdb2b9b936169b2ea9d1838f971fa2b" },
-  "nvim-treesitter": { "branch": "master", "commit": "b5cda6d731c949ce67812d80114f93253537faaf" },
+  "nvim-treesitter": { "branch": "master", "commit": "98b3825999746b4b74cd3c962e608f53b47064af" },
   "nvim-ufo": { "branch": "main", "commit": "522d719d421fc42b95577d9624048d8348d326ea" },
   "nvim-web-devicons": { "branch": "master", "commit": "19d257cf889f79f4022163c3fbb5e08639077bd8" },
   "nvim-window-picker": { "branch": "main", "commit": "41cfaa428577c53552200a404ae9b3a0b5719706" },
@@ -43,5 +43,5 @@
   "tmuxline.vim": { "branch": "master", "commit": "4119c553923212cc67f4e135e6f946dc3ec0a4d6" },
   "vim-easymotion": { "branch": "master", "commit": "b3cfab2a6302b3b39f53d9fd2cd997e1127d7878" },
   "vim-floaterm": { "branch": "master", "commit": "4e28c8dd0271e10a5f55142fb6fe9b1599ee6160" },
-  "vimtex": { "branch": "master", "commit": "ded1d899afa51f42b71bed607680e21338d18c74" }
+  "vimtex": { "branch": "master", "commit": "251615c0624b820e2245c4ad20a70f0002e596a0" }
 }
