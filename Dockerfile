@@ -2,8 +2,11 @@
 FROM nvidia/cuda:12.1.0-cudnn8-devel-ubuntu22.04
 
 # Set non-interactive frontend (no user interaction during installation)
-ENV DEBIAN_FRONTEND=noninteractive
-ENV TERM=xterm-256color
+ENV DEBIAN_FRONTEND=noninteractive \
+	TERM=xterm-256color \
+	NVIM_VER=0.10.2 \
+	TMUX_VER=3.4 \
+	NODE_VER=22
 
 # Install basic utilities, add the Fish shell repository, and install all necessary packages
 RUN apt-get update \
@@ -12,33 +15,33 @@ RUN apt-get update \
     && apt-get update \
     && apt-get -y upgrade \
     && apt-get install -y unzip cmake fish libevent-dev ncurses-dev \
-		build-essential bison pkg-config fzf trash-cli highlight \
-		ninja-build gettext
+		build-essential bison pkg-config trash-cli highlight \
+		ninja-build gettext ripgrep
 
-# Install oh-my-fish, Neovim, tmux, Node.js, and setup Neovim and tmux
+# Install oh-my-fish, 
 RUN curl -L https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install >> install_omf \
-    && fish install_omf --noninteractive --yes && rm install_omf \
+    && fish install_omf --noninteractive --yes && rm install_omf
+
+# Install nvim
+RUN wget https://github.com/neovim/neovim/archive/refs/tags/v${NVIM_VER}.tar.gz \
+	&& tar xzvf v${NVIM_VER}.tar.gz && mv neovim-${NVIM_VER} neovim && pushd neovim \
     && git clone https://github.com/neovim/neovim.git /neovim && cd /neovim \
-    && make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=$HOME/.local \
+    && make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=$HOME/.local \
     && make install \
-    && wget https://github.com/tmux/tmux/releases/download/3.4/tmux-3.4.tar.gz \
-    && tar xzvf tmux-3.4.tar.gz \
-    && cd tmux-3.4/ \
+	&& popd && rm -rf v${NVIM_VER}.tar.gz v${NVIM_VER}
+
+# Install tmux and tmux plugin manger
+RUN wget https://github.com/tmux/tmux/releases/download/${TMUX_VER}/tmux-${TMUX_VER}.tar.gz \
+    && tar xzvf tmux-${TMUX_VER}.tar.gz \
+    && pushd tmux-${TMUX_VER}/ \
     && ./configure --prefix=$HOME/.local \
     && make -j $(nproc) && make -j $(nproc) install \
-    && cd .. && rm -rf tmux-3.4 tmux-3.4.tar.gz \
-    && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm \
-    && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
-    && apt-get install -y nodejs
+    && popd && rm -rf tmux-${TMUX_VER} tmux-${TMUX_VER}.tar.gz \
+    && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-# Install github-cli
-RUN mkdir -p -m 755 /etc/apt/keyrings \
-	&& wget -qO- https://cli.github.com/packages/githubcli-archive-keyring.gpg \
-		| tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
-	&& chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
-	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" \
-		| tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-	&& apt update && apt install gh -y
+# Install nodejs
+RUN curl -fsSL https://deb.nodesource.com/setup_${NODE_VER}.x | bash - \
+    && apt-get install -y nodejs
 
 # Install Miniconda
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
