@@ -9,6 +9,7 @@ return {
 					"neo-tree",
 					"nvim-web-devicons",
 					"nvim-cmp",
+					"gitsigns",
 				},
 				disable = {
 					background = true,

@@ -29,6 +29,10 @@ return {
 		})
 		mason_lspconfig.setup()
 
+		lspconfig.dockerls.setup({
+			capabilities = capabilities,
+			autostart = true,
+		})
 		lspconfig.ruff.setup({
 			capabilities = capabilities,
 			autostart = true,
