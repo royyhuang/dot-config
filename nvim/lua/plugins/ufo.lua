@@ -30,14 +30,22 @@ return {
 				table.insert(newVirtText, { suffix, "MoreMsg" })
 				return newVirtText
 			end
-
+			local default_provider = { "treesitter", "indent" }
+			local ftMap = {
+				vim = default_provider,
+				python = default_provider,
+				c = default_provider,
+				lua = default_provider,
+				git = "",
+				neo_tree = "",
+			}
 			require("ufo").setup({
 				fold_virt_text_handler = handler,
 				provider_selector = function(bufnr, filetype, buftype)
-					return { "treesitter", "indent" }
+					return ftMap[filetype]
 				end,
 			})
-			vim.o.foldlevel = 5
+			vim.o.foldlevel = 4
 		end,
 	},
 }
