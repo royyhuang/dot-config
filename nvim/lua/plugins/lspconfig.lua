@@ -20,7 +20,6 @@ return {
 				"pyright",
 				"bashls",
 				"lua_ls",
-				"ruff_lsp",
 				"ruff",
 				"latexindent",
 				"stylua",
@@ -29,14 +28,12 @@ return {
 			},
 		})
 		mason_lspconfig.setup()
-		local ruff_lsp_on_attach = function(client, bufnr)
-			if client.name == "ruff_lsp" then
-				-- Disable hover in favor of Pyright
-				client.server_capabilities.hoverProvider = false
-			end
-		end
 
-		lspconfig.ruff_lsp.setup({
+		lspconfig.dockerls.setup({
+			capabilities = capabilities,
+			autostart = true,
+		})
+		lspconfig.ruff.setup({
 			capabilities = capabilities,
 			autostart = true,
 		})
@@ -49,11 +46,6 @@ return {
 					disableOrganizeImports = true,
 				},
 			},
-		})
-		lspconfig.ruff_lsp.setup({
-			capabilities = capabilities,
-			autostart = true,
-			on_attach = ruff_lsp_on_attach,
 		})
 		lspconfig.clangd.setup({
 			capabilities = capabilities,

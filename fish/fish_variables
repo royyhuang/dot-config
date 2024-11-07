@@ -5,7 +5,7 @@ SETUVAR --export DIRPAPERS:/Users/royhuang/Documents/ucare/DIR\x2dPAPERS
 SETUVAR --export DOC:/Users/royhuang/Documents
 SETUVAR --export EDITOR:nvim
 SETUVAR --export ICLD_DOC:/Users/royhuang/Library/Mobile\x20Documents/com\x7eapple\x7eCloudDocs/Documents
-SETUVAR --export JAVA_HOME:/Library/Java/JavaVirtualMachines/temurin\x2d22\x2ejdk/Contents/Home
+SETUVAR --export JAVA_HOME:/Library/Java/JavaVirtualMachines/temurin\x2d23\x2ejdk/Contents/Home
 SETUVAR --export OS_APPLICATION_CREDENTIAL_ID:fafda5cf152a47bba5d3876c43adf093
 SETUVAR --export OS_APPLICATION_CREDENTIAL_SECRET:jlHTJC9tHp8SMdpYIAxamOlohkp02IZxeHYZMiMmMVXuzFDR__rSLgm\x2dcQcMqqjoz8NK2Gd8\x1ep0J\x2dPxZ\x2dFZlFug
 SETUVAR --export OS_AUTH_TYPE:v3applicationcredential
@@ -48,5 +48,5 @@ SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
 SETUVAR fish_user_paths:/opt/homebrew/opt/fzf/bin\x1e/root/\x2efzf/bin
-SETUVAR --export http_proxy:\x1d
-SETUVAR --export https_proxy:\x1d
+SETUVAR --export http_proxy:
+SETUVAR --export https_proxy:

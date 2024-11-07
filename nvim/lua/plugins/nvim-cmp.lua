@@ -10,7 +10,8 @@ return {
 			{
 				"L3MON4D3/LuaSnip",
 				config = function()
-					require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/luasnippets" })
+					local ls = require("luasnip.loaders.from_lua")
+					ls.load({ paths = "~/.config/nvim/luasnippets" })
 				end,
 			},
 			"onsails/lspkind.nvim",

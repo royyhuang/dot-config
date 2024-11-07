@@ -1,4 +1,17 @@
 return {
+	"kyazdani42/nvim-web-devicons",
+	{
+		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("lualine").setup({
+				options = {
+					theme = "auto",
+					section_separators = "",
+					component_separators = "",
+				},
+			})
+		end,
+	},
 	{
 		"marko-cerovac/material.nvim",
 		config = function()
@@ -13,24 +26,10 @@ return {
 				},
 				disable = {
 					background = true,
-					termcolors = true,
-					eob = true,
 				},
 			})
+			vim.g.material_style = "oceanic"
 			vim.cmd("colorscheme material")
-		end,
-	},
-	"kyazdani42/nvim-web-devicons",
-	{
-		"nvim-lualine/lualine.nvim",
-		config = function()
-			require("lualine").setup({
-				options = {
-					theme = "material-stealth",
-					section_separators = "",
-					component_separators = "",
-				},
-			})
 		end,
 	},
 	{
@@ -62,9 +61,5 @@ return {
 		config = function()
 			require("gitsigns").setup()
 		end,
-	},
-	{
-		"VonHeikemen/fine-cmdline.nvim",
-		dependencies = { "MunifTanjim/nui.nvim" },
 	},
 }
