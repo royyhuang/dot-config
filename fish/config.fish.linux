@@ -2,21 +2,21 @@
 source "$HOME/.cargo/env.fish"
 
 # dev linux specific setups
-set --export ALCHEMISTS_HOME $HOME/workspace/alchemist
-set --export BENCHMARK_HOME $ALCHEMISTS_HOME/benchmark
+set --export ALCHEMIST_HOME $HOME/alchemist
+set --export BENCHMARK_HOME $ALCHEMIST_HOME/benchmark
 set --export PYTHONPATH \
-	$ALCHEMISTS_HOME \
+	$ALCHEMIST_HOME \
 	$BENCHMARK_HOME/simple/server \
 	$BENCHMARK_HOME/simple/tracer \
 	$BENCHMARK_HOME/vllm
-set --export PATH $ALCHEMISTS_HOME/benchmark/simple/bin $PATH
+set --export PATH $ALCHEMIST_HOME/benchmark/simple/bin $PATH
 set --export VLLM_ATTENTION_BACKEND XFORMERS
 
-alias gserver="cd $ALCHEMISTS_HOME/alchemist/server"
-alias gapi="cd $ALCHEMISTS_HOME/alchemist/api"
-alias gtracer="cd $ALCHEMISTS_HOME/alchemist/tracer"
-alias gslog="cd $ALCHEMISTS_HOME/log/server"
-alias gtlog="cd $ALCHEMISTS_HOME/log/tracer"
+alias gserver="cd $ALCHEMIST_HOME/alchemist/server"
+alias gapi="cd $ALCHEMIST_HOME/alchemist/api"
+alias gtracer="cd $ALCHEMIST_HOME/alchemist/tracer"
+alias gslog="cd $ALCHEMIST_HOME/log/server"
+alias gtlog="cd $ALCHEMIST_HOME/log/tracer"
 
 set --export fish_function_path $fish_function_path \
 	$HOME/.config/fish/functions/alchemists
