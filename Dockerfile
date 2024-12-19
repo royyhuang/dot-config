@@ -24,19 +24,19 @@ RUN curl -L https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/i
 
 # Install nvim
 RUN wget https://github.com/neovim/neovim/archive/refs/tags/v${NVIM_VER}.tar.gz \
-	&& tar xzvf v${NVIM_VER}.tar.gz && mv neovim-${NVIM_VER} neovim && pushd neovim \
+	&& tar xzvf v${NVIM_VER}.tar.gz && mv neovim-${NVIM_VER} neovim && cd neovim \
     && git clone https://github.com/neovim/neovim.git /neovim && cd /neovim \
     && make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=$HOME/.local \
     && make install \
-	&& popd && rm -rf v${NVIM_VER}.tar.gz v${NVIM_VER}
+    && cd - && rm -rf v${NVIM_VER}.tar.gz v${NVIM_VER}
 
 # Install tmux and tmux plugin manger
 RUN wget https://github.com/tmux/tmux/releases/download/${TMUX_VER}/tmux-${TMUX_VER}.tar.gz \
     && tar xzvf tmux-${TMUX_VER}.tar.gz \
-    && pushd tmux-${TMUX_VER}/ \
+    && cd tmux-${TMUX_VER}/ \
     && ./configure --prefix=$HOME/.local \
     && make -j $(nproc) && make -j $(nproc) install \
-    && popd && rm -rf tmux-${TMUX_VER} tmux-${TMUX_VER}.tar.gz \
+    && cd - && rm -rf tmux-${TMUX_VER} tmux-${TMUX_VER}.tar.gz \
     && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Install nodejs
