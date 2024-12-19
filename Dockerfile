@@ -25,7 +25,6 @@ RUN curl -L https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/i
 # Install nvim
 RUN wget https://github.com/neovim/neovim/archive/refs/tags/v${NVIM_VER}.tar.gz \
 	&& tar xzvf v${NVIM_VER}.tar.gz && mv neovim-${NVIM_VER} neovim && cd neovim \
-    && git clone https://github.com/neovim/neovim.git /neovim && cd /neovim \
     && make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=$HOME/.local \
     && make install \
     && cd - && rm -rf v${NVIM_VER}.tar.gz v${NVIM_VER}
