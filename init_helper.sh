@@ -106,20 +106,20 @@ setup-ssh-tunnel() {
 	ssh-copy-id yuyangh@heart.cs.uchicago.edu
 	ssh yuyangh@heart.cs.uchicago.edu "cat .ssh/id_rsa.pub" \
 		>> $HOME/.ssh/authorized_keys
-	ssh -fNR \
+	ssh -fNR 10022:localhost:22 \
 		-o "ExitOnForwardFailure=yes" \
 		-o "ServerAliveInterval=10" \
 		-o "ServerAliveCountMax=3" \
-		10022:localhost:22 yuyangh@heart.cs.uchicago.edu
+		yuyangh@heart.cs.uchicago.edu
 }
 
 restart-ssh-tunnel() {
 	killall ssh
-	ssh -fNR \
+	ssh -fNR 10022:localhost:22 \
 		-o "ExitOnForwardFailure=yes" \
 		-o "ServerAliveInterval=10" \
 		-o "ServerAliveCountMax=3" \
-		10022:localhost:22 yuyangh@heart.cs.uchicago.edu
+		yuyangh@heart.cs.uchicago.edu
 }
 
 install-all() {
@@ -209,13 +209,14 @@ lock-nv-clocks() {
 }
 
 ws-init() {
-	sudo docker run -d \
-		--volume workspace:/root/workspace \
-		--volume /mnt:/root/mnt \
-		--network host \
-		--gpus all \
-		--name yuyangh-workspace yuyangh-workspace:latest \
-		tail -f /dev/null
+    sudo docker run -d \
+        --volume $HOME/workspace/alchemist:/root/alchemist \
+        --volume /mnt:/root/mnt \
+        --volume /data:/root/data \
+	--restart=unless-stopped \
+            --gpus all \
+            --name yuyangh-workspace yuyangh-workspace:latest \
+            tail -f /dev/null
 }
 
 ws-shell() {
