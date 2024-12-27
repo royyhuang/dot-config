@@ -21,6 +21,7 @@ alias doc="cd {$HOME}/Documents"
 alias down="cd {$HOME}/Downloads"
 alias tex-clean="rm -f *.aux *.fdb_latexmk *.fls *.log *.out *.synctex.gz"
 alias heart="ssh heart"
+alias dev1="ssh dev1"
 
 source {$HOME}/.config/fish/az.fish
 source $HOME/.config/fish/sing-box.fish 0

@@ -16,8 +16,12 @@ fzf --fish | source
 alias vim='nvim'
 alias vi='nvim'
 alias ls="ls --color=always"
-alias cat='highlight -O ansi --force'
-alias rm="trash"
+if type highlight > /dev/null 2>&1
+	alias cat='highlight -O ansi --force'
+end
+if type trash > /dev/null 2>&1
+	alias rm="trash"
+end
 
 # macOS specific setups
 if test (uname) = "Darwin"
