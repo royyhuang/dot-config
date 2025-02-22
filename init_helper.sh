@@ -1,188 +1,188 @@
 #!/usr/bin/env bash
 
 clean-dot-config() {
-	pushd $HOME/.config
-	rm -rf ./alacritty \
-		  ./clash \
-		  ./doom ./elisp ./emacs \
-		  ./grammarly-languageserver \
-		  ./raycast \
-		  ./sketchybar ./skhd ./yabai \
-		  ./htop \
-		  ./hammerspoon > /dev/null
-	popd
+    pushd $HOME/.config
+    rm -rf ./alacritty \
+          ./clash \
+          ./doom ./elisp ./emacs \
+          ./grammarly-languageserver \
+          ./raycast \
+          ./sketchybar ./skhd ./yabai \
+          ./htop \
+          ./hammerspoon > /dev/null
+    popd
 }
 
 install-gpu-driver() {
-	sudo apt update
-	sudo apt-get install -y ubuntu-drivers-common
-	sudo ubuntu-drivers install --gpgpu nvidia:535-server
-	sudo apt-get install -y \
-		nvidia-utils-535-server \
-		nvidia-fabricmanager-535 \
-		libnvidia-nscq-535
+    sudo apt update
+    sudo apt-get install -y ubuntu-drivers-common
+    sudo ubuntu-drivers install --gpgpu nvidia:535-server
+    sudo apt-get install -y \
+        nvidia-utils-535-server \
+        nvidia-fabricmanager-535 \
+        libnvidia-nscq-535
 }
 
 uninstall-gpu-driver() {
- 	sudo apt-get --purge remove "*nvidia*" "*cublas*" "*cuda*"
-	sudo apt autoremove
+     sudo apt-get --purge remove "*nvidia*" "*cublas*" "*cuda*"
+    sudo apt autoremove
 }
 
 install-code-cli() {
-	sudo apt install -y software-properties-common apt-transport-https wget
-	wget -q https://packages.microsoft.com/keys/microsoft.asc -O- \
-		| sudo apt-key add -
-	sudo add-apt-repository \
-		"deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-	sudo apt update
-	sudo apt install -y code
+    sudo apt install -y software-properties-common apt-transport-https wget
+    wget -q https://packages.microsoft.com/keys/microsoft.asc -O- \
+        | sudo apt-key add -
+    sudo add-apt-repository \
+        "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    sudo apt update
+    sudo apt install -y code
 }
 
 uninstall-docker() {
-	# remove any previous installation of docker
-	old_docker_pkg=(
-		docker.io
-		docker-doc
-		docker-compose
-		docker-compose-v2
-		podman-docker
-		containerd
-		runc
-	)
-	for pkg in "${old_docker_pkg[@]}"; do
-		sudo apt-get remove $pkg
-	done
-	sudo apt autoremove -y
+    # remove any previous installation of docker
+    old_docker_pkg=(
+        docker.io
+        docker-doc
+        docker-compose
+        docker-compose-v2
+        podman-docker
+        containerd
+        runc
+    )
+    for pkg in "${old_docker_pkg[@]}"; do
+        sudo apt-get remove $pkg
+    done
+    sudo apt autoremove -y
 }
 
 install-docker() {
-	# remove previous installation first
-	uninstall-docker
+    # remove previous installation first
+    uninstall-docker
 
-	# Add Docker's official GPG key:
-	sudo apt-get update
-	sudo apt-get install -y ca-certificates curl
-	sudo install -m 0755 -d /etc/apt/keyrings
-	sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg \
-		-o /etc/apt/keyrings/docker.asc
-	sudo chmod a+r /etc/apt/keyrings/docker.asc
+    # Add Docker's official GPG key:
+    sudo apt-get update
+    sudo apt-get install -y ca-certificates curl
+    sudo install -m 0755 -d /etc/apt/keyrings
+    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg \
+        -o /etc/apt/keyrings/docker.asc
+    sudo chmod a+r /etc/apt/keyrings/docker.asc
 
-	# Add the repository to Apt sources:
-	echo \
-		"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-		$(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-		sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    # Add the repository to Apt sources:
+    echo \
+        "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+        $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+        sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-	sudo apt-get update
-	sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    sudo apt-get update
+    sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-	curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey \
-		| sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
-  		&& curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
-    	sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
-    	sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+    curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey \
+        | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+          && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+        sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+        sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
 
-	sudo apt-get update
-	sudo apt-get install -y nvidia-container-toolkit
+    sudo apt-get update
+    sudo apt-get install -y nvidia-container-toolkit
 
-	sudo nvidia-ctk runtime configure --runtime=docker
-	sudo systemctl restart docker
+    sudo nvidia-ctk runtime configure --runtime=docker
+    sudo systemctl restart docker
 }
 
 install-conda-dev() {
-	curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-	sh Miniconda3-latest-Linux-x86_64.sh -b -p $HOME/miniconda3
-	rm Miniconda3-latest-Linux-x86_64.sh
-	source ~/miniconda3/etc/profile.d/conda.sh
-	conda create --name torch python=3.10
-	conda activate torch
-	conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+    curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    sh Miniconda3-latest-Linux-x86_64.sh -b -p $HOME/miniconda3
+    rm Miniconda3-latest-Linux-x86_64.sh
+    source ~/miniconda3/etc/profile.d/conda.sh
+    conda create --name torch python=3.10
+    conda activate torch
+    conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
 }
 
 setup-ssh-tunnel() {
-	ssh-keygen
-	eval $(ssh-agent -s)
-	ssh-add $HOME/.ssh/id_rsa
-	ssh-copy-id yuyangh@heart.cs.uchicago.edu
-	ssh yuyangh@heart.cs.uchicago.edu "cat .ssh/id_rsa.pub" \
-		>> $HOME/.ssh/authorized_keys
-	ssh -fNR 10022:localhost:22 \
-		-o "ExitOnForwardFailure=yes" \
-		-o "ServerAliveInterval=10" \
-		-o "ServerAliveCountMax=3" \
-		yuyangh@heart.cs.uchicago.edu
+    ssh-keygen
+    eval $(ssh-agent -s)
+    ssh-add $HOME/.ssh/id_rsa
+    ssh-copy-id yuyangh@heart.cs.uchicago.edu
+    ssh yuyangh@heart.cs.uchicago.edu "cat .ssh/id_rsa.pub" \
+        >> $HOME/.ssh/authorized_keys
+    ssh -fNR 10022:localhost:22 \
+        -o "ExitOnForwardFailure=yes" \
+        -o "ServerAliveInterval=10" \
+        -o "ServerAliveCountMax=3" \
+        yuyangh@heart.cs.uchicago.edu
 }
 
 restart-ssh-tunnel() {
-	killall ssh
-	ssh -fNR 10022:localhost:22 \
-		-o "ExitOnForwardFailure=yes" \
-		-o "ServerAliveInterval=10" \
-		-o "ServerAliveCountMax=3" \
-		yuyangh@heart.cs.uchicago.edu
+    killall ssh
+    ssh -fNR 10022:localhost:22 \
+        -o "ExitOnForwardFailure=yes" \
+        -o "ServerAliveInterval=10" \
+        -o "ServerAliveCountMax=3" \
+        yuyangh@heart.cs.uchicago.edu
 }
 
 install-all() {
-	install-gpu-driver \
-		&& install-docker \
-		&& install-conda-dev \
-		&& install-code-cli \
-		&& setup-ssh-tunnel
-	config_dir=$(dirname $(realpath "$0"))
-	pushd $config_dir
-	sudo docker build yuyangh-workspace:latest ./
-	popd
+    install-gpu-driver \
+        && install-docker \
+        && install-conda-dev \
+        && install-code-cli \
+        && setup-ssh-tunnel
+    config_dir=$(dirname $(realpath "$0"))
+    pushd $config_dir
+    sudo docker build yuyangh-workspace:latest ./
+    popd
 }
 
 init-dev-tools() {
 
-	export DEBIAN_FRONTEND=noninteractive
-	sudo apt-add-repository ppa:fish-shell/release-3
-	sudo apt-get update
-	sudo apt-get -y upgrade
+    export DEBIAN_FRONTEND=noninteractive
+    sudo apt-add-repository ppa:fish-shell/release-3
+    sudo apt-get update
+    sudo apt-get -y upgrade
 
-	export PREFIX=$HOME/.local
+    export PREFIX=$HOME/.local
 
-	# install fish
-	sudo apt-get -y install unzip cmake fish libevent-dev ncurses-dev \
-		build-essential bison pkg-config fzf trash-cli highlight
-	curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+    # install fish
+    sudo apt-get -y install unzip cmake fish libevent-dev ncurses-dev \
+        build-essential bison pkg-config fzf trash-cli highlight
+    curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 
-	# install nvim
-	mkdir -p $PREFIX; mkdir -p $PREFIX/bin
-	sudo apt-get install -y ninja-build gettext cmake unzip curl build-essential
-	git clone https://github.com/neovim/neovim.git
-	cd neovim
-	make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=$PREFIX
-	make install
+    # install nvim
+    mkdir -p $PREFIX; mkdir -p $PREFIX/bin
+    sudo apt-get install -y ninja-build gettext cmake unzip curl build-essential
+    git clone https://github.com/neovim/neovim.git
+    cd neovim
+    make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=$PREFIX
+    make install
 
-	TMUX_VER=3.4
-	wget https://github.com/tmux/tmux/releases/download/$TMUX_VER/tmux-$TMUX_VER.tar.gz
-	tar xzvf tmux-$TMUX_VER.tar.gz
-	cd tmux-$TMUX_VER/
-	./configure --prefix=$PREFIX
-	make -j $(nproc) && make -j $(nproc) install
-	rm -rf tmux-$TMUX_VER.tar.gz tmux-$TMUX_VER
-	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-	cd $HOME
+    TMUX_VER=3.4
+    wget https://github.com/tmux/tmux/releases/download/$TMUX_VER/tmux-$TMUX_VER.tar.gz
+    tar xzvf tmux-$TMUX_VER.tar.gz
+    cd tmux-$TMUX_VER/
+    ./configure --prefix=$PREFIX
+    make -j $(nproc) && make -j $(nproc) install
+    rm -rf tmux-$TMUX_VER.tar.gz tmux-$TMUX_VER
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    cd $HOME
 
-	# nodejs
-	curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash - \
-		&& sudo apt-get install -y nodejs
+    # nodejs
+    curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash - \
+        && sudo apt-get install -y nodejs
 
-	# miniconda3
-	wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
-		-O $HOME/miniconda.sh
-	mkdir -p $PREFIX/miniconda3
-	bash $HOME/miniconda.sh -b -u -p $PREFIX/miniconda3
+    # miniconda3
+    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+        -O $HOME/miniconda.sh
+    mkdir -p $PREFIX/miniconda3
+    bash $HOME/miniconda.sh -b -u -p $PREFIX/miniconda3
 
-	# rust
-	curl https://sh.rustup.rs -sSf | sh -s -- -y
+    # rust
+    curl https://sh.rustup.rs -sSf | sh -s -- -y
 
-	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf \
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf \
     && ~/.fzf/install --all
 
-	clean-dot-config > /dev/null
+    clean-dot-config > /dev/null
 
 }
 
@@ -213,22 +213,22 @@ ws-init() {
         --volume $HOME/workspace/alchemist:/root/alchemist \
         --volume /mnt:/root/mnt \
         --volume /data:/root/data \
-	--restart=unless-stopped \
-            --gpus all \
-            --name yuyangh-workspace yuyangh-workspace:latest \
-            tail -f /dev/null
+        --restart=unless-stopped \
+        --gpus all \
+        --name yuyangh-workspace yuyangh-workspace:latest \
+        tail -f /dev/null
 }
 
 ws-shell() {
-	sudo docker exec -it yuyangh-workspace fish
+    sudo docker exec -it yuyangh-workspace fish
 }
 
 # short for ws-shell
 ws() {
-	ws-shell
+    ws-shell
 }
 
 ws-restart() {
-	sudo docker stop yuyangh-workspace \
-		&& sudo docker start yuyangh-workspace
+    sudo docker stop yuyangh-workspace \
+        && sudo docker start yuyangh-workspace
 }
