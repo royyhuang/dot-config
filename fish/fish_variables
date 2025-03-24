@@ -5,9 +5,9 @@ SETUVAR --export DIRPAPERS:/Users/royhuang/Documents/ucare/DIR\x2dPAPERS
 SETUVAR --export DOC:/Users/royhuang/Documents
 SETUVAR --export EDITOR:nvim
 SETUVAR --export ICLD_DOC:/Users/royhuang/Library/Mobile\x20Documents/com\x7eapple\x7eCloudDocs/Documents
-SETUVAR --export JAVA_HOME:/Library/Java/JavaVirtualMachines/temurin\x2d23\x2ejdk/Contents/Home
+SETUVAR --export JAVA_HOME:/Library/Java/JavaVirtualMachines/temurin\x2d24\x2ejdk/Contents/Home
 SETUVAR --export OS_APPLICATION_CREDENTIAL_ID:fafda5cf152a47bba5d3876c43adf093
-SETUVAR --export OS_APPLICATION_CREDENTIAL_SECRET:jlHTJC9tHp8SMdpYIAxamOlohkp02IZxeHYZMiMmMVXuzFDR__rSLgm\x2dcQcMqqjoz8NK2Gd8\x1ep0J\x2dPxZ\x2dFZlFug
+SETUVAR --export OS_APPLICATION_CREDENTIAL_SECRET:jlHTJC9tHp8SMdpYIAxamOlohkp02IZxeHYZMiMmMVXuzFDR__rSLgm\x2dcQcMqqjoz8NK2Gd8p0J\x2dPxZ\x2dFZlFug
 SETUVAR --export OS_AUTH_TYPE:v3applicationcredential
 SETUVAR --export OS_AUTH_URL:https\x3a//chi\x2euc\x2echameleoncloud\x2eorg\x3a5000/v3
 SETUVAR --export OS_IDENTITY_API_VERSION:3
@@ -17,7 +17,7 @@ SETUVAR --export PACKER_HOME:/Users/royhuang/\x2elocal/share/nvim/site/pack/pack
 SETUVAR --export --path PATH:/Users/royhuang/\x2elocal/bin\x1e/usr/local/sbin\x1e/usr/bin\x1e/usr/sbin\x1e/bin\x1e/sbin
 SETUVAR --export SUBM:/Users/royhuang/Documents/ucare/submission
 SETUVAR --export UCARE:/Users/royhuang/Documents/ucare
-SETUVAR __fish_initialized:3400
+SETUVAR __fish_initialized:3800
 SETUVAR --export all_proxy:\x1d
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
@@ -36,7 +36,7 @@ SETUVAR fish_color_operator:00a6b2
 SETUVAR fish_color_param:00afff
 SETUVAR fish_color_quote:999900
 SETUVAR fish_color_redirection:00afff
-SETUVAR fish_color_search_match:bryellow\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_search_match:white\x1e\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen

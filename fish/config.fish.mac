@@ -16,6 +16,9 @@ set --export PATH \
 	{$PATH}
 set --export JAVA_HOME (/usr/libexec/java_home)
 
+set --export CS144_GIT_ADMIN $UCARE/ta/cs144/2025-win/admin
+set --export CS144_GIT_GRADERS $UCARE/ta/cs144/2025-win/grader
+
 alias home="cd {$HOME}"
 alias doc="cd {$HOME}/Documents"
 alias down="cd {$HOME}/Downloads"

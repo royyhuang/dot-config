@@ -1,7 +1,7 @@
+set --local  FISH_CONFIG_DIR (dirname (status -f))
+
 source {$FISH_CONFIG_DIR}/cc-env.fish
 source {$FISH_CONFIG_DIR}/theme.fish
-
-set --local  FISH_CONFIG_DIR (dirname (status -f))
 
 set --export TERM xterm-256color
 set --export EDITOR nvim
