@@ -45,7 +45,7 @@ return {
 					return ftMap[filetype]
 				end,
 			})
-			vim.o.foldlevel = 4
+			vim.o.foldlevel = 99
 		end,
 	},
 }
