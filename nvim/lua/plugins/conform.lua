@@ -24,10 +24,13 @@ return {
 					c = { "clang-format" },
 					tex = { "latexindent" },
 					bash = { "shellharden" },
+					html = { "prettier" },
+					yaml = { "prettier" },
 				},
 				formatters = {
 					latexindent = {
-						prepend_args = { "--m" },
+						command = "/opt/homebrew/bin/latexindent",
+						prepend_args = { "-m" },
 					},
 					ruff_organize_imports = {
 						command = "ruff",

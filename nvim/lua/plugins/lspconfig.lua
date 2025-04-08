@@ -29,6 +29,20 @@ return {
 		})
 		mason_lspconfig.setup()
 
+		lspconfig.ltex.setup({
+			settings = {
+				ltex = {
+					language = "en-US",
+					-- Optional: Add custom dictionary words
+					dictionary = {
+						["en-US"] = { "custom", "words" },
+					},
+				},
+			},
+			-- Specify file types (optional)
+			filetypes = { "markdown", "text", "latex", "tex" },
+		})
+
 		lspconfig.dockerls.setup({
 			capabilities = capabilities,
 			autostart = true,
