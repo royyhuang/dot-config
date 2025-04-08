@@ -18,6 +18,7 @@ set --export JAVA_HOME (/usr/libexec/java_home)
 
 set --export CS144_GIT_ADMIN $UCARE/ta/cs144/2025-win/admin
 set --export CS144_GIT_GRADERS $UCARE/ta/cs144/2025-win/grader
+set --export PYTHONPATH {$HOME}/Documents/projects/production_stack_sim {$PYTHONPATH}
 
 alias home="cd {$HOME}"
 alias doc="cd {$HOME}/Documents"
@@ -25,6 +26,18 @@ alias down="cd {$HOME}/Downloads"
 alias tex-clean="rm -f *.aux *.fdb_latexmk *.fls *.log *.out *.synctex.gz"
 alias heart="ssh heart"
 alias dev1="ssh dev1"
+
+function cdev
+	killall devtunnel
+	rm nohup.out
+	nohup devtunnel connect $argv[1] > nohup.out 2>&1 &
+	echo "Waiting for content in nohup.out..."
+	while test ! -s nohup.out
+		sleep 0.5
+		echo -n "."
+	end
+	cat nohup.out
+end
 
 source {$HOME}/.config/fish/az.fish
 source $HOME/.config/fish/sing-box.fish 0
