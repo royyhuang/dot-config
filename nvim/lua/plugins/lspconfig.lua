@@ -1,8 +1,8 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
+		{"mason-org/mason.nvim", version="^1.0.0"},
+		{"mason-org/mason-lspconfig.nvim", version="^1.0.0"},
 	},
 	opts = {
 		inlay_hints = { enabled = true },
@@ -16,15 +16,11 @@ return {
 
 		mason.setup({
 			ensure_installed = {
-				"clangd",
 				"pyright",
+				"ruff",
 				"bashls",
 				"lua_ls",
-				"ruff",
-				"latexindent",
 				"stylua",
-				"clang-format",
-				"shellharden",
 			},
 		})
 		mason_lspconfig.setup()
