@@ -149,10 +149,12 @@ init-dev-tools() {
     curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 
     # install nvim
+    NVIM_VER="release-0.10"
     mkdir -p $PREFIX; mkdir -p $PREFIX/bin
     sudo apt-get install -y ninja-build gettext cmake unzip curl build-essential
     git clone https://github.com/neovim/neovim.git
     cd neovim
+    git checkout release-0.10
     make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=$PREFIX
     make install
 
