@@ -14,15 +14,20 @@ return {
 				disable = {
 					background = true,
 					termcolors = true,
-					eob = true,
 				},
 			})
 			vim.cmd("colorscheme material")
+			local base_statusline_highlights = { 'StatusLine', 'StatusLineNC', 'Tabline', 'TabLineFill', 'TabLineSel',
+				'Winbar', 'WinbarNC' }
+			for _, hl_group in pairs(base_statusline_highlights) do
+				vim.api.nvim_set_hl(0, hl_group, { bg = 'none' })
+			end
 		end,
 	},
 	"kyazdani42/nvim-web-devicons",
 	{
 		"nvim-lualine/lualine.nvim",
+		dependencies = "marko-cerovac/material.nvim",
 		config = function()
 			require("lualine").setup({
 				options = {
