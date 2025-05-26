@@ -23,6 +23,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.cmd("syntax enable")
 vim.cmd("filetype indent on")
+vim.cmd("filetype on")
 
 vim.api.nvim_create_augroup("texFileType", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
@@ -40,3 +41,4 @@ keyset("n", "<space>bp", ":b#<cr>")
 keyset("n", "<space>bk", ":bp|bd #<cr>")
 
 require("config.lazy")
+require("config.lsp")
