@@ -41,15 +41,15 @@ size = 12
 
 [font.bold]
 family = "FiraMono Nerd Font Mono"
-style = "ExtraBold"
+style = "Bold"
 
 [font.bold_italic]
 family = "FiraMono Nerd Font Mono"
-style = "ExtraBold Italic"
+style = "Italic"
 
 [font.italic]
 family = "FiraMono Nerd Font Mono"
-style = "Medium Italic"
+style = "Italic"
 
 [font.normal]
 family = "FiraMono Nerd Font Mono"
