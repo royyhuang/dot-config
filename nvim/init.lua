@@ -26,9 +26,23 @@ vim.cmd("filetype indent on")
 vim.cmd("filetype on")
 
 vim.api.nvim_create_augroup("texFileType", { clear = true })
+local set_compact_tab = "setlocal tabstop=2 shiftwidth=2 expandtab"
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "tex",
-	command = "setlocal tabstop=2 shiftwidth=2 expandtab",
+	command = set_compact_tab,
+})
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "json",
+	command = set_compact_tab,
+})
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "yaml",
+	command = set_compact_tab,
+})
+
+vim.api.nvim_create_autocmd("VimEnter", {
+	pattern = "*",
+	command = "LspStart",
 })
 
 -- General vim keybindings
