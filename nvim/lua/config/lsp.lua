@@ -1,5 +1,3 @@
-vim.api.nvim_exec_autocmds("FileType", {})
-
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the
 -- below functions
@@ -29,22 +27,40 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
--- This is copied straight from blink
-
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
--- Setup language servers.
 vim.lsp.config("*", {
 	capabilities = capabilities,
+	autostart = true,
 })
+
 vim.lsp.config("pyright", {
 	settings = {
 		pyright = {
 			-- Using Ruff's import organizer
 			disableOrganizeImports = true,
 		},
-	}
+	},
 })
-vim.lsp.enable("pyright")
-vim.lsp.enable("ruff")
-vim.lsp.enable("lua_ls")
+
+vim.lsp.config("ltex", {
+	settings = {
+		ltex = {
+			language = "en-US",
+			dictionary = {
+				["en-US"] = { "custom", "words" },
+			},
+		},
+	},
+	filetypes = { "markdown", "text", "latex", "tex" },
+})
+
+vim.lsp.config("lua_ls", {
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+		},
+	},
+})
