@@ -17,10 +17,10 @@ return {
 				},
 			})
 			vim.cmd("colorscheme material")
-			local base_statusline_highlights = { 'StatusLine', 'StatusLineNC', 'Tabline', 'TabLineFill', 'TabLineSel',
-				'Winbar', 'WinbarNC' }
+			local base_statusline_highlights =
+				{ "StatusLine", "StatusLineNC", "Tabline", "TabLineFill", "TabLineSel", "Winbar", "WinbarNC" }
 			for _, hl_group in pairs(base_statusline_highlights) do
-				vim.api.nvim_set_hl(0, hl_group, { bg = 'none' })
+				vim.api.nvim_set_hl(0, hl_group, { bg = "none" })
 			end
 		end,
 	},
@@ -31,7 +31,7 @@ return {
 		config = function()
 			require("lualine").setup({
 				options = {
-					theme = "material-stealth",
+					theme = "auto",
 					section_separators = "",
 					component_separators = "",
 				},

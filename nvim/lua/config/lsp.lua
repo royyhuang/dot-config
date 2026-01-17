@@ -34,15 +34,6 @@ vim.lsp.config("*", {
 	autostart = true,
 })
 
-vim.lsp.config("pyright", {
-	settings = {
-		pyright = {
-			-- Using Ruff's import organizer
-			disableOrganizeImports = true,
-		},
-	},
-})
-
 vim.lsp.config("ltex", {
 	settings = {
 		ltex = {

@@ -18,7 +18,8 @@ set --export JAVA_HOME (/usr/libexec/java_home)
 
 set --export CS144_GIT_ADMIN $UCARE/ta/cs144/2025-win/admin
 set --export CS144_GIT_GRADERS $UCARE/ta/cs144/2025-win/grader
-set --export PYTHONPATH {$HOME}/Documents/projects/production_stack_sim {$PYTHONPATH}
+set --export PYTHONPATH {$HOME}/Documents/projects/production_stack_sim  {$PYTHONPATH}
+set --export PATH $HOME/.nebius/bin $PATH
 
 alias home="cd {$HOME}"
 alias doc="cd {$HOME}/Documents"
@@ -26,6 +27,8 @@ alias down="cd {$HOME}/Downloads"
 alias tex-clean="rm -f *.aux *.fdb_latexmk *.fls *.log *.out *.synctex.gz"
 alias heart="ssh heart"
 alias dev1="ssh dev1"
+alias tm1="ssh tm1"
+alias tm2="ssh tm2"
 
 function cdev
 	killall devtunnel
